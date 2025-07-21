@@ -3,7 +3,8 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition, Tab } from '@headlessui/react';
 import { XMarkIcon, UserIcon, PhoneIcon, EnvelopeIcon, ChatBubbleBottomCenterTextIcon, ChartBarIcon } from '@heroicons/react/24/outline';
-import { Lead, MockData, PhoneCall, Email, Evaluation, Comment } from '@/types';
+import { Lead, PhoneCall, Email, Evaluation, Comment, UserProfile } from '@/types';
+import { useData } from '@/contexts/DataContext';
 import mockData from '@/data/mock.json';
 
 interface LeadDetailsDrawerProps {
@@ -31,15 +32,15 @@ function classNames(...classes: string[]) {
 
 export default function LeadDetailsDrawer({ isOpen, onClose, lead }: LeadDetailsDrawerProps) {
   const [selectedTab, setSelectedTab] = useState(0);
+  const { getPhoneCallsByLeadId, getEmailsByLeadId, getEvaluationsByLeadId, getCommentsByLeadId } = useData();
 
   if (!lead) return null;
 
-  const data = mockData as MockData;
-  const phoneCalls = data.phone_calls.filter(call => call.lead_id === lead.id);
-  const emails = data.emails.filter(email => email.lead_id === lead.id);
-  const evaluations = data.evaluations.filter(evaluation => evaluation.lead_id === lead.id);
-  const comments = data.comments.filter(comment => comment.lead_id === lead.id);
-  const users = data.users;
+  const phoneCalls = getPhoneCallsByLeadId(lead.id);
+  const emails = getEmailsByLeadId(lead.id);
+  const evaluations = getEvaluationsByLeadId(lead.id);
+  const comments = getCommentsByLeadId(lead.id);
+  const users = (mockData as any).users as UserProfile[];
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {

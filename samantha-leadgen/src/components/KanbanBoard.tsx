@@ -1,9 +1,9 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { Lead, MockData } from '@/types';
+import { useState } from 'react';
+import { Lead } from '@/types';
 import KanbanColumn from './KanbanColumn';
-import mockData from '@/data/mock.json';
+import { useData } from '@/contexts/DataContext';
 import {
   DndContext,
   closestCenter,
@@ -27,8 +27,7 @@ import LeadDetailsDrawer from './LeadDetailsDrawer';
 const COLUMN_STATUS: Lead['status'][] = ['lead', 'qualified', 'appointment_booked', 'disqualified'];
 
 export default function KanbanBoard() {
-  const [leads, setLeads] = useState<Lead[]>([]);
-  const [loading, setLoading] = useState(true);
+  const { state, filteredLeads, updateLead } = useData();
   const [activeId, setActiveId] = useState<string | null>(null);
   const [overId, setOverId] = useState<string | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
@@ -45,16 +44,8 @@ export default function KanbanBoard() {
     })
   );
 
-  useEffect(() => {
-    // Simulate loading delay
-    setTimeout(() => {
-      setLeads((mockData as MockData).leads);
-      setLoading(false);
-    }, 500);
-  }, []);
-
   const getLeadsByStatus = (status: Lead['status']) => {
-    return leads.filter(lead => lead.status === status);
+    return filteredLeads.filter(lead => lead.status === status);
   };
 
   const getLeadCount = (status: Lead['status']) => {
@@ -62,7 +53,7 @@ export default function KanbanBoard() {
   };
 
   const getActiveLead = () => {
-    return leads.find(lead => lead.id === activeId);
+    return filteredLeads.find(lead => lead.id === activeId);
   };
 
   const handleLeadClick = (lead: Lead) => {
@@ -94,15 +85,9 @@ export default function KanbanBoard() {
 
     // If dropping on a column (not another lead)
     if (COLUMN_STATUS.includes(overId as Lead['status'])) {
-      const activeLead = leads.find(lead => lead.id === activeId);
+      const activeLead = filteredLeads.find(lead => lead.id === activeId);
       if (activeLead && activeLead.status !== overId) {
-        setLeads(prevLeads =>
-          prevLeads.map(lead =>
-            lead.id === activeId
-              ? { ...lead, status: overId as Lead['status'], updated_at: new Date().toISOString() }
-              : lead
-          )
-        );
+        updateLead(activeId, { status: overId as Lead['status'] });
       }
     }
   };
@@ -120,45 +105,30 @@ export default function KanbanBoard() {
 
     // Handle dropping on column
     if (COLUMN_STATUS.includes(overId as Lead['status'])) {
-      const activeLead = leads.find(lead => lead.id === activeId);
+      const activeLead = filteredLeads.find(lead => lead.id === activeId);
       if (activeLead && activeLead.status !== overId) {
-        setLeads(prevLeads =>
-          prevLeads.map(lead =>
-            lead.id === activeId
-              ? { ...lead, status: overId as Lead['status'], updated_at: new Date().toISOString() }
-              : lead
-          )
-        );
+        updateLead(activeId, { status: overId as Lead['status'] });
       }
       return;
     }
 
     // Handle reordering within the same status
-    const overLead = leads.find(lead => lead.id === overId);
-    const activeLead = leads.find(lead => lead.id === activeId);
+    const overLead = filteredLeads.find(lead => lead.id === overId);
+    const activeLead = filteredLeads.find(lead => lead.id === activeId);
 
     if (!overLead || !activeLead) return;
 
     if (activeLead.status === overLead.status) {
-      const activeIndex = leads.findIndex(lead => lead.id === activeId);
-      const overIndex = leads.findIndex(lead => lead.id === overId);
-
-      if (activeIndex !== overIndex) {
-        setLeads(prevLeads => arrayMove(prevLeads, activeIndex, overIndex));
-      }
+      // For now, we'll just update the status to trigger a re-render
+      // In a real app, you might want to handle ordering separately
+      updateLead(activeId, { status: activeLead.status });
     } else {
       // Moving to different status
-      setLeads(prevLeads =>
-        prevLeads.map(lead =>
-          lead.id === activeId
-            ? { ...lead, status: overLead.status, updated_at: new Date().toISOString() }
-            : lead
-        )
-      );
+      updateLead(activeId, { status: overLead.status });
     }
   };
 
-  if (loading) {
+  if (state.loading) {
     return (
       <div className="flex justify-center items-center h-64">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
@@ -175,7 +145,7 @@ export default function KanbanBoard() {
       onDragEnd={handleDragEnd}
     >
       <div className="flex flex-col lg:flex-row gap-6 h-full">
-        <SortableContext items={leads.map(lead => lead.id)}>
+        <SortableContext items={filteredLeads.map(lead => lead.id)}>
           <KanbanColumn
             title="Leads"
             status="lead"

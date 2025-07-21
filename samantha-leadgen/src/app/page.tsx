@@ -3,17 +3,17 @@
 import { useState } from 'react';
 import KanbanBoard from '@/components/KanbanBoard';
 import AddLeadModal from '@/components/AddLeadModal';
+import SearchAndFilterBar from '@/components/SearchAndFilterBar';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { Lead } from '@/types';
+import { useData } from '@/contexts/DataContext';
 
 export default function Home() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const [refreshTrigger, setRefreshTrigger] = useState(0);
+  const { addLead } = useData();
 
   const handleAddLead = async (leadData: Omit<Lead, 'id' | 'created_at' | 'updated_at'>) => {
-    // For now, we'll just trigger a refresh - in a real app this would call an API
-    console.log('Adding new lead:', leadData);
-    setRefreshTrigger(prev => prev + 1);
+    addLead(leadData);
   };
 
   return (
@@ -37,7 +37,8 @@ export default function Home() {
           </button>
         </div>
         
-        <KanbanBoard key={refreshTrigger} />
+        <SearchAndFilterBar />
+        <KanbanBoard />
         
         <AddLeadModal
           isOpen={isAddModalOpen}

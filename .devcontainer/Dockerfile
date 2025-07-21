@@ -1,4 +1,4 @@
-FROM node:20
+FROM node:22
 
 ARG TZ
 ENV TZ="$TZ"
@@ -67,7 +67,7 @@ RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/
   -x
 
 # Install Claude
-RUN npm install -g @anthropic-ai/claude-code
+RUN npm install -g @anthropic-ai/claude-code task-master-ai
 
 # Copy and set up firewall script
 COPY init-firewall.sh /usr/local/bin/

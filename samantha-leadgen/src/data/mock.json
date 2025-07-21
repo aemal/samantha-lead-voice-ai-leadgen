@@ -1,0 +1,819 @@
+{
+  "users": [
+    {
+      "id": "user-001",
+      "display_name": "John Doe",
+      "role": "manager",
+      "avatar_url": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=32&h=32&fit=crop&crop=face",
+      "created_at": "2024-01-01T09:00:00Z",
+      "last_active": "2024-01-21T16:30:00Z"
+    },
+    {
+      "id": "user-002",
+      "display_name": "Sarah Wilson",
+      "role": "sales_rep",
+      "avatar_url": "https://images.unsplash.com/photo-1494790108755-2616b612b1-5c2f1e30244f?w=32&h=32&fit=crop&crop=face",
+      "created_at": "2024-01-02T09:00:00Z",
+      "last_active": "2024-01-21T15:45:00Z"
+    },
+    {
+      "id": "user-003",
+      "display_name": "Mike Johnson",
+      "role": "sales_rep",
+      "avatar_url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=32&h=32&fit=crop&crop=face",
+      "created_at": "2024-01-03T09:00:00Z",
+      "last_active": "2024-01-21T14:20:00Z"
+    }
+  ],
+  "leads": [
+    {
+      "id": "lead-001",
+      "name": "Sarah Johnson",
+      "email": "sarah.johnson@techcorp.com",
+      "phone": "+1-555-0123",
+      "status": "qualified",
+      "source": "website_contact_form",
+      "created_at": "2024-01-15T10:30:00Z",
+      "updated_at": "2024-01-18T14:20:00Z",
+      "notes": "Interested in enterprise solution for 500+ employees",
+      "priority": "high"
+    },
+    {
+      "id": "lead-002",
+      "name": "Michael Chen",
+      "email": "m.chen@innovatestart.io",
+      "phone": "+1-555-0124",
+      "status": "lead",
+      "source": "linkedin_outreach",
+      "created_at": "2024-01-16T11:45:00Z",
+      "updated_at": "2024-01-16T11:45:00Z",
+      "notes": "CTO at startup, looking for scalable solutions",
+      "priority": "medium"
+    },
+    {
+      "id": "lead-003",
+      "name": "Emily Rodriguez",
+      "email": "emily.r@globalventures.com",
+      "phone": "+1-555-0125",
+      "status": "qualified",
+      "source": "referral",
+      "created_at": "2024-01-14T09:15:00Z",
+      "updated_at": "2024-01-19T16:30:00Z",
+      "notes": "VP Operations, budget approved for Q1 implementation",
+      "priority": "high"
+    },
+    {
+      "id": "lead-004",
+      "name": "David Park",
+      "email": "david.park@retailplus.com",
+      "phone": "+1-555-0126",
+      "status": "disqualified",
+      "source": "cold_email",
+      "created_at": "2024-01-13T14:20:00Z",
+      "updated_at": "2024-01-17T10:45:00Z",
+      "notes": "Budget constraints, not ready for 6 months",
+      "priority": "low"
+    },
+    {
+      "id": "lead-005",
+      "name": "Jennifer Smith",
+      "email": "j.smith@healthsystems.org",
+      "phone": "+1-555-0127",
+      "status": "lead",
+      "source": "webinar_registration",
+      "created_at": "2024-01-17T13:00:00Z",
+      "updated_at": "2024-01-17T13:00:00Z",
+      "notes": "Healthcare IT director, attended product demo webinar",
+      "priority": "medium"
+    },
+    {
+      "id": "lead-006",
+      "name": "Robert Kim",
+      "email": "robert.kim@financeplus.com",
+      "phone": "+1-555-0128",
+      "status": "qualified",
+      "source": "trade_show",
+      "created_at": "2024-01-12T16:30:00Z",
+      "updated_at": "2024-01-20T11:15:00Z",
+      "notes": "CFO interested in automation tools, ready to move forward",
+      "priority": "high"
+    },
+    {
+      "id": "lead-007",
+      "name": "Lisa Thompson",
+      "email": "lisa.t@edutech.edu",
+      "phone": "+1-555-0129",
+      "status": "lead",
+      "source": "google_ads",
+      "created_at": "2024-01-18T08:45:00Z",
+      "updated_at": "2024-01-18T08:45:00Z",
+      "notes": "Education sector, looking for student management solutions",
+      "priority": "medium"
+    },
+    {
+      "id": "lead-008",
+      "name": "Andrew Davis",
+      "email": "a.davis@manufacturing.com",
+      "phone": "+1-555-0130",
+      "status": "disqualified",
+      "source": "partner_referral",
+      "created_at": "2024-01-11T12:00:00Z",
+      "updated_at": "2024-01-16T09:30:00Z",
+      "notes": "Currently under contract with competitor for 2 years",
+      "priority": "low"
+    },
+    {
+      "id": "lead-009",
+      "name": "Maria Garcia",
+      "email": "maria.garcia@consulting.pro",
+      "phone": "+1-555-0131",
+      "status": "lead",
+      "source": "content_download",
+      "created_at": "2024-01-19T15:20:00Z",
+      "updated_at": "2024-01-19T15:20:00Z",
+      "notes": "Downloaded whitepaper on digital transformation",
+      "priority": "medium"
+    },
+    {
+      "id": "lead-010",
+      "name": "James Wilson",
+      "email": "james.wilson@logistics.net",
+      "phone": "+1-555-0132",
+      "status": "qualified",
+      "source": "website_chat",
+      "created_at": "2024-01-10T10:15:00Z",
+      "updated_at": "2024-01-21T13:45:00Z",
+      "notes": "Operations manager, urgent need for supply chain optimization",
+      "priority": "high"
+    },
+    {
+      "id": "lead-011",
+      "name": "Rachel Green",
+      "email": "rachel.green@nonprofit.org",
+      "phone": "+1-555-0133",
+      "status": "lead",
+      "source": "email_campaign",
+      "created_at": "2024-01-20T11:30:00Z",
+      "updated_at": "2024-01-20T11:30:00Z",
+      "notes": "Non-profit sector, looking for donor management tools",
+      "priority": "low"
+    },
+    {
+      "id": "lead-012",
+      "name": "Kevin Lee",
+      "email": "kevin.lee@realestate.biz",
+      "phone": "+1-555-0134",
+      "status": "disqualified",
+      "source": "social_media",
+      "created_at": "2024-01-09T14:45:00Z",
+      "updated_at": "2024-01-15T16:00:00Z",
+      "notes": "Small business, doesn't meet minimum user requirements",
+      "priority": "low"
+    },
+    {
+      "id": "lead-013",
+      "name": "Amanda Brown",
+      "email": "amanda.brown@hospitality.com",
+      "phone": "+1-555-0135",
+      "status": "lead",
+      "source": "industry_report",
+      "created_at": "2024-01-21T09:00:00Z",
+      "updated_at": "2024-01-21T09:00:00Z",
+      "notes": "Hotel chain manager, interested in guest experience platform",
+      "priority": "medium"
+    },
+    {
+      "id": "lead-014",
+      "name": "Thomas Anderson",
+      "email": "thomas.anderson@security.gov",
+      "phone": "+1-555-0136",
+      "status": "qualified",
+      "source": "government_portal",
+      "created_at": "2024-01-08T13:20:00Z",
+      "updated_at": "2024-01-19T12:30:00Z",
+      "notes": "Government contract opportunity, security clearance required",
+      "priority": "high"
+    },
+    {
+      "id": "lead-015",
+      "name": "Nicole Martinez",
+      "email": "nicole.martinez@pharma.com",
+      "phone": "+1-555-0137",
+      "status": "lead",
+      "source": "conference_booth",
+      "created_at": "2024-01-16T17:15:00Z",
+      "updated_at": "2024-01-16T17:15:00Z",
+      "notes": "Pharmaceutical industry, compliance and regulatory focus",
+      "priority": "medium"
+    },
+    {
+      "id": "lead-016",
+      "name": "Christopher Taylor",
+      "email": "chris.taylor@automotive.co",
+      "phone": "+1-555-0138",
+      "status": "disqualified",
+      "source": "cold_call",
+      "created_at": "2024-01-07T10:45:00Z",
+      "updated_at": "2024-01-14T15:20:00Z",
+      "notes": "Not decision maker, referred to IT department but no follow-up",
+      "priority": "low"
+    },
+    {
+      "id": "lead-017",
+      "name": "Stephanie Clark",
+      "email": "stephanie.clark@media.tv",
+      "phone": "+1-555-0139",
+      "status": "qualified",
+      "source": "podcast_sponsorship",
+      "created_at": "2024-01-13T12:30:00Z",
+      "updated_at": "2024-01-20T10:45:00Z",
+      "notes": "Media company CEO, looking for content management solutions",
+      "priority": "high"
+    },
+    {
+      "id": "lead-018",
+      "name": "Daniel Rodriguez",
+      "email": "daniel.rodriguez@sports.club",
+      "phone": "+1-555-0140",
+      "status": "lead",
+      "source": "referral",
+      "created_at": "2024-01-19T14:00:00Z",
+      "updated_at": "2024-01-19T14:00:00Z",
+      "notes": "Sports facility manager, member management system needed",
+      "priority": "medium"
+    },
+    {
+      "id": "lead-019",
+      "name": "Michelle White",
+      "email": "michelle.white@fashion.style",
+      "phone": "+1-555-0141",
+      "status": "lead",
+      "source": "instagram_ad",
+      "created_at": "2024-01-18T16:45:00Z",
+      "updated_at": "2024-01-18T16:45:00Z",
+      "notes": "Fashion retailer, e-commerce integration requirements",
+      "priority": "low"
+    },
+    {
+      "id": "lead-020",
+      "name": "Ryan Murphy",
+      "email": "ryan.murphy@construction.build",
+      "phone": "+1-555-0142",
+      "status": "qualified",
+      "source": "website_demo_request",
+      "created_at": "2024-01-06T11:00:00Z",
+      "updated_at": "2024-01-21T09:15:00Z",
+      "notes": "Construction company owner, project management software needed urgently",
+      "priority": "high"
+    }
+  ],
+  "phone_calls": [
+    {
+      "id": "call-001",
+      "lead_id": "lead-001",
+      "call_date": "2024-01-15T14:30:00Z",
+      "duration": 180,
+      "transcript": "Hello, this is Samantha from LeadGen Solutions. I'm reaching out because you expressed interest in our enterprise platform through your website inquiry. Sarah mentioned you're looking for a solution that can handle 500+ employees. That's exactly what our platform is designed for. We've helped companies like TechGlobal and InnovateCorp streamline their operations. Would you be interested in a brief 15-minute demo to see how we can specifically help TechCorp? Great! I can see this aligning well with your current growth trajectory.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": ["scalability issues", "manual processes", "team coordination"],
+        "next_steps": "Schedule product demo for next week"
+      },
+      "created_at": "2024-01-15T14:33:00Z"
+    },
+    {
+      "id": "call-002",
+      "lead_id": "lead-002",
+      "call_date": "2024-01-16T15:45:00Z",
+      "duration": 95,
+      "transcript": "Hi Michael, this is Samantha from LeadGen Solutions. I saw your LinkedIn profile and noticed you're the CTO at InnovateStart. We specialize in scalable solutions for growing tech companies. I understand startups need flexible, cost-effective tools that can grow with them. Our platform has helped other CTOs like yourself reduce operational overhead by 40%. Would you have a few minutes to discuss your current challenges with team management and project coordination?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": ["budget constraints", "rapid scaling", "tool integration"],
+        "next_steps": "Send pricing information and case studies"
+      },
+      "created_at": "2024-01-16T15:48:00Z"
+    },
+    {
+      "id": "call-003",
+      "lead_id": "lead-003",
+      "call_date": "2024-01-17T10:15:00Z",
+      "duration": 240,
+      "transcript": "Hello Emily, Samantha here from LeadGen Solutions. Thank you for taking my call. I understand from our mutual connection at NetworkPlus that you're spearheading the operational efficiency initiative at Global Ventures. That's fantastic that you already have budget approved for Q1! Our platform is perfect for VP-level executives who need comprehensive oversight while empowering their teams. We've worked with companies of your size and complexity before. The ROI typically shows within the first quarter. I'd love to show you exactly how we can support your Q1 implementation timeline.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": ["operational inefficiency", "lack of visibility", "team coordination"],
+        "next_steps": "Schedule technical demo with IT team"
+      },
+      "created_at": "2024-01-17T10:19:00Z"
+    },
+    {
+      "id": "call-004",
+      "lead_id": "lead-004",
+      "call_date": "2024-01-17T11:30:00Z",
+      "duration": 120,
+      "transcript": "Hi David, this is Samantha calling from LeadGen Solutions. I wanted to follow up on your email inquiry about our retail management platform. I understand RetailPlus is exploring options to improve your inventory and customer management processes. However, I'm hearing that timing might be a challenge with current budget cycles. That's completely understandable. Many of our clients start their evaluation process 6-9 months before implementation. Would it be helpful if I send you some resources to review when your budget planning begins for the next fiscal year?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 4,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": ["budget timing", "current system limitations", "seasonal demands"],
+        "next_steps": "Follow up in Q3 for next year planning"
+      },
+      "created_at": "2024-01-17T11:32:00Z"
+    },
+    {
+      "id": "call-005",
+      "lead_id": "lead-005",
+      "call_date": "2024-01-18T09:20:00Z",
+      "duration": 160,
+      "transcript": "Hello Jennifer, this is Samantha from LeadGen Solutions. I noticed you attended our healthcare IT webinar last week - thank you for joining us! I see you're the IT Director at Health Systems. Healthcare organizations have unique compliance and security requirements, which is exactly why we developed specialized features for HIPAA compliance and audit trails. Many healthcare IT directors tell us their biggest challenge is finding solutions that balance functionality with regulatory requirements. Does that resonate with your current situation?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "Q2 2024",
+        "pain_points": ["compliance requirements", "data security", "integration challenges"],
+        "next_steps": "Connect with decision maker and compliance team"
+      },
+      "created_at": "2024-01-18T09:23:00Z"
+    },
+    {
+      "id": "call-006",
+      "lead_id": "lead-006",
+      "call_date": "2024-01-18T14:45:00Z",
+      "duration": 200,
+      "transcript": "Hi Robert, Samantha from LeadGen Solutions. It was great meeting you at the FinTech Trade Show last week. As we discussed, CFOs are increasingly looking for automation tools that can provide real-time financial insights while reducing manual processes. I remember you mentioning the challenges with your current quarterly reporting process. Our financial automation module has helped CFOs like yourself reduce reporting time by 60% while improving accuracy. You mentioned you're ready to move forward - shall we schedule a comprehensive demo for your finance team?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": ["manual reporting", "data accuracy", "time constraints"],
+        "next_steps": "Schedule team demo and send proposal"
+      },
+      "created_at": "2024-01-18T14:48:00Z"
+    },
+    {
+      "id": "call-007",
+      "lead_id": "lead-007",
+      "call_date": "2024-01-19T13:10:00Z",
+      "duration": 140,
+      "transcript": "Hello Lisa, this is Samantha from LeadGen Solutions. I see you found us through our Google ads campaign focused on education technology. That's great! As someone working in the education sector, you understand the unique challenges of managing student information, faculty coordination, and administrative processes. Our education-specific features include gradebook integration, parent communication portals, and compliance tracking for educational standards. Many institutions tell us they struggle with disparate systems that don't talk to each other. Is that something you're experiencing at EduTech?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "next semester",
+        "pain_points": ["system integration", "parent communication", "administrative burden"],
+        "next_steps": "Connect with IT department and administration"
+      },
+      "created_at": "2024-01-19T13:13:00Z"
+    },
+    {
+      "id": "call-008",
+      "lead_id": "lead-008",
+      "call_date": "2024-01-15T16:00:00Z",
+      "duration": 85,
+      "transcript": "Hi Andrew, Samantha calling from LeadGen Solutions. I understand you were referred to us by one of our partners. Thank you for taking the time to speak with me. I see that you're in manufacturing, and I know that industry has very specific operational requirements. However, I'm understanding that you're currently locked into a contract with another provider for the next couple of years. That's completely fine - these decisions need to align with your contract cycles. Would it be helpful if I keep you updated on our new manufacturing features as they're released? That way you'll have current information when your contract renewal comes up.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 3,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "2+ years",
+        "pain_points": ["contract constraints", "switching costs", "feature gaps"],
+        "next_steps": "Add to long-term nurture campaign"
+      },
+      "created_at": "2024-01-15T16:01:00Z"
+    },
+    {
+      "id": "call-009",
+      "lead_id": "lead-009",
+      "call_date": "2024-01-20T10:30:00Z",
+      "duration": 175,
+      "transcript": "Hello Maria, this is Samantha from LeadGen Solutions. I noticed you downloaded our digital transformation whitepaper - excellent choice! As someone in consulting, you probably see firsthand how digital transformation initiatives can make or break an organization's competitive advantage. Our platform is designed specifically for consulting firms who need to manage multiple client projects while maintaining visibility across all engagements. The whitepaper mentioned the importance of data-driven decision making - that's exactly what our analytics dashboard provides. Are you currently managing client projects with disparate tools, or do you have an integrated system?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": ["project visibility", "client reporting", "resource allocation"],
+        "next_steps": "Send consulting industry case study and schedule demo"
+      },
+      "created_at": "2024-01-20T10:33:00Z"
+    },
+    {
+      "id": "call-010",
+      "lead_id": "lead-010",
+      "call_date": "2024-01-20T15:45:00Z",
+      "duration": 220,
+      "transcript": "Hi James, Samantha here from LeadGen Solutions. I see you reached out through our website chat yesterday about supply chain optimization - that's fantastic timing! As an operations manager in logistics, you know better than anyone how critical real-time visibility is across the entire supply chain. You mentioned this is urgent, which tells me you're probably dealing with some significant pain points right now. Our logistics module provides end-to-end tracking, predictive analytics for demand planning, and automated alerts for potential disruptions. We've helped companies reduce supply chain delays by 45% on average. Given the urgency you mentioned, would you be available for a demo this week?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": ["supply chain delays", "lack of visibility", "manual tracking"],
+        "next_steps": "Schedule urgent demo and prepare ROI analysis"
+      },
+      "created_at": "2024-01-20T15:48:00Z"
+    }
+  ],
+  "emails": [
+    {
+      "id": "email-001",
+      "lead_id": "lead-001",
+      "email_type": "outbound",
+      "subject": "Follow-up: Enterprise Platform Demo for TechCorp",
+      "content": "Hi Sarah,\n\nThank you for the great conversation yesterday! I'm excited about the potential to help TechCorp streamline operations for your 500+ employee growth.\n\nAs discussed, I'm sending you:\n- Case study: How TechGlobal increased efficiency by 40%\n- ROI calculator specifically for enterprise implementations\n- Technical requirements checklist\n\nI have availability for the demo next Tuesday at 2 PM or Wednesday at 10 AM. Which works better for your schedule?\n\nBest regards,\nSamantha",
+      "sent_at": "2024-01-16T09:15:00Z",
+      "opened_at": "2024-01-16T10:30:00Z",
+      "clicked_at": "2024-01-16T10:32:00Z",
+      "email_status": "clicked"
+    },
+    {
+      "id": "email-002",
+      "lead_id": "lead-001",
+      "email_type": "inbound",
+      "subject": "Re: Follow-up: Enterprise Platform Demo for TechCorp",
+      "content": "Hi Samantha,\n\nThanks for sending those resources. The TechGlobal case study is very relevant to our situation. I reviewed the ROI calculator and the numbers look promising.\n\nTuesday at 2 PM works perfectly for the demo. Could you also include our IT Director, Mark Stevens, in the meeting? His email is mark.stevens@techcorp.com.\n\nLooking forward to seeing the platform in action.\n\nBest,\nSarah Johnson\nVP Operations, TechCorp",
+      "sent_at": "2024-01-16T14:20:00Z",
+      "email_status": "replied"
+    },
+    {
+      "id": "email-003",
+      "lead_id": "lead-002",
+      "email_type": "outbound",
+      "subject": "Startup-Friendly Pricing & InnovateStart Case Studies",
+      "content": "Hi Michael,\n\nGreat speaking with you yesterday about InnovateStart's scaling challenges. I understand budget considerations are crucial for startups.\n\nI'm attaching:\n- Startup pricing tier (50% discount for first year)\n- Case study: How StartupSuccess scaled from 10 to 100 employees\n- Integration guide for common startup tools (Slack, GitHub, etc.)\n\nOur startup program is designed to grow with you - you only pay for what you use. Would you like to see a personalized demo focused on your specific tech stack?\n\nCheers,\nSamantha",
+      "sent_at": "2024-01-17T11:00:00Z",
+      "opened_at": "2024-01-17T15:30:00Z",
+      "email_status": "opened"
+    },
+    {
+      "id": "email-004",
+      "lead_id": "lead-003",
+      "email_type": "outbound",
+      "subject": "Technical Demo Scheduling - Global Ventures Implementation",
+      "content": "Hi Emily,\n\nFollowing our excellent conversation, I'm thrilled about your Q1 implementation timeline and approved budget!\n\nNext steps:\n1. Technical demo with your IT team (I can coordinate with them directly)\n2. Security & compliance review\n3. Implementation timeline planning\n\nI'm attaching our enterprise security whitepaper and compliance certifications. For the technical demo, I recommend including:\n- Your IT Director\n- Security team lead\n- Key department heads who will be primary users\n\nWhat's your preferred timeline for the technical demo?\n\nBest regards,\nSamantha",
+      "sent_at": "2024-01-18T08:45:00Z",
+      "opened_at": "2024-01-18T09:15:00Z",
+      "clicked_at": "2024-01-18T09:18:00Z",
+      "replied_at": "2024-01-18T11:30:00Z",
+      "email_status": "replied"
+    },
+    {
+      "id": "email-005",
+      "lead_id": "lead-003",
+      "email_type": "inbound",
+      "subject": "Re: Technical Demo Scheduling - Global Ventures Implementation",
+      "content": "Hi Samantha,\n\nPerfect! I've reviewed the security documentation - looks comprehensive.\n\nFor the technical demo, please include:\n- John Mitchell (IT Director) - john.mitchell@globalventures.com\n- Lisa Park (Security Lead) - lisa.park@globalventures.com\n- Robert Chen (Finance Director) - robert.chen@globalventures.com\n- Maria Santos (HR Director) - maria.santos@globalventures.com\n\nWould Thursday, January 25th at 10 AM EST work for everyone? I can send calendar invites once confirmed.\n\nAlso, please send the implementation timeline template you mentioned.\n\nBest,\nEmily Rodriguez\nVP Operations, Global Ventures",
+      "sent_at": "2024-01-18T11:30:00Z",
+      "email_status": "replied"
+    },
+    {
+      "id": "email-006",
+      "lead_id": "lead-004",
+      "email_type": "outbound",
+      "subject": "RetailPlus: Planning for Future Success",
+      "content": "Hi David,\n\nI completely understand the budget timing challenges you mentioned. Many retail companies work with seasonal budget cycles, and timing is everything.\n\nI'm sending you:\n- Retail industry benchmark report\n- ROI planning worksheet for budget discussions\n- Timeline template for implementation planning\n\nI'll add you to our quarterly newsletter so you stay updated on new features and retail-specific enhancements. When you're ready to start budget planning for next fiscal year (likely Q3), I'll be here to support your evaluation process.\n\nIn the meantime, feel free to reach out with any questions.\n\nBest regards,\nSamantha",
+      "sent_at": "2024-01-17T16:00:00Z",
+      "opened_at": "2024-01-18T09:45:00Z",
+      "email_status": "opened"
+    }
+  ],
+  "evaluations": [
+    {
+      "id": "eval-001",
+      "lead_id": "lead-001",
+      "evaluation_type": "phone",
+      "qualification_score": 92,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Strong decision maker with clear need, approved budget, and immediate timeline",
+        "strengths": ["VP-level decision maker", "Approved budget", "Clear pain points", "Immediate timeline"],
+        "concerns": ["None identified"],
+        "recommendation": "Prioritize for immediate follow-up and technical demo"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.95,
+      "created_at": "2024-01-15T14:35:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-002",
+      "lead_id": "lead-002",
+      "evaluation_type": "phone",
+      "qualification_score": 68,
+      "evaluation_result": {
+        "qualified": false,
+        "reason": "Decision maker with clear need but budget constraints typical of early-stage startup",
+        "strengths": ["CTO-level decision maker", "Clear technical need", "Growth trajectory"],
+        "concerns": ["Limited budget", "Startup uncertainty", "Longer timeline"],
+        "recommendation": "Nurture with startup program, focus on ROI and scalability"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.82,
+      "created_at": "2024-01-16T15:50:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-003",
+      "lead_id": "lead-003",
+      "evaluation_type": "phone",
+      "qualification_score": 96,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Perfect fit - VP decision maker, pre-approved budget, immediate timeline, clear ROI focus",
+        "strengths": ["VP-level authority", "Pre-approved budget", "Q1 timeline", "Referral source", "ROI focused"],
+        "concerns": ["None identified"],
+        "recommendation": "Fast-track to technical demo and proposal stage"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.98,
+      "created_at": "2024-01-17T10:22:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-004",
+      "lead_id": "lead-004",
+      "evaluation_type": "phone",
+      "qualification_score": 35,
+      "evaluation_result": {
+        "qualified": false,
+        "reason": "Budget timing mismatch - interested but not financially ready for 6+ months",
+        "strengths": ["Decision maker", "Understands need"],
+        "concerns": ["No current budget", "6+ month timeline", "Competing priorities"],
+        "recommendation": "Long-term nurture campaign, reconnect in Q3 for next year planning"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.88,
+      "created_at": "2024-01-17T11:35:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-005",
+      "lead_id": "lead-005",
+      "evaluation_type": "phone",
+      "qualification_score": 74,
+      "evaluation_result": {
+        "qualified": false,
+        "reason": "Strong interest and budget but not the final decision maker - needs stakeholder buy-in",
+        "strengths": ["Healthcare expertise", "Budget available", "Compliance focused", "Webinar engagement"],
+        "concerns": ["Not final decision maker", "Complex approval process", "Multiple stakeholders"],
+        "recommendation": "Connect with decision makers and build stakeholder consensus"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": false,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.79,
+      "created_at": "2024-01-18T09:25:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-006",
+      "lead_id": "lead-006",
+      "evaluation_type": "phone",
+      "qualification_score": 94,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "CFO with authority, clear pain points, immediate need, and ready to move forward",
+        "strengths": ["C-level decision maker", "Clear ROI focus", "Immediate timeline", "Pain points identified"],
+        "concerns": ["None identified"],
+        "recommendation": "Schedule comprehensive demo and prepare detailed proposal"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.97,
+      "created_at": "2024-01-18T14:50:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-007",
+      "lead_id": "lead-007",
+      "evaluation_type": "phone",
+      "qualification_score": 71,
+      "evaluation_result": {
+        "qualified": false,
+        "reason": "Good fit for education sector but not final decision maker and complex approval process",
+        "strengths": ["Education expertise", "Budget potential", "Clear use case", "Semester planning"],
+        "concerns": ["Not decision maker", "Education approval complexity", "Multiple stakeholders"],
+        "recommendation": "Connect with administration and IT decision makers"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": false,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.76,
+      "created_at": "2024-01-19T13:15:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-008",
+      "lead_id": "lead-008",
+      "evaluation_type": "phone",
+      "qualification_score": 28,
+      "evaluation_result": {
+        "qualified": false,
+        "reason": "Long-term contract commitment prevents immediate consideration",
+        "strengths": ["Manufacturing expertise", "Decision maker"],
+        "concerns": ["Contract locked for 2 years", "Switching costs", "Current solution satisfaction"],
+        "recommendation": "Long-term nurture, reconnect 6 months before contract renewal"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": false,
+        "timeline": false
+      },
+      "confidence_score": 0.91,
+      "created_at": "2024-01-15T16:03:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-009",
+      "lead_id": "lead-009",
+      "evaluation_type": "phone",
+      "qualification_score": 78,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Consulting firm leader with clear need for project management and client visibility",
+        "strengths": ["Decision maker", "Budget capability", "Clear use case", "Industry expertise"],
+        "concerns": ["Longer evaluation timeline", "Multiple tool evaluation"],
+        "recommendation": "Provide consulting-specific demo and case studies"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.84,
+      "created_at": "2024-01-20T10:35:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-010",
+      "lead_id": "lead-010",
+      "evaluation_type": "phone",
+      "qualification_score": 91,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Operations manager with urgent need, clear authority, and immediate timeline",
+        "strengths": ["Operations authority", "Urgent need", "Clear pain points", "Immediate timeline", "ROI focus"],
+        "concerns": ["Pressure for quick decision"],
+        "recommendation": "Fast-track demo and proposal, emphasize quick implementation"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.93,
+      "created_at": "2024-01-20T15:50:00Z",
+      "evaluator_version": "v2.1.0"
+    }
+  ],
+  "comments": [
+    {
+      "id": "comment-001",
+      "lead_id": "lead-001",
+      "user_id": "user-001",
+      "comment_text": "Excellent prospect! Sarah has clear authority and approved budget. Fast-track this one through the demo process. Make sure to include IT Director in the technical demo.",
+      "is_internal": true,
+      "created_at": "2024-01-16T15:00:00Z",
+      "updated_at": "2024-01-16T15:00:00Z"
+    },
+    {
+      "id": "comment-002",
+      "lead_id": "lead-001",
+      "user_id": "user-002",
+      "comment_text": "Demo scheduled for next Tuesday. I'll prepare the TechCorp-specific use cases and ROI projections. This one looks very promising!",
+      "is_internal": true,
+      "created_at": "2024-01-16T16:30:00Z",
+      "updated_at": "2024-01-16T16:30:00Z"
+    },
+    {
+      "id": "comment-003",
+      "lead_id": "lead-003",
+      "user_id": "user-001",
+      "comment_text": "Perfect referral from NetworkPlus. Emily has everything we need - authority, budget, timeline. This should be a quick close if the technical demo goes well.",
+      "is_internal": true,
+      "created_at": "2024-01-18T09:00:00Z",
+      "updated_at": "2024-01-18T09:00:00Z"
+    },
+    {
+      "id": "comment-004",
+      "lead_id": "lead-004",
+      "user_id": "user-003",
+      "comment_text": "Budget timing doesn't align, but David seems genuinely interested. Let's keep him warm with quarterly check-ins and industry updates. Good candidate for next year.",
+      "is_internal": true,
+      "created_at": "2024-01-17T17:00:00Z",
+      "updated_at": "2024-01-17T17:00:00Z"
+    },
+    {
+      "id": "comment-005",
+      "lead_id": "lead-006",
+      "user_id": "user-002",
+      "comment_text": "Robert is ready to move fast - he emphasized the urgency multiple times during our call. Preparing comprehensive demo for his finance team. This could close within 2 weeks if we execute well.",
+      "is_internal": true,
+      "created_at": "2024-01-18T15:30:00Z",
+      "updated_at": "2024-01-18T15:30:00Z"
+    },
+    {
+      "id": "comment-006",
+      "lead_id": "lead-010",
+      "user_id": "user-001",
+      "comment_text": "James mentioned 'urgent need' three times - their supply chain issues are costing them significant money. This is a perfect fit for our logistics module. Priority prospect!",
+      "is_internal": true,
+      "created_at": "2024-01-20T16:00:00Z",
+      "updated_at": "2024-01-20T16:00:00Z"
+    },
+    {
+      "id": "comment-007",
+      "lead_id": "lead-002",
+      "user_id": "user-003",
+      "comment_text": "Startup budget constraints are typical, but Michael is a solid CTO with a clear vision. Our startup program might be perfect here. Let's focus on the scaling story and gradual feature adoption.",
+      "is_internal": true,
+      "created_at": "2024-01-17T12:00:00Z",
+      "updated_at": "2024-01-17T12:00:00Z"
+    },
+    {
+      "id": "comment-008",
+      "lead_id": "lead-005",
+      "user_id": "user-002",
+      "comment_text": "Jennifer knows her stuff - very knowledgeable about healthcare IT requirements. She's not the final decision maker, but she could be a strong internal champion. Need to identify the real buyer.",
+      "is_internal": true,
+      "created_at": "2024-01-18T10:00:00Z",
+      "updated_at": "2024-01-18T10:00:00Z"
+    },
+    {
+      "id": "comment-009",
+      "lead_id": "lead-007",
+      "user_id": "user-003",
+      "comment_text": "Education sector moves slowly but Lisa seems engaged. Timeline aligns with next semester planning. Need to connect with administration and budget holders.",
+      "is_internal": true,
+      "created_at": "2024-01-19T14:00:00Z",
+      "updated_at": "2024-01-19T14:00:00Z"
+    },
+    {
+      "id": "comment-010",
+      "lead_id": "lead-009",
+      "user_id": "user-001",
+      "comment_text": "Maria downloaded our digital transformation whitepaper and showed real engagement on the call. Consulting firms are great customers once they see the value. Worth investing time in a comprehensive demo.",
+      "is_internal": true,
+      "created_at": "2024-01-20T11:00:00Z",
+      "updated_at": "2024-01-20T11:00:00Z"
+    }
+  ]
+}

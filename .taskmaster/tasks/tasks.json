@@ -1,0 +1,371 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Initialize Next.js 15.4 Project with App Router",
+        "description": "Set up a new Next.js 15.4 project with App Router, integrating Tailwind CSS, Hero UI, and Lucide Icons.",
+        "details": "Use create-next-app to initialize the project. Configure Tailwind CSS using the official Next.js integration. Install and set up Hero UI (Headless UI) for accessible components. Add Lucide Icons for consistent iconography. Ensure proper TypeScript configuration.",
+        "testStrategy": "Verify successful project creation and component rendering. Run lighthouse tests for initial performance and accessibility scores.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Create Comprehensive Mock Data Structure",
+        "description": "Develop a detailed mock data JSON file with sample leads, phone calls, emails, and evaluations.",
+        "details": "Create a mock.json file in the project root. Include at least 20 sample leads with varying statuses, 50 phone calls, 100 emails, and 30 evaluations. Ensure data consistency across related entities. Use realistic names, email addresses, and phone numbers. Implement using TypeScript interfaces for type safety.",
+        "testStrategy": "Validate JSON structure using a JSON schema. Write unit tests to ensure data integrity and relationships between entities.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Implement Basic Kanban Layout",
+        "description": "Create a responsive kanban board layout with three columns: Leads, Qualified, and Disqualified.",
+        "details": "Use Tailwind CSS grid and flexbox for layout. Implement responsive design for mobile, tablet, and desktop views. Create reusable column components. Use Next.js 15.4 App Router for routing. Implement column headers with lead counts.",
+        "testStrategy": "Test responsiveness across different screen sizes. Ensure accessibility with keyboard navigation. Verify correct lead count display.",
+        "priority": "high",
+        "dependencies": [
+          1,
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Develop Lead Card Component",
+        "description": "Create a reusable lead card component displaying essential lead information.",
+        "details": "Design a compact card using Tailwind CSS and Hero UI. Display name, email, phone, status, and priority. Add visual indicators for communication history. Use Lucide Icons for status badges. Implement hover effects and focus states for accessibility.",
+        "testStrategy": "Unit test the component with various lead data. Verify correct display of all information. Test accessibility using axe-core.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Implement Drag and Drop Functionality",
+        "description": "Add drag and drop capability to move lead cards between kanban columns.",
+        "details": "Integrate @dnd-kit library for modern React 18+ compatibility. Implement drag sources on lead cards and drop targets on columns. Add visual feedback during drag operations. Handle state updates on successful drops. Implement touch support for mobile devices.",
+        "testStrategy": "Write integration tests for drag and drop operations. Test on various devices and browsers. Verify state updates after drag operations.",
+        "priority": "high",
+        "dependencies": [
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 6,
+        "title": "Create 'Add New Lead' Form",
+        "description": "Develop a form interface for manually adding new leads to the system.",
+        "details": "Use Hero UI form components for consistency. Implement form validation using react-hook-form or Formik. Include fields for name, email, phone, status, source, and notes. Add a modal or slide-over component for form display. Use Tailwind CSS for styling.",
+        "testStrategy": "Unit test form validation logic. Test form submission with various input combinations. Verify proper error handling and success feedback.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 7,
+        "title": "Implement Lead Details Drawer/Modal",
+        "description": "Create a detailed view for individual leads with all associated information.",
+        "details": "Develop a drawer or modal component using Hero UI. Create tabs for different sections: Details, Calls, Emails, Evaluations. Implement scrollable content areas. Display full lead profile, communication history, and evaluation results. Add edit and delete options.",
+        "testStrategy": "Test drawer/modal opening and closing. Verify correct display of all lead information. Test tab switching and content scrolling. Ensure keyboard accessibility.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 8,
+        "title": "Implement Mock Data State Management",
+        "description": "Set up a state management system for handling mock data and CRUD operations.",
+        "details": "Use React Context API for global state management. Create separate contexts for leads, calls, emails, and evaluations. Implement reducer functions for CRUD operations. Use TypeScript for type safety. Optimize performance with useMemo and useCallback hooks.",
+        "testStrategy": "Write unit tests for reducer functions. Test state updates for all CRUD operations. Verify context provider wrapping and proper state distribution.",
+        "priority": "high",
+        "dependencies": [
+          2,
+          5,
+          6,
+          7
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 9,
+        "title": "Add Search and Filtering Capabilities",
+        "description": "Implement search functionality and filtering options for leads.",
+        "details": "Create a search input component with debounce functionality. Implement filtering by status, priority, and date range. Use efficient search algorithms for large datasets. Add clear filter options. Update URL parameters for shareable filtered views.",
+        "testStrategy": "Test search with various queries. Verify correct filtering across multiple criteria. Check performance with large datasets. Test URL parameter handling.",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          4,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 10,
+        "title": "Implement Sorting Options",
+        "description": "Add sorting functionality for leads by date, priority, name, and status.",
+        "details": "Create a sorting dropdown component. Implement sorting logic in the state management system. Use efficient sorting algorithms. Add visual indicators for current sort order. Persist sort preferences in local storage.",
+        "testStrategy": "Test sorting for each available option. Verify correct order after sorting. Check performance with large datasets. Test sort preference persistence across page reloads.",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          4,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 11,
+        "title": "Develop Comments System",
+        "description": "Create a commenting system for leads with mock user data.",
+        "details": "Design a comment input interface with rich text support using a library like Quill or TinyMCE. Implement comment threading with replies. Add user avatars and timestamps. Use optimistic updates for better UX. Implement edit and delete functionality for comments.",
+        "testStrategy": "Test comment creation, editing, and deletion. Verify proper threading of replies. Test rich text formatting. Check optimistic updates and error handling.",
+        "priority": "medium",
+        "dependencies": [
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 12,
+        "title": "Create Timeline View for Lead Interactions",
+        "description": "Implement a chronological timeline view of all lead interactions.",
+        "details": "Design a vertical timeline component using Tailwind CSS. Integrate phone calls, emails, evaluations, and comments into a single timeline. Use appropriate icons for different interaction types. Implement infinite scrolling or pagination for long timelines.",
+        "testStrategy": "Verify correct chronological order of events. Test with various interaction types. Check infinite scrolling or pagination functionality. Ensure proper rendering on different screen sizes.",
+        "priority": "medium",
+        "dependencies": [
+          7,
+          8,
+          11
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 13,
+        "title": "Add Visual Indicators for Communication Status",
+        "description": "Implement visual cues for recent communications and lead status changes.",
+        "details": "Create small badge components for recent calls, emails, or status changes. Use color coding for different interaction types. Implement tooltips for additional information. Ensure color choices meet WCAG contrast guidelines.",
+        "testStrategy": "Test badge rendering with various lead statuses. Verify tooltip functionality. Check color contrast ratios for accessibility. Test across different browsers and devices.",
+        "priority": "low",
+        "dependencies": [
+          4,
+          7,
+          12
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 14,
+        "title": "Implement Bulk Operations",
+        "description": "Add functionality for selecting multiple leads and performing bulk actions.",
+        "details": "Implement a selection mechanism for lead cards. Create a bulk action toolbar that appears when leads are selected. Add options for bulk status change, assignment, or deletion. Implement confirmation dialogs for destructive actions. Use optimistic updates for better UX.",
+        "testStrategy": "Test lead selection and deselection. Verify bulk action execution for various scenarios. Check confirmation dialogs and error handling. Test with a large number of selected leads.",
+        "priority": "low",
+        "dependencies": [
+          3,
+          4,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 15,
+        "title": "Add Loading States and Error Handling",
+        "description": "Implement loading indicators and error handling throughout the application.",
+        "details": "Create reusable loading spinner and skeleton loader components. Implement error boundary components for graceful error handling. Add toast notifications for success and error messages using a library like react-hot-toast. Ensure all async operations have proper loading and error states.",
+        "testStrategy": "Test loading states for all async operations. Simulate errors and verify error handling. Check accessibility of loading indicators and error messages. Test toast notifications for various scenarios.",
+        "priority": "medium",
+        "dependencies": [
+          3,
+          4,
+          7,
+          8
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 16,
+        "title": "Set Up Supabase Project and Database",
+        "description": "Initialize a Supabase project and configure the PostgreSQL database schema.",
+        "details": "Create a new Supabase project. Set up database tables for leads, phone_calls, lead_emails, lead_evaluations, lead_comments, and user_profiles as per the PRD schema. Configure proper indexes and foreign key relationships. Set up row-level security policies.",
+        "testStrategy": "Verify table creation and relationships. Test data insertion and retrieval. Check row-level security policy effectiveness. Perform basic CRUD operations to ensure schema correctness.",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 17,
+        "title": "Implement Supabase Authentication",
+        "description": "Integrate Supabase Auth for user management and session handling.",
+        "details": "Set up Supabase Auth in the Next.js application. Implement sign up, login, and logout functionality. Create protected routes using Next.js middleware. Handle session persistence and refresh. Implement role-based access control using Supabase policies.",
+        "testStrategy": "Test user registration and login flows. Verify session handling and persistence. Check protected route access with different user roles. Test token refresh and logout functionality.",
+        "priority": "high",
+        "dependencies": [
+          16
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 18,
+        "title": "Migrate Mock Data to Supabase",
+        "description": "Transfer mock data from JSON to the Supabase PostgreSQL database.",
+        "details": "Create a data migration script using Node.js and the Supabase JavaScript client. Ensure data integrity during migration. Handle potential conflicts or duplicates. Add proper error handling and logging. Create a rollback mechanism in case of migration failure.",
+        "testStrategy": "Verify successful data migration for all entities. Check data integrity and relationships post-migration. Test rollback functionality. Ensure no data loss or corruption during the process.",
+        "priority": "medium",
+        "dependencies": [
+          2,
+          16
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 19,
+        "title": "Refactor CRUD Operations to Use Supabase Client",
+        "description": "Update all data operations to use the Supabase client instead of mock data.",
+        "details": "Refactor the state management system to use Supabase queries. Implement optimistic updates for better UX. Handle offline scenarios and data syncing. Use Supabase real-time subscriptions for live updates. Ensure proper error handling for network issues.",
+        "testStrategy": "Unit test all CRUD operations with Supabase client. Verify data consistency between client and server. Test offline functionality and data syncing. Check real-time update performance.",
+        "priority": "high",
+        "dependencies": [
+          8,
+          16,
+          17,
+          18
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 20,
+        "title": "Implement Real-time Features",
+        "description": "Add real-time updates for kanban board and lead details using Supabase subscriptions.",
+        "details": "Set up Supabase real-time subscriptions for leads, calls, emails, and comments tables. Implement optimistic UI updates. Handle conflicts for concurrent edits. Add visual indicators for real-time changes. Implement reconnection logic for dropped connections.",
+        "testStrategy": "Test real-time updates across multiple clients. Verify conflict resolution for concurrent edits. Check performance with a high number of real-time events. Test reconnection scenarios.",
+        "priority": "medium",
+        "dependencies": [
+          5,
+          7,
+          19
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 21,
+        "title": "Enhance Lead Details Interface",
+        "description": "Improve the lead details view with real data and advanced features.",
+        "details": "Refactor lead details component to use real Supabase data. Implement lazy loading for large datasets. Add inline editing capabilities for lead information. Implement version history for lead changes. Add data export functionality (CSV, PDF).",
+        "testStrategy": "Test lazy loading performance with large datasets. Verify inline editing and change tracking. Check data export functionality for accuracy. Ensure responsive design on various screen sizes.",
+        "priority": "medium",
+        "dependencies": [
+          7,
+          19,
+          20
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 22,
+        "title": "Implement Advanced Search and Filtering",
+        "description": "Enhance search capabilities with full-text search and advanced filtering options.",
+        "details": "Implement full-text search using Supabase's text search capabilities. Add advanced filtering options (date ranges, multiple statuses, tags). Implement saved searches functionality. Use debouncing for search input. Optimize query performance for large datasets.",
+        "testStrategy": "Test full-text search accuracy and performance. Verify advanced filtering with multiple criteria. Check saved searches functionality. Measure query performance with large datasets.",
+        "priority": "low",
+        "dependencies": [
+          9,
+          19
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 23,
+        "title": "Create Dashboard and Reporting Features",
+        "description": "Develop a dashboard with key metrics and reporting capabilities.",
+        "details": "Design a dashboard layout with key performance indicators. Implement charts and graphs using a library like Chart.js or D3.js. Add lead conversion funnel visualization. Create exportable reports (PDF, CSV). Implement date range selection for report generation.",
+        "testStrategy": "Verify accuracy of displayed metrics and charts. Test report generation and export functionality. Check responsiveness of dashboard layout. Ensure real-time updates of dashboard data.",
+        "priority": "low",
+        "dependencies": [
+          19,
+          20
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 24,
+        "title": "Implement Webhook Endpoint for n8n Integration",
+        "description": "Create a webhook endpoint to receive updates from the n8n voice AI workflow.",
+        "details": "Develop a secure webhook endpoint using Next.js API routes. Implement authentication for incoming webhooks. Process incoming data and update relevant database tables. Handle. Handle potential errors and data inconsistencies. Implement logging for all webhook activities.",
+        "testStrategy": "Test webhook endpoint with sample payloads. Verify proper authentication and data processing. Check error handling for various scenarios. Ensure proper logging of all webhook activities.",
+        "priority": "medium",
+        "dependencies": [
+          16,
+          19
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 25,
+        "title": "Optimize Performance and Implement Monitoring",
+        "description": "Enhance application performance and set up monitoring and analytics.",
+        "details": "Implement code splitting and lazy loading for improved initial load times. Set up Vercel Analytics for performance monitoring. Implement error tracking using a service like Sentry. Optimize database queries and indexes. Set up automated performance testing using Lighthouse CI.",
+        "testStrategy": "Measure and compare performance metrics before and after optimization. Verify error tracking functionality. Check monitoring dashboards for accuracy. Run Lighthouse CI tests and ensure passing scores.",
+        "priority": "low",
+        "dependencies": [
+          19,
+          20,
+          21,
+          22,
+          23
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-21T14:46:32.667Z",
+      "updated": "2025-07-21T14:46:32.667Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

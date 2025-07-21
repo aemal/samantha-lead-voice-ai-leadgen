@@ -3,9 +3,10 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition, Tab } from '@headlessui/react';
 import { XMarkIcon, UserIcon, PhoneIcon, EnvelopeIcon, ChatBubbleBottomCenterTextIcon, ChartBarIcon } from '@heroicons/react/24/outline';
-import { Lead, PhoneCall, Email, Evaluation, Comment, UserProfile } from '@/types';
+import { Lead, PhoneCall, Email, Evaluation, UserProfile } from '@/types';
 import { useData } from '@/contexts/DataContext';
 import mockData from '@/data/mock.json';
+import CommentList from './CommentList';
 
 interface LeadDetailsDrawerProps {
   isOpen: boolean;
@@ -32,15 +33,13 @@ function classNames(...classes: string[]) {
 
 export default function LeadDetailsDrawer({ isOpen, onClose, lead }: LeadDetailsDrawerProps) {
   const [selectedTab, setSelectedTab] = useState(0);
-  const { getPhoneCallsByLeadId, getEmailsByLeadId, getEvaluationsByLeadId, getCommentsByLeadId } = useData();
+  const { getPhoneCallsByLeadId, getEmailsByLeadId, getEvaluationsByLeadId } = useData();
 
   if (!lead) return null;
 
   const phoneCalls = getPhoneCallsByLeadId(lead.id);
   const emails = getEmailsByLeadId(lead.id);
   const evaluations = getEvaluationsByLeadId(lead.id);
-  const comments = getCommentsByLeadId(lead.id);
-  const users = (mockData as any).users as UserProfile[];
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -63,7 +62,7 @@ export default function LeadDetailsDrawer({ isOpen, onClose, lead }: LeadDetails
     { name: `Calls (${phoneCalls.length})`, icon: PhoneIcon, content: <CallsTab calls={phoneCalls} /> },
     { name: `Emails (${emails.length})`, icon: EnvelopeIcon, content: <EmailsTab emails={emails} /> },
     { name: `Evaluations (${evaluations.length})`, icon: ChartBarIcon, content: <EvaluationsTab evaluations={evaluations} /> },
-    { name: `Comments (${comments.length})`, icon: ChatBubbleBottomCenterTextIcon, content: <CommentsTab comments={comments} users={users} /> },
+    { name: 'Comments', icon: ChatBubbleBottomCenterTextIcon, content: <CommentsTab leadId={lead.id} /> },
   ];
 
   function DetailsTab({ lead }: { lead: Lead }) {
@@ -360,42 +359,16 @@ export default function LeadDetailsDrawer({ isOpen, onClose, lead }: LeadDetails
     );
   }
 
-  function CommentsTab({ comments, users }: { comments: Comment[], users: any[] }) {
-    if (comments.length === 0) {
-      return (
-        <div className="text-center py-8">
-          <ChatBubbleBottomCenterTextIcon className="mx-auto h-12 w-12 text-gray-400" />
-          <h3 className="mt-2 text-sm font-medium text-gray-900">No comments</h3>
-          <p className="mt-1 text-sm text-gray-500">No comments have been added for this lead.</p>
-        </div>
-      );
-    }
+  function CommentsTab({ leadId }: { leadId: string }) {
+    // Use a mock current user ID for now - in a real app this would come from auth context
+    const currentUserId = 'user-001';
 
     return (
       <div className="space-y-4">
-        {comments.map((comment) => {
-          const user = users.find(u => u.id === comment.user_id);
-          return (
-            <div key={comment.id} className="bg-white border border-gray-200 rounded-lg p-4">
-              <div className="flex justify-between items-start mb-2">
-                <div className="flex items-center space-x-2">
-                  <div className="w-6 h-6 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                    <span className="text-xs text-white font-medium">{user?.display_name.charAt(0) || 'U'}</span>
-                  </div>
-                  <span className="text-sm font-medium text-gray-900">{user?.display_name || 'Unknown User'}</span>
-                  <span className="text-xs text-gray-500">({user?.role})</span>
-                </div>
-                <span className="text-xs text-gray-500">{formatDate(comment.created_at)}</span>
-              </div>
-              <p className="text-sm text-gray-700 leading-relaxed">{comment.comment_text}</p>
-              {comment.is_internal && (
-                <span className="inline-block mt-2 px-2 py-1 bg-yellow-100 text-yellow-800 text-xs rounded-full">
-                  Internal
-                </span>
-              )}
-            </div>
-          );
-        })}
+        <CommentList
+          leadId={leadId}
+          currentUserId={currentUserId}
+        />
       </div>
     );
   }

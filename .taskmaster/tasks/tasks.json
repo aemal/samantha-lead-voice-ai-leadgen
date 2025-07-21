@@ -152,8 +152,101 @@
           7,
           8
         ],
-        "status": "pending",
-        "subtasks": []
+        "status": "done",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Set up comment data structure and API mock",
+            "description": "Define the data structure for comments including fields for content, author, timestamps, and threading relationships. Create mock API endpoints for CRUD operations.",
+            "dependencies": [],
+            "details": "Create TypeScript interfaces for Comment and CommentThread. Include fields for id, content (rich text), authorId, createdAt, updatedAt, parentId (for replies), and leadId. Implement mock API functions using the existing mock data structure that simulate fetching, creating, updating, and deleting comments.",
+            "status": "done",
+            "testStrategy": "Write unit tests to verify the data structure integrity and API mock functionality."
+          },
+          {
+            "id": 2,
+            "title": "Integrate rich text editor component",
+            "description": "Select and integrate a rich text editor library (Quill or TinyMCE) for the comment input interface.",
+            "dependencies": [
+              "11.1"
+            ],
+            "details": "Install the chosen rich text library (recommend Quill for its lightweight nature). Create a CommentEditor component that wraps the rich text editor with appropriate configuration for basic formatting options (bold, italic, bullet points, links). Implement value binding to form state and handle content changes.",
+            "status": "done",
+            "testStrategy": "Test the editor initialization, content changes, and form submission with formatted content."
+          },
+          {
+            "id": 3,
+            "title": "Implement comment creation functionality",
+            "description": "Create the UI and logic for users to add new comments to leads.",
+            "dependencies": [
+              "11.1",
+              "11.2"
+            ],
+            "details": "Develop a CommentForm component that includes the rich text editor and a submit button. Implement form validation to ensure comments aren't empty. Connect to the mock API to save new comments. Add optimistic updates to immediately display the new comment while the API request is processing.",
+            "status": "done",
+            "testStrategy": "Test comment submission with various input types, validation behavior, and optimistic update rendering."
+          },
+          {
+            "id": 4,
+            "title": "Develop comment display component with threading",
+            "description": "Create a component to display comments with proper threading for replies.",
+            "dependencies": [
+              "11.1"
+            ],
+            "details": "Build a CommentList and CommentItem component structure. Implement recursive rendering for threaded replies. Display user avatars fetched from mock user data. Show formatted timestamps using a library like date-fns. Include proper indentation and visual cues for reply threads.",
+            "status": "done",
+            "testStrategy": "Test rendering of comments at various nesting levels. Verify proper display of user information and timestamps."
+          },
+          {
+            "id": 5,
+            "title": "Add reply functionality to comments",
+            "description": "Implement the ability for users to reply to existing comments.",
+            "dependencies": [
+              "11.3",
+              "11.4"
+            ],
+            "details": "Add a 'Reply' button to each comment. When clicked, show a CommentForm component below the parent comment. Modify the comment creation logic to handle parent-child relationships. Update the comment thread display to show new replies with proper nesting.",
+            "status": "done",
+            "testStrategy": "Test the reply UI flow, verify correct parent-child relationships in the data, and check proper threading display after submission."
+          },
+          {
+            "id": 6,
+            "title": "Implement edit functionality for comments",
+            "description": "Allow users to edit their own comments with proper UI feedback.",
+            "dependencies": [
+              "11.3",
+              "11.4"
+            ],
+            "details": "Add an 'Edit' button to comments. When clicked, replace the comment display with the CommentEditor pre-filled with existing content. Implement save and cancel actions. Update the comment in the UI optimistically while the API request processes. Show an 'edited' indicator on modified comments.",
+            "status": "done",
+            "testStrategy": "Test the edit flow including cancellation. Verify optimistic updates and proper error handling if the update fails."
+          },
+          {
+            "id": 7,
+            "title": "Implement delete functionality for comments",
+            "description": "Enable users to delete their comments with confirmation and proper UI updates.",
+            "dependencies": [
+              "11.4"
+            ],
+            "details": "Add a 'Delete' button to comments. Show a confirmation dialog before deletion. Implement soft deletion in the UI (optimistic update) while the API request processes. Handle deletion of parent comments by either removing all child comments or keeping them with a 'deleted' placeholder.",
+            "status": "done",
+            "testStrategy": "Test deletion flow including confirmation dialog. Verify proper handling of threaded comments when a parent is deleted."
+          },
+          {
+            "id": 8,
+            "title": "Integrate comments system with lead detail view",
+            "description": "Connect the comments system to the lead detail view and implement loading states and error handling.",
+            "dependencies": [
+              "11.4",
+              "11.5",
+              "11.6",
+              "11.7"
+            ],
+            "details": "Add the comments section to the lead detail view. Implement loading states for initial comment fetching. Add error handling for failed API requests with retry options. Ensure comments are refreshed when returning to a lead detail view. Add a comment count indicator to the lead card component.",
+            "status": "done",
+            "testStrategy": "Test integration with the lead detail view. Verify loading states, error handling, and proper refresh of comments when navigating between leads."
+          }
+        ]
       },
       {
         "id": 12,
@@ -364,7 +457,7 @@
     ],
     "metadata": {
       "created": "2025-07-21T14:46:32.667Z",
-      "updated": "2025-07-21T16:39:31.196Z",
+      "updated": "2025-07-21T19:11:36.975Z",
       "description": "Tasks for master context"
     }
   }

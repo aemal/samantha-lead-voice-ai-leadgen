@@ -4,6 +4,7 @@ import { Lead, MockData } from '@/types';
 import { Phone, Mail, Calendar, User, MessageSquare, PhoneCall, CheckCircle } from 'lucide-react';
 import mockData from '@/data/mock.json';
 import { useMemo } from 'react';
+import { useData } from '@/contexts/DataContext';
 
 interface LeadCardProps {
   lead: Lead;
@@ -31,11 +32,12 @@ const priorityLabels = {
 
 export default function LeadCard({ lead, onClick }: LeadCardProps) {
   const data = mockData as MockData;
+  const { getCommentsByLeadId } = useData();
   
   const communicationStats = useMemo(() => {
     const phoneCalls = data.phone_calls.filter(call => call.lead_id === lead.id);
     const emails = data.emails.filter(email => email.lead_id === lead.id);
-    const comments = data.comments.filter(comment => comment.lead_id === lead.id);
+    const comments = getCommentsByLeadId(lead.id);
     const evaluations = data.evaluations.filter(evaluation => evaluation.lead_id === lead.id);
     
     const latestCall = phoneCalls.sort((a, b) => new Date(b.call_date).getTime() - new Date(a.call_date).getTime())[0];
@@ -55,7 +57,7 @@ export default function LeadCard({ lead, onClick }: LeadCardProps) {
         new Date(lead.updated_at).getTime()
       )
     };
-  }, [lead.id, data, lead.updated_at]);
+  }, [lead.id, data, lead.updated_at, getCommentsByLeadId]);
 
   const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {

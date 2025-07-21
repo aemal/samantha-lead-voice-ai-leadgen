@@ -16,7 +16,11 @@ type DataAction =
   | { type: 'SET_DATE_RANGE_FILTER'; payload: { start: string | null; end: string | null } }
   | { type: 'SET_SORT_BY'; payload: SortOption }
   | { type: 'SET_SORT_ORDER'; payload: 'asc' | 'desc' }
-  | { type: 'CLEAR_FILTERS' };
+  | { type: 'CLEAR_FILTERS' }
+  | { type: 'SET_COMMENTS'; payload: Comment[] }
+  | { type: 'ADD_COMMENT'; payload: Comment }
+  | { type: 'UPDATE_COMMENT'; payload: { id: string; updates: Partial<Comment> } }
+  | { type: 'DELETE_COMMENT'; payload: string };
 
 type SortOption = 'name' | 'created_at' | 'updated_at' | 'priority' | 'status';
 
@@ -60,6 +64,10 @@ interface DataContextType {
   getEmailsByLeadId: (leadId: string) => Email[];
   getEvaluationsByLeadId: (leadId: string) => Evaluation[];
   getCommentsByLeadId: (leadId: string) => Comment[];
+  // Comment operations
+  addComment: (comment: Comment) => void;
+  updateComment: (id: string, updates: Partial<Comment>) => void;
+  deleteComment: (id: string) => void;
 }
 
 const initialFilterState: FilterState = {
@@ -126,6 +134,28 @@ function dataReducer(state: DataState, action: DataAction): DataState {
     case 'CLEAR_FILTERS':
       return { ...state, filters: { ...initialFilterState, sortBy: state.filters.sortBy, sortOrder: state.filters.sortOrder } };
     
+    case 'SET_COMMENTS':
+      return { ...state, comments: action.payload };
+    
+    case 'ADD_COMMENT': {
+      const newComments = [...state.comments, action.payload];
+      return { ...state, comments: newComments };
+    }
+    
+    case 'UPDATE_COMMENT': {
+      const updatedComments = state.comments.map(comment =>
+        comment.id === action.payload.id
+          ? { ...comment, ...action.payload.updates, updated_at: new Date().toISOString() }
+          : comment
+      );
+      return { ...state, comments: updatedComments };
+    }
+    
+    case 'DELETE_COMMENT': {
+      const filteredComments = state.comments.filter(comment => comment.id !== action.payload);
+      return { ...state, comments: filteredComments };
+    }
+    
     default:
       return state;
   }
@@ -140,6 +170,19 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const mockData = mockDataJson as MockData;
     dispatch({ type: 'SET_LEADS', payload: mockData.leads });
+    // Convert mock comments to new format and set them
+    const convertedComments = mockData.comments.map(comment => ({
+      id: comment.id,
+      lead_id: comment.lead_id,
+      user_id: comment.user_id,
+      content: comment.comment_text,
+      is_internal: comment.is_internal,
+      created_at: comment.created_at,
+      updated_at: comment.updated_at,
+      parent_id: comment.parent_comment_id,
+      is_edited: false
+    }));
+    dispatch({ type: 'SET_COMMENTS', payload: convertedComments });
   }, []);
 
   // Memoized filtered and sorted leads
@@ -288,7 +331,20 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const getCommentsByLeadId = useCallback((leadId: string) => {
-    return mockData.comments.filter(comment => comment.lead_id === leadId);
+    return state.comments.filter(comment => comment.lead_id === leadId);
+  }, [state.comments]);
+
+  // Comment operations
+  const addComment = useCallback((comment: Comment) => {
+    dispatch({ type: 'ADD_COMMENT', payload: comment });
+  }, []);
+
+  const updateComment = useCallback((id: string, updates: Partial<Comment>) => {
+    dispatch({ type: 'UPDATE_COMMENT', payload: { id, updates } });
+  }, []);
+
+  const deleteComment = useCallback((id: string) => {
+    dispatch({ type: 'DELETE_COMMENT', payload: id });
   }, []);
 
   const contextValue = useMemo(() => ({
@@ -309,6 +365,9 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     getEmailsByLeadId,
     getEvaluationsByLeadId,
     getCommentsByLeadId,
+    addComment,
+    updateComment,
+    deleteComment,
   }), [
     state,
     filteredLeads,
@@ -327,6 +386,9 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     getEmailsByLeadId,
     getEvaluationsByLeadId,
     getCommentsByLeadId,
+    addComment,
+    updateComment,
+    deleteComment,
   ]);
 
   return (

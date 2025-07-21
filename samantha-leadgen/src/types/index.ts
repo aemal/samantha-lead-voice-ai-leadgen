@@ -77,11 +77,12 @@ export interface Comment {
   id: string;
   lead_id: string;
   user_id: string;
-  comment_text: string;
+  content: string; // Changed from comment_text to content for rich text support
   is_internal: boolean;
   created_at: string;
   updated_at: string;
-  parent_comment_id?: string;
+  parent_id?: string; // Changed from parent_comment_id to parent_id for consistency
+  is_edited?: boolean; // Track if comment has been edited
 }
 
 export interface UserProfile {

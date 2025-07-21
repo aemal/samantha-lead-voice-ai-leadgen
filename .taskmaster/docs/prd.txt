@@ -1,0 +1,332 @@
+<context>
+# Overview  
+Samantha Lead Voice AI Leadgen is a Next.js and Supabase web application that provides a comprehensive kanban-style interface for managing contact leads captured through contact forms. The application solves the problem of visualizing and managing leads in a clean, organized manner, showing their progression through different stages of the sales pipeline. 
+
+The system integrates with an existing voice AI workflow (powered by n8n and ElevenLabs) that automatically calls leads and processes their responses, but the scope of this project focuses specifically on the frontend kanban interface and lead management system. Each lead can have multiple phone calls and email communications, with evaluations that determine their qualification status and potential for conversion.
+
+This application is designed for sales managers and teams who need to efficiently track, manage, and interact with leads captured from various sources, providing a single source of truth for all lead-related information and communications.
+
+# Core Features  
+**Kanban Lead Management Board**
+- Visual kanban interface displaying leads across different status columns (Leads → Qualified → Disqualified)
+- Drag and drop functionality to move leads between status columns
+- Real-time updates when leads change status or are modified
+- Responsive design that works across desktop and mobile devices
+
+**Lead Card Display**
+- Compact lead cards showing essential information (name, email, phone, status)
+- Visual indicators for communication history (phone calls, emails)
+- Status badges and priority indicators
+- Quick action buttons for common operations
+
+**Comprehensive Lead Details**
+- Detailed lead profile with all contact information
+- Complete history of phone call transcripts from voice AI interactions
+- Email communication thread and history
+- Lead evaluation results and scoring from automated analysis
+- Comments and notes section for manual annotations
+- Timeline view of all interactions and status changes
+
+**Lead Management Operations**
+- Add new leads manually through a form interface
+- Edit existing lead information and contact details
+- Delete or archive leads when necessary
+- Bulk operations for managing multiple leads simultaneously
+
+**Communication Tracking**
+- View complete phone call transcripts with timestamps
+- Track email communications with full thread history
+- See evaluation results and qualification scoring
+- Monitor scheduling status and calendar integrations (view-only)
+
+**Comments and Collaboration**
+- Add internal comments and notes to any lead
+- View comment history with timestamps and author information
+- Edit and delete comments with proper permissions
+- Tag and mention functionality for team collaboration
+
+# User Experience  
+**User Personas:**
+- **John Doe (Primary)**: Sales manager responsible for managing the sales pipeline and lead conversion. Uses the application daily to review lead status, track team performance, and ensure no leads fall through the cracks.
+- **Sales Representatives**: Team members who need to review lead details, add comments, and update lead information based on their interactions.
+- **Sales Directors**: Higher-level users who need overview dashboards and reporting on lead conversion metrics.
+
+**Key User Flows:**
+1. **Daily Lead Review Flow**
+   - John opens the application and sees the kanban board with current lead distribution
+   - Scans new leads in the "Leads" column for priority prospects
+   - Reviews qualified leads that need follow-up or scheduling
+   - Checks disqualified leads for any that might need re-evaluation
+
+2. **Lead Detail Investigation Flow**
+   - John clicks on a lead card to open the detailed drawer/modal
+   - Reviews complete interaction history including phone transcripts and emails
+   - Reads AI evaluation and qualification scoring
+   - Adds internal comments or notes for team members
+   - Updates lead status if needed based on new information
+
+3. **New Lead Management Flow**
+   - John receives notification of new leads from contact forms
+   - Clicks "Add Lead" to manually add leads from other sources
+   - Fills in contact information and initial notes
+   - Lead appears in "Leads" column awaiting voice AI contact
+
+4. **Lead Status Management Flow**
+   - John drags leads between kanban columns based on their progression
+   - Updates lead status when AI evaluation changes qualification
+   - Moves qualified leads toward scheduling and conversion
+   - Archives or manages disqualified leads appropriately
+
+5. **Team Collaboration Flow**
+   - John adds comments to leads with specific instructions for team members
+   - Reviews comments from sales reps about lead interactions
+   - Updates lead information based on team feedback and insights
+
+**UI/UX Considerations:**
+- Clean, modern interface using Tailwind CSS and Hero UI components
+- Smooth drag-and-drop interactions with visual feedback
+- Mobile-responsive design for on-the-go lead management
+- Intuitive navigation with clear visual hierarchy
+- Fast loading times with optimized data fetching
+- Accessible design following WCAG guidelines
+- Consistent iconography using Lucide Icons
+- Color-coded status indicators and priority levels
+- Contextual tooltips and help text where needed
+</context>
+<PRD>
+# Technical Architecture  
+**System Components:**
+- **Frontend Framework**: Next.js 15.4 with App Router for modern React development
+- **Backend/Database**: Supabase for PostgreSQL database, authentication, and real-time subscriptions
+- **Styling**: Tailwind CSS for utility-first styling approach
+- **UI Components**: Hero UI (Headless UI) for accessible, customizable components
+- **Icons**: Lucide Icons for consistent iconography
+- **Authentication**: Supabase Auth for user management and session handling
+- **Drag & Drop**: React DnD or @dnd-kit for smooth kanban interactions
+- **State Management**: React Context API or Zustand for client-side state
+- **Data Fetching**: SWR or React Query for optimized data synchronization
+
+**Data Models:**
+```sql
+-- Primary leads table
+leads {
+  id: UUID (Primary Key)
+  name: VARCHAR(255)
+  email: VARCHAR(255)
+  phone: VARCHAR(50)
+  status: ENUM('lead', 'qualified', 'disqualified')
+  source: VARCHAR(100)
+  created_at: TIMESTAMP
+  updated_at: TIMESTAMP
+  notes: TEXT
+  priority: ENUM('low', 'medium', 'high')
+}
+
+-- Phone call interactions (One-to-Many with leads)
+lead_phone_calls {
+  id: UUID (Primary Key)
+  lead_id: UUID (Foreign Key → leads.id)
+  call_date: TIMESTAMP
+  duration: INTEGER (seconds)
+  transcript: TEXT
+  call_outcome: ENUM('answered', 'voicemail', 'no_answer', 'busy')
+  ai_analysis: JSONB
+  created_at: TIMESTAMP
+}
+
+-- Email communications (One-to-Many with leads)
+lead_emails {
+  id: UUID (Primary Key)
+  lead_id: UUID (Foreign Key → leads.id)
+  email_type: ENUM('outbound', 'inbound')
+  subject: VARCHAR(255)
+  content: TEXT
+  sent_at: TIMESTAMP
+  opened_at: TIMESTAMP
+  clicked_at: TIMESTAMP
+  replied_at: TIMESTAMP
+  email_status: ENUM('sent', 'delivered', 'opened', 'clicked', 'replied')
+}
+
+-- AI evaluation results (One-to-Many with leads)
+lead_evaluations {
+  id: UUID (Primary Key)
+  lead_id: UUID (Foreign Key → leads.id)
+  evaluation_type: ENUM('phone', 'email')
+  qualification_score: INTEGER (1-100)
+  evaluation_result: JSONB
+  criteria_met: JSONB
+  confidence_score: DECIMAL(3,2)
+  created_at: TIMESTAMP
+  evaluator_version: VARCHAR(50)
+}
+
+-- Comments and notes (One-to-Many with leads)
+lead_comments {
+  id: UUID (Primary Key)
+  lead_id: UUID (Foreign Key → leads.id)
+  user_id: UUID (Foreign Key → auth.users)
+  comment_text: TEXT
+  is_internal: BOOLEAN
+  created_at: TIMESTAMP
+  updated_at: TIMESTAMP
+  parent_comment_id: UUID (for threading)
+}
+
+-- User profiles (extends Supabase auth.users)
+user_profiles {
+  id: UUID (Primary Key, Foreign Key → auth.users)
+  display_name: VARCHAR(255)
+  role: ENUM('admin', 'manager', 'sales_rep')
+  avatar_url: VARCHAR(500)
+  created_at: TIMESTAMP
+  last_active: TIMESTAMP
+}
+```
+
+**APIs and Integrations:**
+- **Supabase Client SDK**: For database operations and real-time subscriptions
+- **Supabase Auth**: User authentication and authorization
+- **RESTful API Routes**: Next.js API routes for complex business logic
+- **Webhook Endpoints**: For receiving updates from n8n voice AI workflow (read-only)
+
+**Infrastructure Requirements:**
+- **Hosting**: Vercel for Next.js application deployment
+- **Database**: Supabase hosted PostgreSQL with connection pooling
+- **CDN**: Vercel Edge Network for global content delivery
+- **Monitoring**: Vercel Analytics and Supabase logs for performance monitoring
+- **Environment Variables**: Secure configuration management for API keys
+
+# Development Roadmap  
+**Phase 1: Mock Data Foundation (MVP Core)**
+- Set up Next.js project with Tailwind CSS and Hero UI
+- Create comprehensive mock data structure (mock.json) with sample leads, phone calls, emails, and evaluations
+- Implement basic kanban layout with three columns (Leads, Qualified, Disqualified)
+- Build lead card components with essential information display
+- Implement drag-and-drop functionality between kanban columns
+- Create "Add New Lead" form with basic validation
+- Build lead details drawer/modal with all information sections
+- Implement mock data state management and CRUD operations
+
+**Phase 2: Enhanced UI/UX Features**
+- Add responsive design and mobile optimization
+- Implement search and filtering capabilities
+- Add sorting options (date, priority, name, status)
+- Create comments system with mock user data
+- Build timeline view for lead interaction history
+- Add visual indicators for communication status
+- Implement bulk operations (select multiple, bulk status change)
+- Add loading states and error handling throughout the application
+
+**Phase 3: Supabase Integration**
+- Set up Supabase project and configure PostgreSQL database
+- Create database schema and tables based on data models
+- Implement Supabase authentication system
+- Replace mock data with real database operations but maintain the mockup and provide a script in package.json that I would be able to spin off my project with the mocked data.
+- Set up real-time subscriptions for live updates
+- Implement server-side data validation and security policies
+- Add proper error handling for database operations
+- Create database migrations and seed data
+
+
+# Logical Dependency Chain
+**Foundation Layer (Must be built first):**
+1. **Project Setup and Mock Data Structure**
+   - Next.js project initialization with all dependencies
+   - Comprehensive mock data file (mock.json) with realistic sample data
+   - Basic project structure and component architecture
+   - Essential utility functions and data transformation helpers
+
+2. **Core Kanban Interface**
+   - Basic three-column kanban layout (Leads → Qualified → Disqualified)
+   - Lead card component displaying essential information
+   - Column headers with lead counts and status indicators
+   - Responsive grid system that works on all screen sizes
+
+3. **Drag and Drop System**
+   - Drag-and-drop library integration and configuration
+   - Visual feedback during drag operations (ghost elements, drop zones)
+   - State management for lead position and status changes
+   - Validation rules for allowed column transitions
+
+**Interactive Features Layer:**
+4. **Lead Details Interface**
+   - Drawer/modal component for displaying full lead information
+   - Tabbed interface for different information sections (Details, Calls, Emails, Evaluations)
+   - Phone call transcript display with formatting and timestamps
+   - Email thread visualization with proper threading
+   - Evaluation results display with scoring and criteria breakdown
+
+5. **CRUD Operations**
+   - "Add New Lead" form with comprehensive field validation
+   - Edit lead information functionality
+   - Delete/archive lead operations with confirmation dialogs
+   - Form state management and error handling
+
+6. **Comments and Collaboration**
+   - Comment input interface with rich text support
+   - Comment thread display with timestamps and user attribution
+   - Edit/delete comment functionality
+   - Real-time comment updates (initially with mock polling)
+
+**Data Integration Layer:**
+7. **Supabase Database Integration**
+   - Database schema creation and table setup
+   - Data migration from mock JSON to PostgreSQL
+   - CRUD operation conversion to use Supabase client
+   - Error handling for database connection issues
+
+8. **Authentication and User Management**
+   - Supabase Auth integration for login/logout
+   - User profile creation and management
+   - Role-based access control implementation
+   - Protected routes and component-level permissions
+
+9. **Real-time Features**
+   - Supabase real-time subscriptions for live kanban updates
+   - Optimistic updates for better user experience
+   - Conflict resolution for concurrent edits
+   - Connection state management and offline handling
+
+# Appendix  
+**Research Findings:**
+- **Drag-and-Drop Libraries**: Evaluated @dnd-kit, react-beautiful-dnd, and React DnD
+  - @dnd-kit recommended for modern React 18+ compatibility and accessibility
+  - React-beautiful-dnd has better documentation but React 18 compatibility issues
+  - React DnD more complex but handles edge cases better for complex scenarios
+
+- **State Management**: Analyzed Context API and Zustand
+  - Context API sufficient for Phase 1-2 with mock data
+  - Zustand recommended for Phase 3+ with real-time updates and complex state
+  - Redux Toolkit overkill for this application size but provides best DevTools
+
+**Sample Mock Data Structure:**
+```json
+{
+  "leads": [
+    {
+      "id": "lead-001",
+      "name": "Sarah Johnson",
+      "email": "sarah.johnson@email.com",
+      "phone": "+1-555-0123",
+      "status": "lead",
+      "source": "website_contact_form",
+      "created_at": "2024-01-15T10:30:00Z",
+      "priority": "high",
+      "notes": "Interested in enterprise solution"
+    }
+  ],
+  "phone_calls": [
+    {
+      "id": "call-001",
+      "lead_id": "lead-001",
+      "call_date": "2024-01-15T14:30:00Z",
+      "duration": 180,
+      "transcript": "Hello, this is Samantha from...",
+      "call_outcome": "answered",
+      "ai_analysis": {"interest_level": 8, "budget_qualified": true}
+    }
+  ]
+}
+```
+</PRD>

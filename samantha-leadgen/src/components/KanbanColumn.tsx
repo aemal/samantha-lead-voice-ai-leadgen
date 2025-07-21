@@ -11,6 +11,7 @@ interface KanbanColumnProps {
   count: number;
   color: 'blue' | 'green' | 'purple' | 'red';
   isDragOver?: boolean;
+  onLeadClick?: (lead: Lead) => void;
 }
 
 const colorClasses = {
@@ -44,7 +45,7 @@ const colorClasses = {
   }
 };
 
-export default function KanbanColumn({ title, status, leads, count, color, isDragOver }: KanbanColumnProps) {
+export default function KanbanColumn({ title, status, leads, count, color, isDragOver, onLeadClick }: KanbanColumnProps) {
   const classes = colorClasses[color];
   const { setNodeRef } = useDroppable({
     id: status,
@@ -73,7 +74,7 @@ export default function KanbanColumn({ title, status, leads, count, color, isDra
           </div>
         ) : (
           leads.map(lead => (
-            <DraggableLeadCard key={lead.id} lead={lead} />
+            <DraggableLeadCard key={lead.id} lead={lead} onLeadClick={onLeadClick} />
           ))
         )}
         

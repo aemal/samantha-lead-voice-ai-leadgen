@@ -4,12 +4,16 @@ import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { Lead } from '@/types';
 import LeadCard from './LeadCard';
+import { useState } from 'react';
 
 interface DraggableLeadCardProps {
   lead: Lead;
+  onLeadClick?: (lead: Lead) => void;
 }
 
-export default function DraggableLeadCard({ lead }: DraggableLeadCardProps) {
+export default function DraggableLeadCard({ lead, onLeadClick }: DraggableLeadCardProps) {
+  const [isDragStarted, setIsDragStarted] = useState(false);
+  
   const {
     attributes,
     listeners,
@@ -17,11 +21,20 @@ export default function DraggableLeadCard({ lead }: DraggableLeadCardProps) {
     transform,
     transition,
     isDragging,
-  } = useSortable({ id: lead.id });
+  } = useSortable({ 
+    id: lead.id,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
+  };
+
+  const handleClick = () => {
+    // Only trigger click if we're not in the middle of a drag operation
+    if (!isDragStarted && onLeadClick) {
+      onLeadClick(lead);
+    }
   };
 
   return (
@@ -32,7 +45,7 @@ export default function DraggableLeadCard({ lead }: DraggableLeadCardProps) {
       {...listeners}
       className={`${isDragging ? 'opacity-50 z-50' : ''} cursor-grab active:cursor-grabbing`}
     >
-      <LeadCard lead={lead} />
+      <LeadCard lead={lead} onClick={handleClick} />
     </div>
   );
 }

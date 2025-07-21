@@ -22,6 +22,7 @@ import {
   sortableKeyboardCoordinates,
 } from '@dnd-kit/sortable';
 import LeadCard from './LeadCard';
+import LeadDetailsDrawer from './LeadDetailsDrawer';
 
 const COLUMN_STATUS: Lead['status'][] = ['lead', 'qualified', 'appointment_booked', 'disqualified'];
 
@@ -30,6 +31,8 @@ export default function KanbanBoard() {
   const [loading, setLoading] = useState(true);
   const [activeId, setActiveId] = useState<string | null>(null);
   const [overId, setOverId] = useState<string | null>(null);
+  const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -60,6 +63,16 @@ export default function KanbanBoard() {
 
   const getActiveLead = () => {
     return leads.find(lead => lead.id === activeId);
+  };
+
+  const handleLeadClick = (lead: Lead) => {
+    setSelectedLead(lead);
+    setIsDrawerOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setIsDrawerOpen(false);
+    setSelectedLead(null);
   };
 
   const handleDragStart = (event: DragStartEvent) => {
@@ -170,6 +183,7 @@ export default function KanbanBoard() {
             count={getLeadCount('lead')}
             color="blue"
             isDragOver={overId === 'lead'}
+            onLeadClick={handleLeadClick}
           />
           <KanbanColumn
             title="Qualified"
@@ -178,6 +192,7 @@ export default function KanbanBoard() {
             count={getLeadCount('qualified')}
             color="green"
             isDragOver={overId === 'qualified'}
+            onLeadClick={handleLeadClick}
           />
           <KanbanColumn
             title="Appointment Booked"
@@ -186,6 +201,7 @@ export default function KanbanBoard() {
             count={getLeadCount('appointment_booked')}
             color="purple"
             isDragOver={overId === 'appointment_booked'}
+            onLeadClick={handleLeadClick}
           />
           <KanbanColumn
             title="Disqualified"
@@ -194,6 +210,7 @@ export default function KanbanBoard() {
             count={getLeadCount('disqualified')}
             color="red"
             isDragOver={overId === 'disqualified'}
+            onLeadClick={handleLeadClick}
           />
         </SortableContext>
       </div>
@@ -205,6 +222,12 @@ export default function KanbanBoard() {
           </div>
         ) : null}
       </DragOverlay>
+      
+      <LeadDetailsDrawer
+        isOpen={isDrawerOpen}
+        onClose={handleDrawerClose}
+        lead={selectedLead}
+      />
     </DndContext>
   );
 }

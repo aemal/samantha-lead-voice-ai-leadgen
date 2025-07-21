@@ -7,6 +7,7 @@ import { useMemo } from 'react';
 
 interface LeadCardProps {
   lead: Lead;
+  onClick?: () => void;
 }
 
 const priorityColors = {
@@ -28,7 +29,7 @@ const priorityLabels = {
   high: 'High'
 };
 
-export default function LeadCard({ lead }: LeadCardProps) {
+export default function LeadCard({ lead, onClick }: LeadCardProps) {
   const data = mockData as MockData;
   
   const communicationStats = useMemo(() => {
@@ -80,6 +81,7 @@ export default function LeadCard({ lead }: LeadCardProps) {
       tabIndex={0}
       role="button"
       aria-label={`Lead: ${lead.name} - ${lead.status}`}
+      onClick={onClick}
     >
       {/* Header with avatar and priority */}
       <div className="flex justify-between items-start mb-3">

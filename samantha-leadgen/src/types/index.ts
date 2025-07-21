@@ -1,4 +1,4 @@
-export type LeadStatus = 'lead' | 'qualified' | 'disqualified';
+export type LeadStatus = 'lead' | 'qualified' | 'appointment_booked' | 'disqualified';
 export type LeadPriority = 'low' | 'medium' | 'high';
 export type CallOutcome = 'answered' | 'voicemail' | 'no_answer' | 'busy';
 export type EmailType = 'outbound' | 'inbound';

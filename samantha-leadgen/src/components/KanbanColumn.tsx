@@ -8,7 +8,7 @@ interface KanbanColumnProps {
   status: Lead['status'];
   leads: Lead[];
   count: number;
-  color: 'blue' | 'green' | 'red';
+  color: 'blue' | 'green' | 'purple' | 'red';
 }
 
 const colorClasses = {
@@ -23,6 +23,12 @@ const colorClasses = {
     border: 'border-green-200', 
     header: 'bg-green-100',
     badge: 'bg-green-500'
+  },
+  purple: {
+    bg: 'bg-purple-50',
+    border: 'border-purple-200', 
+    header: 'bg-purple-100',
+    badge: 'bg-purple-500'
   },
   red: {
     bg: 'bg-red-50',

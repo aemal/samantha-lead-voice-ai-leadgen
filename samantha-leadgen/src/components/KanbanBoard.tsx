@@ -50,6 +50,13 @@ export default function KanbanBoard() {
         color="green"
       />
       <KanbanColumn
+        title="Appointment Booked"
+        status="appointment_booked"
+        leads={getLeadsByStatus('appointment_booked')}
+        count={getLeadCount('appointment_booked')}
+        color="purple"
+      />
+      <KanbanColumn
         title="Disqualified"
         status="disqualified"
         leads={getLeadsByStatus('disqualified')}

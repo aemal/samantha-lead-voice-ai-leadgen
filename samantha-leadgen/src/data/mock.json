@@ -31,11 +31,11 @@
       "name": "Sarah Johnson",
       "email": "sarah.johnson@techcorp.com",
       "phone": "+1-555-0123",
-      "status": "qualified",
+      "status": "appointment_booked",
       "source": "website_contact_form",
       "created_at": "2024-01-15T10:30:00Z",
-      "updated_at": "2024-01-18T14:20:00Z",
-      "notes": "Interested in enterprise solution for 500+ employees",
+      "updated_at": "2024-01-21T14:20:00Z",
+      "notes": "Demo scheduled for Jan 23rd at 2 PM with IT Director. Enterprise solution for 500+ employees",
       "priority": "high"
     },
     {
@@ -55,11 +55,11 @@
       "name": "Emily Rodriguez",
       "email": "emily.r@globalventures.com",
       "phone": "+1-555-0125",
-      "status": "qualified",
+      "status": "appointment_booked",
       "source": "referral",
       "created_at": "2024-01-14T09:15:00Z",
-      "updated_at": "2024-01-19T16:30:00Z",
-      "notes": "VP Operations, budget approved for Q1 implementation",
+      "updated_at": "2024-01-21T16:30:00Z",
+      "notes": "Technical demo scheduled for Jan 25th at 10 AM with full leadership team. VP Operations, budget approved for Q1 implementation",
       "priority": "high"
     },
     {
@@ -91,11 +91,11 @@
       "name": "Robert Kim",
       "email": "robert.kim@financeplus.com",
       "phone": "+1-555-0128",
-      "status": "qualified",
+      "status": "appointment_booked",
       "source": "trade_show",
       "created_at": "2024-01-12T16:30:00Z",
-      "updated_at": "2024-01-20T11:15:00Z",
-      "notes": "CFO interested in automation tools, ready to move forward",
+      "updated_at": "2024-01-21T11:15:00Z",
+      "notes": "Team demo scheduled for Jan 24th at 3 PM with finance team. CFO interested in automation tools, ready to move forward",
       "priority": "high"
     },
     {
@@ -139,11 +139,11 @@
       "name": "James Wilson",
       "email": "james.wilson@logistics.net",
       "phone": "+1-555-0132",
-      "status": "qualified",
+      "status": "appointment_booked",
       "source": "website_chat",
       "created_at": "2024-01-10T10:15:00Z",
-      "updated_at": "2024-01-21T13:45:00Z",
-      "notes": "Operations manager, urgent need for supply chain optimization",
+      "updated_at": "2024-01-21T15:45:00Z",
+      "notes": "Urgent demo scheduled for tomorrow Jan 22nd at 9 AM. Operations manager, urgent need for supply chain optimization",
       "priority": "high"
     },
     {
@@ -223,11 +223,11 @@
       "name": "Stephanie Clark",
       "email": "stephanie.clark@media.tv",
       "phone": "+1-555-0139",
-      "status": "qualified",
+      "status": "appointment_booked",
       "source": "podcast_sponsorship",
       "created_at": "2024-01-13T12:30:00Z",
-      "updated_at": "2024-01-20T10:45:00Z",
-      "notes": "Media company CEO, looking for content management solutions",
+      "updated_at": "2024-01-21T10:45:00Z",
+      "notes": "Content management demo scheduled for Jan 26th at 11 AM. Media company CEO, looking for content management solutions",
       "priority": "high"
     },
     {

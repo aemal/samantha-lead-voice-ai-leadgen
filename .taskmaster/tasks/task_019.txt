@@ -1,11 +1,122 @@
 # Task ID: 19
-# Title: Refactor CRUD Operations to Use Supabase Client
+# Title: Create Supabase PostgreSQL Migration File for Lead Phone Calls Table
 # Status: pending
-# Dependencies: 8, 16, 17, 18
+# Dependencies: 16, 17
 # Priority: high
-# Description: Update all data operations to use the Supabase client instead of mock data.
+# Description: Develop a SQL migration file for the lead_phone_calls table with all required columns, appropriate data types, constraints, and performance-optimized indexes.
 # Details:
-Refactor the state management system to use Supabase queries. Implement optimistic updates for better UX. Handle offline scenarios and data syncing. Use Supabase real-time subscriptions for live updates. Ensure proper error handling for network issues.
+Create a Supabase migration file in the project's migration directory with the following specifications:
+
+1. Define the lead_phone_calls table with these columns:
+   - id (UUID, primary key, default to gen_random_uuid())
+   - lead_id (UUID, not null, foreign key to leads.id)
+   - call_date (TIMESTAMP with time zone, not null)
+   - duration (INTEGER, representing seconds)
+   - transcript (TEXT)
+   - call_outcome (ENUM type with values: 'answered', 'voicemail', 'no_answer', 'busy')
+   - ai_analysis (JSONB)
+   - created_at (TIMESTAMP with time zone, default to now())
+
+2. Add foreign key constraint:
+   ```sql
+   ALTER TABLE lead_phone_calls
+   ADD CONSTRAINT fk_lead_phone_calls_lead
+   FOREIGN KEY (lead_id)
+   REFERENCES leads(id)
+   ON DELETE CASCADE;
+   ```
+
+3. Create indexes for performance optimization:
+   ```sql
+   CREATE INDEX idx_lead_phone_calls_lead_id ON lead_phone_calls(lead_id);
+   CREATE INDEX idx_lead_phone_calls_call_date ON lead_phone_calls(call_date);
+   CREATE INDEX idx_lead_phone_calls_call_outcome ON lead_phone_calls(call_outcome);
+   ```
+
+4. Create the ENUM type for call outcomes:
+   ```sql
+   CREATE TYPE call_outcome_type AS ENUM ('answered', 'voicemail', 'no_answer', 'busy');
+   ```
+
+5. Add appropriate comments to the table and columns:
+   ```sql
+   COMMENT ON TABLE lead_phone_calls IS 'Records of phone calls made to leads';
+   COMMENT ON COLUMN lead_phone_calls.duration IS 'Call duration in seconds';
+   COMMENT ON COLUMN lead_phone_calls.ai_analysis IS 'JSON data containing AI analysis of the call';
+   ```
+
+6. Implement the migration using the Supabase migration format:
+   ```sql
+   -- Migration file: YYYYMMDDHHMMSS_create_lead_phone_calls_table.sql
+   
+   -- Create ENUM type for call outcomes
+   CREATE TYPE call_outcome_type AS ENUM ('answered', 'voicemail', 'no_answer', 'busy');
+   
+   -- Create lead_phone_calls table
+   CREATE TABLE lead_phone_calls (
+     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+     lead_id UUID NOT NULL,
+     call_date TIMESTAMP WITH TIME ZONE NOT NULL,
+     duration INTEGER,
+     transcript TEXT,
+     call_outcome call_outcome_type,
+     ai_analysis JSONB,
+     created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),
+     
+     CONSTRAINT fk_lead_phone_calls_lead
+       FOREIGN KEY (lead_id)
+       REFERENCES leads(id)
+       ON DELETE CASCADE
+   );
+   
+   -- Create indexes
+   CREATE INDEX idx_lead_phone_calls_lead_id ON lead_phone_calls(lead_id);
+   CREATE INDEX idx_lead_phone_calls_call_date ON lead_phone_calls(call_date);
+   CREATE INDEX idx_lead_phone_calls_call_outcome ON lead_phone_calls(call_outcome);
+   
+   -- Add table and column comments
+   COMMENT ON TABLE lead_phone_calls IS 'Records of phone calls made to leads';
+   COMMENT ON COLUMN lead_phone_calls.duration IS 'Call duration in seconds';
+   COMMENT ON COLUMN lead_phone_calls.ai_analysis IS 'JSON data containing AI analysis of the call';
+   ```
 
 # Test Strategy:
-Unit test all CRUD operations with Supabase client. Verify data consistency between client and server. Test offline functionality and data syncing. Check real-time update performance.
+1. Run the migration in a development environment and verify successful execution without errors:
+   ```bash
+   npx supabase migration up
+   ```
+
+2. Validate the table structure using Supabase Table Editor or psql:
+   ```sql
+   \d+ lead_phone_calls
+   ```
+
+3. Test the foreign key constraint by:
+   - Inserting a record with a non-existent lead_id (should fail)
+   - Deleting a lead and verifying cascade deletion of associated phone calls
+
+4. Test the ENUM constraint by:
+   - Inserting records with valid call outcomes
+   - Attempting to insert a record with an invalid call outcome (should fail)
+
+5. Verify indexes are created correctly:
+   ```sql
+   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'lead_phone_calls';
+   ```
+
+6. Insert test records to verify all columns accept appropriate data types:
+   ```sql
+   INSERT INTO lead_phone_calls (lead_id, call_date, duration, transcript, call_outcome, ai_analysis)
+   VALUES 
+   ('existing-lead-uuid', now(), 120, 'Sample transcript text', 'answered', '{"sentiment": "positive", "keywords": ["interested", "follow-up"]}');
+   ```
+
+7. Query the inserted data to verify retrieval works correctly:
+   ```sql
+   SELECT * FROM lead_phone_calls WHERE lead_id = 'existing-lead-uuid';
+   ```
+
+8. Test JSONB functionality by querying based on JSON properties:
+   ```sql
+   SELECT * FROM lead_phone_calls WHERE ai_analysis->>'sentiment' = 'positive';
+   ```

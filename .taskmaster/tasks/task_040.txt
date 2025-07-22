@@ -1,0 +1,11 @@
+# Task ID: 40
+# Title: Implement Advanced Search and Filtering
+# Status: pending
+# Dependencies: 9, 37
+# Priority: low
+# Description: Enhance search capabilities with full-text search and advanced filtering options.
+# Details:
+Implement full-text search using Supabase's text search capabilities. Add advanced filtering options (date ranges, multiple statuses, tags). Implement saved searches functionality. Use debouncing for search input. Optimize query performance for large datasets.
+
+# Test Strategy:
+Test full-text search accuracy and performance. Verify advanced filtering with multiple criteria. Check saved searches functionality. Measure query performance with large datasets.

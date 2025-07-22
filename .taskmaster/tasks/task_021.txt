@@ -1,11 +1,91 @@
 # Task ID: 21
-# Title: Enhance Lead Details Interface
+# Title: Create Supabase PostgreSQL Migration File for Lead Evaluations Table
 # Status: pending
-# Dependencies: 7, 19, 20
-# Priority: medium
-# Description: Improve the lead details view with real data and advanced features.
+# Dependencies: 16, 17
+# Priority: high
+# Description: Develop a SQL migration file for the lead_evaluations table with all required columns, appropriate data types, constraints, and performance-optimized indexes.
 # Details:
-Refactor lead details component to use real Supabase data. Implement lazy loading for large datasets. Add inline editing capabilities for lead information. Implement version history for lead changes. Add data export functionality (CSV, PDF).
+Create a Supabase migration file in the project's migration directory with the following specifications:
+
+1. Define the lead_evaluations table with these columns:
+   - id (UUID, primary key, default to gen_random_uuid())
+   - lead_id (UUID, not null, foreign key to leads.id)
+   - evaluation_type (ENUM type with values: 'phone', 'email')
+   - qualification_score (INTEGER, check constraint to ensure value between 1-100)
+   - evaluation_result (JSONB, to store detailed evaluation data)
+   - criteria_met (JSONB, to store which qualification criteria were satisfied)
+   - confidence_score (DECIMAL(3,2), to store AI confidence level)
+   - created_at (TIMESTAMP with time zone, default to now())
+   - evaluator_version (VARCHAR(50), to track which version of the evaluator made the assessment)
+
+2. Add foreign key constraint:
+   ```sql
+   ALTER TABLE lead_evaluations
+   ADD CONSTRAINT fk_lead_evaluations_lead
+   FOREIGN KEY (lead_id) REFERENCES leads(id)
+   ON DELETE CASCADE;
+   ```
+
+3. Create indexes for performance optimization:
+   ```sql
+   CREATE INDEX idx_lead_evaluations_lead_id ON lead_evaluations(lead_id);
+   CREATE INDEX idx_lead_evaluations_evaluation_type ON lead_evaluations(evaluation_type);
+   CREATE INDEX idx_lead_evaluations_qualification_score ON lead_evaluations(qualification_score);
+   CREATE INDEX idx_lead_evaluations_created_at ON lead_evaluations(created_at);
+   ```
+
+4. Add check constraint for qualification_score:
+   ```sql
+   ALTER TABLE lead_evaluations
+   ADD CONSTRAINT check_qualification_score
+   CHECK (qualification_score >= 1 AND qualification_score <= 100);
+   ```
+
+5. Create the migration file using Supabase CLI:
+   ```bash
+   npx supabase migration new create_lead_evaluations_table
+   ```
+
+6. Implement the migration file with proper up and down functions to allow rollback if needed.
+
+7. Document the schema with appropriate comments for future reference.
 
 # Test Strategy:
-Test lazy loading performance with large datasets. Verify inline editing and change tracking. Check data export functionality for accuracy. Ensure responsive design on various screen sizes.
+1. Run the migration in a development environment and verify successful execution without errors:
+   ```bash
+   npx supabase migration up
+   ```
+
+2. Validate the table structure using Supabase Table Editor or psql:
+   ```sql
+   \d+ lead_evaluations
+   ```
+
+3. Test the foreign key constraint by:
+   - Inserting a record with a non-existent lead_id (should fail)
+   - Deleting a lead and verifying cascade deletion of related evaluations
+
+4. Test the check constraint by:
+   - Attempting to insert records with qualification_score values outside the 1-100 range
+   - Verifying that valid scores within range are accepted
+
+5. Test JSONB columns by:
+   - Inserting complex JSON structures into evaluation_result and criteria_met
+   - Querying using JSONB operators to extract specific evaluation data
+
+6. Verify indexes are created correctly:
+   ```sql
+   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'lead_evaluations';
+   ```
+
+7. Insert sample data and perform query performance tests to ensure indexes are effective:
+   ```sql
+   EXPLAIN ANALYZE SELECT * FROM lead_evaluations WHERE lead_id = 'some-uuid';
+   EXPLAIN ANALYZE SELECT * FROM lead_evaluations WHERE evaluation_type = 'phone';
+   ```
+
+8. Test rollback functionality by running:
+   ```bash
+   npx supabase migration down -n 1
+   ```
+   and verifying the table is properly removed.

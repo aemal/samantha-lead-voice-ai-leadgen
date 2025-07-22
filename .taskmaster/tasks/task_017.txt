@@ -1,11 +1,56 @@
 # Task ID: 17
-# Title: Implement Supabase Authentication
+# Title: Create Supabase PostgreSQL Migration File for Leads Table
 # Status: pending
 # Dependencies: 16
 # Priority: high
-# Description: Integrate Supabase Auth for user management and session handling.
+# Description: Develop a SQL migration file for the leads table with all required columns, appropriate data types, constraints, and performance-optimized indexes.
 # Details:
-Set up Supabase Auth in the Next.js application. Implement sign up, login, and logout functionality. Create protected routes using Next.js middleware. Handle session persistence and refresh. Implement role-based access control using Supabase policies.
+Create a Supabase migration file in the project's migration directory with the following specifications:
+
+1. Define the leads table with these columns:
+   - id (UUID, primary key, default to gen_random_uuid())
+   - name (VARCHAR, not null)
+   - email (VARCHAR, not null, unique)
+   - phone (VARCHAR)
+   - status (ENUM type with values: 'lead', 'qualified', 'disqualified', 'appointment_booked')
+   - source (VARCHAR)
+   - created_at (TIMESTAMP with time zone, default to now())
+   - updated_at (TIMESTAMP with time zone, default to now())
+   - notes (TEXT)
+   - priority (ENUM type with values: 'low', 'medium', 'high', default to 'medium')
+
+2. Create appropriate indexes for performance:
+   - Index on email for quick lookups
+   - Index on status for filtering in kanban views
+   - Index on priority for sorting
+   - Index on created_at for chronological queries
+
+3. Add triggers to automatically update the updated_at timestamp when a record is modified
+
+4. Implement proper constraints:
+   - NOT NULL constraints on required fields
+   - CHECK constraints for any field validations
+   - Foreign key constraints if needed
+
+5. Include comments in the migration file explaining the purpose of each index and constraint
+
+6. Follow Supabase migration naming convention: YYYYMMDDHHMMSS_create_leads_table.sql
+
+7. Ensure the migration is idempotent by adding appropriate IF NOT EXISTS checks
 
 # Test Strategy:
-Test user registration and login flows. Verify session handling and persistence. Check protected route access with different user roles. Test token refresh and logout functionality.
+1. Run the migration in a development environment and verify successful execution without errors
+2. Validate the table structure using \d+ leads in psql or Supabase Table Editor
+3. Insert test records to verify all constraints are working correctly:
+   - Test inserting records with all required fields
+   - Test inserting duplicate emails (should fail)
+   - Test inserting invalid status values (should fail)
+   - Test inserting invalid priority values (should fail)
+4. Verify indexes are created correctly using \di in psql
+5. Test performance by running EXPLAIN ANALYZE on common queries:
+   - Filtering by status
+   - Sorting by priority
+   - Searching by email
+6. Verify the updated_at trigger works by updating a record and checking timestamp changes
+7. Test rollback functionality to ensure the migration can be reversed cleanly
+8. Document any issues encountered during testing

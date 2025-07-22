@@ -1,11 +1,140 @@
 # Task ID: 23
-# Title: Create Dashboard and Reporting Features
+# Title: Create Row Level Security (RLS) Policies for Database Tables
 # Status: pending
-# Dependencies: 19, 20
-# Priority: low
-# Description: Develop a dashboard with key metrics and reporting capabilities.
+# Dependencies: 16, 17, 18, 20, 21, 22
+# Priority: high
+# Description: Implement Row Level Security policies for all database tables to ensure proper access control based on user authentication and role-based permissions.
 # Details:
-Design a dashboard layout with key performance indicators. Implement charts and graphs using a library like Chart.js or D3.js. Add lead conversion funnel visualization. Create exportable reports (PDF, CSV). Implement date range selection for report generation.
+Create comprehensive Row Level Security (RLS) policies for all database tables in the Supabase PostgreSQL database with the following specifications:
+
+1. Enable RLS on all tables:
+   ```sql
+   ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
+   ALTER TABLE lead_emails ENABLE ROW LEVEL SECURITY;
+   ALTER TABLE lead_evaluations ENABLE ROW LEVEL SECURITY;
+   ALTER TABLE lead_comments ENABLE ROW LEVEL SECURITY;
+   ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;
+   ```
+
+2. Create authentication policies to ensure only authenticated users can access data:
+   ```sql
+   CREATE POLICY "authenticated_users_can_read_leads" 
+   ON leads FOR SELECT 
+   USING (auth.role() = 'authenticated');
+   ```
+
+3. Implement role-based access policies for each table:
+   
+   a. Admin role policies (full access):
+   ```sql
+   CREATE POLICY "admins_can_manage_all_leads" 
+   ON leads FOR ALL 
+   USING (
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE user_profiles.id = auth.uid() 
+       AND user_profiles.role = 'admin'
+     )
+   );
+   ```
+   
+   b. Manager role policies (read all, modify team data):
+   ```sql
+   CREATE POLICY "managers_can_read_all_leads" 
+   ON leads FOR SELECT 
+   USING (
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE user_profiles.id = auth.uid() 
+       AND user_profiles.role = 'manager'
+     )
+   );
+   
+   CREATE POLICY "managers_can_modify_team_leads" 
+   ON leads FOR UPDATE 
+   USING (
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE user_profiles.id = auth.uid() 
+       AND user_profiles.role = 'manager'
+     )
+   );
+   ```
+   
+   c. Sales rep policies (access only assigned leads):
+   ```sql
+   CREATE POLICY "sales_reps_can_read_assigned_leads" 
+   ON leads FOR SELECT 
+   USING (
+     leads.assigned_to = auth.uid() OR
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE user_profiles.id = auth.uid() 
+       AND user_profiles.role IN ('manager', 'admin')
+     )
+   );
+   ```
+
+4. Create data isolation policies for each table to ensure proper separation:
+   ```sql
+   CREATE POLICY "users_can_only_see_their_comments" 
+   ON lead_comments FOR SELECT 
+   USING (
+     lead_comments.user_id = auth.uid() OR
+     lead_comments.is_internal = false OR
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE user_profiles.id = auth.uid() 
+       AND user_profiles.role IN ('manager', 'admin')
+     )
+   );
+   ```
+
+5. Create a migration file that applies all RLS policies:
+   - Place the migration file in the project's migration directory
+   - Include all policy definitions for each table
+   - Add comments explaining the purpose of each policy
+   - Ensure policies are applied in the correct order
+
+6. Update the database schema documentation to reflect the security model implemented through RLS policies.
+
+7. Consider performance implications of RLS policies and optimize where necessary.
 
 # Test Strategy:
-Verify accuracy of displayed metrics and charts. Test report generation and export functionality. Check responsiveness of dashboard layout. Ensure real-time updates of dashboard data.
+1. Test authentication policies:
+   - Attempt to access data without authentication and verify access is denied
+   - Access data with valid authentication and verify access is granted
+
+2. Test role-based access policies:
+   - Create test users with different roles (admin, manager, sales_rep)
+   - Verify admin users can perform all operations on all tables
+   - Verify managers can read all data but only modify their team's data
+   - Verify sales reps can only access their assigned leads
+
+3. Test data isolation:
+   - Create test scenarios with multiple users and overlapping data
+   - Verify users can only see data they should have access to
+   - Test edge cases like shared resources and public data
+
+4. Performance testing:
+   - Measure query performance with and without RLS policies
+   - Identify any significant performance degradation
+   - Optimize policies if necessary
+
+5. Security audit:
+   - Perform a comprehensive security audit of all policies
+   - Attempt to bypass security through various attack vectors
+   - Verify no unintended access patterns exist
+
+6. Integration testing:
+   - Test the application with RLS policies enabled
+   - Verify all application features work correctly with security constraints
+   - Test user experience for different roles
+
+7. Create a test script that validates all policies are working as expected:
+   ```sql
+   -- Example test query
+   SET LOCAL ROLE authenticated;
+   SET LOCAL "request.jwt.claims" TO '{"role": "authenticated", "sub": "test-user-id"}';
+   SELECT * FROM leads; -- Should return only accessible leads
+   ```

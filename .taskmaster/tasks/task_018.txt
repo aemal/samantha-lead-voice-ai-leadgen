@@ -1,11 +1,128 @@
 # Task ID: 18
-# Title: Migrate Mock Data to Supabase
+# Title: Create Supabase PostgreSQL Migration File for User Profiles Table
 # Status: pending
-# Dependencies: 2, 16
-# Priority: medium
-# Description: Transfer mock data from JSON to the Supabase PostgreSQL database.
+# Dependencies: 16
+# Priority: high
+# Description: Develop a SQL migration file for the user_profiles table that extends auth.users with additional columns for user management and role-based access control.
 # Details:
-Create a data migration script using Node.js and the Supabase JavaScript client. Ensure data integrity during migration. Handle potential conflicts or duplicates. Add proper error handling and logging. Create a rollback mechanism in case of migration failure.
+Create a Supabase migration file in the project's migration directory with the following specifications:
+
+1. Define the user_profiles table with these columns:
+   - id (UUID primary key, foreign key to auth.users.id)
+   - display_name (VARCHAR(255), not null)
+   - role (ENUM type with values: 'admin', 'manager', 'sales_rep')
+   - avatar_url (VARCHAR(500))
+   - created_at (TIMESTAMP with time zone, default to now())
+   - last_active (TIMESTAMP with time zone)
+
+2. Add foreign key constraint:
+   ```sql
+   ALTER TABLE user_profiles
+   ADD CONSTRAINT fk_user_profiles_auth_users
+   FOREIGN KEY (id) REFERENCES auth.users(id)
+   ON DELETE CASCADE;
+   ```
+
+3. Create appropriate indexes:
+   ```sql
+   CREATE INDEX idx_user_profiles_role ON user_profiles(role);
+   ```
+
+4. Implement Row Level Security (RLS) policies:
+   ```sql
+   -- Enable RLS on the table
+   ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;
+
+   -- Policy for users to view their own profile
+   CREATE POLICY user_profiles_select_own ON user_profiles
+   FOR SELECT USING (auth.uid() = id);
+
+   -- Policy for users to update their own profile (except role)
+   CREATE POLICY user_profiles_update_own ON user_profiles
+   FOR UPDATE USING (auth.uid() = id)
+   WITH CHECK (auth.uid() = id AND role = OLD.role);
+
+   -- Policy for admins to view all profiles
+   CREATE POLICY user_profiles_select_admin ON user_profiles
+   FOR SELECT USING (
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE id = auth.uid() AND role = 'admin'
+     )
+   );
+
+   -- Policy for admins to update all profiles
+   CREATE POLICY user_profiles_update_admin ON user_profiles
+   FOR UPDATE USING (
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE id = auth.uid() AND role = 'admin'
+     )
+   );
+
+   -- Policy for managers to view their sales reps
+   CREATE POLICY user_profiles_select_manager ON user_profiles
+   FOR SELECT USING (
+     EXISTS (
+       SELECT 1 FROM user_profiles
+       WHERE id = auth.uid() AND role = 'manager'
+     ) AND role = 'sales_rep'
+   );
+   ```
+
+5. Create a trigger to automatically create a user_profile entry when a new user is created:
+   ```sql
+   CREATE OR REPLACE FUNCTION public.handle_new_user()
+   RETURNS TRIGGER AS $$
+   BEGIN
+     INSERT INTO public.user_profiles (id, display_name, role, created_at)
+     VALUES (new.id, COALESCE(new.raw_user_meta_data->>'full_name', new.email), 'sales_rep', now());
+     RETURN new;
+   END;
+   $$ LANGUAGE plpgsql SECURITY DEFINER;
+
+   CREATE TRIGGER on_auth_user_created
+     AFTER INSERT ON auth.users
+     FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();
+   ```
+
+6. Add comments to the table and columns for documentation:
+   ```sql
+   COMMENT ON TABLE user_profiles IS 'Extended profile information for application users';
+   COMMENT ON COLUMN user_profiles.id IS 'References the auth.users table';
+   COMMENT ON COLUMN user_profiles.role IS 'User role determining access permissions';
+   ```
 
 # Test Strategy:
-Verify successful data migration for all entities. Check data integrity and relationships post-migration. Test rollback functionality. Ensure no data loss or corruption during the process.
+1. Run the migration in a development environment and verify successful execution without errors:
+   ```bash
+   npx supabase migration up
+   ```
+
+2. Validate the table structure using Supabase Table Editor or psql:
+   ```sql
+   \d+ user_profiles
+   ```
+
+3. Test the foreign key constraint by:
+   - Creating a new auth.users entry and verifying the trigger creates a user_profile
+   - Attempting to create a user_profile with a non-existent auth.users ID (should fail)
+   - Deleting an auth.users entry and verifying the corresponding user_profile is deleted
+
+4. Test RLS policies by:
+   - Logging in as a regular user and verifying they can only view/edit their own profile
+   - Logging in as an admin and verifying they can view/edit all profiles
+   - Logging in as a manager and verifying they can view sales rep profiles
+   - Verifying a regular user cannot change their role
+   - Verifying an admin can change any user's role
+
+5. Test the trigger functionality:
+   - Create a new user through Supabase Auth
+   - Verify a corresponding user_profile is automatically created with correct defaults
+
+6. Verify indexes are properly created:
+   ```sql
+   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'user_profiles';
+   ```
+
+7. Test performance with a significant number of user records to ensure queries are using the indexes properly.

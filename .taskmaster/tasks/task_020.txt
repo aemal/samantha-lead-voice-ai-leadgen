@@ -1,11 +1,97 @@
 # Task ID: 20
-# Title: Implement Real-time Features
+# Title: Create Supabase PostgreSQL Migration File for Lead Emails Table
 # Status: pending
-# Dependencies: 5, 7, 19
-# Priority: medium
-# Description: Add real-time updates for kanban board and lead details using Supabase subscriptions.
+# Dependencies: 16, 17
+# Priority: high
+# Description: Develop a SQL migration file for the lead_emails table with all required columns, appropriate data types, constraints, and performance-optimized indexes.
 # Details:
-Set up Supabase real-time subscriptions for leads, calls, emails, and comments tables. Implement optimistic UI updates. Handle conflicts for concurrent edits. Add visual indicators for real-time changes. Implement reconnection logic for dropped connections.
+Create a Supabase migration file in the project's migration directory with the following specifications:
+
+1. Define the lead_emails table with these columns:
+   - id (UUID, primary key, default to gen_random_uuid())
+   - lead_id (UUID, not null, foreign key to leads.id)
+   - email_type (ENUM type with values: 'outbound', 'inbound')
+   - subject (VARCHAR(255))
+   - content (TEXT)
+   - sent_at (TIMESTAMP with time zone)
+   - opened_at (TIMESTAMP with time zone)
+   - clicked_at (TIMESTAMP with time zone)
+   - replied_at (TIMESTAMP with time zone)
+   - email_status (ENUM type with values: 'sent', 'delivered', 'opened', 'clicked', 'replied')
+   - created_at (TIMESTAMP with time zone, default to now())
+
+2. Add foreign key constraint:
+   ```sql
+   ALTER TABLE lead_emails
+   ADD CONSTRAINT fk_lead_emails_lead
+   FOREIGN KEY (lead_id)
+   REFERENCES leads(id)
+   ON DELETE CASCADE;
+   ```
+
+3. Create the following indexes for performance optimization:
+   ```sql
+   CREATE INDEX idx_lead_emails_lead_id ON lead_emails(lead_id);
+   CREATE INDEX idx_lead_emails_email_type ON lead_emails(email_type);
+   CREATE INDEX idx_lead_emails_email_status ON lead_emails(email_status);
+   CREATE INDEX idx_lead_emails_sent_at ON lead_emails(sent_at);
+   ```
+
+4. Add appropriate comments to document the table and columns:
+   ```sql
+   COMMENT ON TABLE lead_emails IS 'Stores all email communications with leads';
+   COMMENT ON COLUMN lead_emails.email_type IS 'Direction of email: outbound (sent to lead) or inbound (received from lead)';
+   COMMENT ON COLUMN lead_emails.email_status IS 'Current status of the email in the delivery/engagement lifecycle';
+   ```
+
+5. Create custom types if they don't exist:
+   ```sql
+   DO $$
+   BEGIN
+     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'email_type_enum') THEN
+       CREATE TYPE email_type_enum AS ENUM ('outbound', 'inbound');
+     END IF;
+     
+     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'email_status_enum') THEN
+       CREATE TYPE email_status_enum AS ENUM ('sent', 'delivered', 'opened', 'clicked', 'replied');
+     END IF;
+   END
+   $$;
 
 # Test Strategy:
-Test real-time updates across multiple clients. Verify conflict resolution for concurrent edits. Check performance with a high number of real-time events. Test reconnection scenarios.
+1. Run the migration in a development environment and verify successful execution without errors:
+   ```bash
+   npx supabase migration up
+   ```
+
+2. Validate the table structure using Supabase Table Editor or psql:
+   ```sql
+   \d+ lead_emails
+   ```
+
+3. Test the foreign key constraint by:
+   - Inserting a record with a non-existent lead_id (should fail)
+   - Deleting a lead and verifying cascade deletion of associated emails
+
+4. Test the ENUM constraints by:
+   - Inserting records with valid email_type values ('outbound', 'inbound')
+   - Attempting to insert a record with an invalid email_type (should fail)
+   - Inserting records with valid email_status values
+   - Attempting to insert a record with an invalid email_status (should fail)
+
+5. Verify indexes are created correctly:
+   ```sql
+   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'lead_emails';
+   ```
+
+6. Insert test records with various combinations of values and verify data integrity:
+   ```sql
+   INSERT INTO lead_emails (lead_id, email_type, subject, content, sent_at, email_status)
+   VALUES 
+   ([valid_lead_id], 'outbound', 'Test Subject', 'Test Content', now(), 'sent');
+   ```
+
+7. Query the table to ensure data is stored and retrieved correctly:
+   ```sql
+   SELECT * FROM lead_emails WHERE lead_id = [valid_lead_id];
+   ```

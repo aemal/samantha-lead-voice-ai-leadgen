@@ -1,0 +1,11 @@
+# Task ID: 35
+# Title: Implement Supabase Authentication
+# Status: pending
+# Dependencies: 16
+# Priority: high
+# Description: Integrate Supabase Auth for user management and session handling.
+# Details:
+Set up Supabase Auth in the Next.js application. Implement sign up, login, and logout functionality. Create protected routes using Next.js middleware. Handle session persistence and refresh. Implement role-based access control using Supabase policies.
+
+# Test Strategy:
+Test user registration and login flows. Verify session handling and persistence. Check protected route access with different user roles. Test token refresh and logout functionality.

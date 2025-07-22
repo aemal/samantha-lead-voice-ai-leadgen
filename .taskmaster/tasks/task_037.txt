@@ -1,0 +1,11 @@
+# Task ID: 37
+# Title: Refactor CRUD Operations to Use Supabase Client
+# Status: pending
+# Dependencies: 8, 16, 35, 36
+# Priority: high
+# Description: Update all data operations to use the Supabase client instead of mock data.
+# Details:
+Refactor the state management system to use Supabase queries. Implement optimistic updates for better UX. Handle offline scenarios and data syncing. Use Supabase real-time subscriptions for live updates. Ensure proper error handling for network issues.
+
+# Test Strategy:
+Unit test all CRUD operations with Supabase client. Verify data consistency between client and server. Test offline functionality and data syncing. Check real-time update performance.

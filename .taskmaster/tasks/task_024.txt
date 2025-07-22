@@ -1,11 +1,138 @@
 # Task ID: 24
-# Title: Implement Webhook Endpoint for n8n Integration
+# Title: Create Database Seed Script for Supabase
 # Status: pending
-# Dependencies: 16, 19
+# Dependencies: 2, 16, 17, 18, 20, 21
 # Priority: medium
-# Description: Create a webhook endpoint to receive updates from the n8n voice AI workflow.
+# Description: Develop a comprehensive database seed script that populates all Supabase tables with mock data from mock.json, including proper data transformation and UUID generation.
 # Details:
-Develop a secure webhook endpoint using Next.js API routes. Implement authentication for incoming webhooks. Process incoming data and update relevant database tables. Handle. Handle potential errors and data inconsistencies. Implement logging for all webhook activities.
+Create a TypeScript-based seed script that will:
+
+1. Import and parse the mock.json file created in Task 2
+2. Connect to the Supabase instance using the Supabase JavaScript client
+3. Transform the mock data to match the database schema:
+   - Generate UUIDs for all primary keys
+   - Format dates as ISO strings for timestamp fields
+   - Convert any nested objects to JSONB format for appropriate columns
+   - Ensure proper foreign key relationships between tables
+
+4. Implement the seeding process in the following order to maintain referential integrity:
+   - user_profiles (extending from auth.users)
+   - leads
+   - lead_emails
+   - lead_phone_calls
+   - lead_evaluations
+   - lead_comments
+
+5. Add error handling with detailed logging:
+   - Catch and log database errors
+   - Implement transaction support for atomicity
+   - Add rollback capability if seeding fails
+
+6. Create a CLI interface with options:
+   - `--reset` to clear existing data before seeding
+   - `--count` to specify the number of records to generate
+   - `--environment` to target different environments (dev, staging)
+
+7. Add progress indicators during the seeding process
+
+8. Document the script with JSDoc comments for maintainability
+
+Example implementation structure:
+```typescript
+import { createClient } from '@supabase/supabase-js';
+import fs from 'fs';
+import { v4 as uuidv4 } from 'uuid';
+import { program } from 'commander';
+
+// CLI configuration
+program
+  .option('-r, --reset', 'Clear existing data before seeding')
+  .option('-c, --count <number>', 'Number of records to generate', '50')
+  .option('-e, --environment <env>', 'Target environment', 'dev')
+  .parse(process.argv);
+
+const options = program.opts();
+
+// Initialize Supabase client
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseKey = process.env.SUPABASE_SERVICE_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
+
+async function seedDatabase() {
+  try {
+    // Read mock data
+    const mockData = JSON.parse(fs.readFileSync('./mock.json', 'utf8'));
+    
+    // Begin transaction
+    console.log('Starting database seed...');
+    
+    // Clear existing data if reset option is enabled
+    if (options.reset) {
+      console.log('Clearing existing data...');
+      // Delete data in reverse order of dependencies
+      // ...
+    }
+    
+    // Seed user_profiles
+    console.log('Seeding user profiles...');
+    const userProfiles = mockData.users.map(user => ({
+      id: uuidv4(),
+      display_name: user.name,
+      role: user.role,
+      avatar_url: user.avatar,
+      created_at: new Date().toISOString(),
+      last_active: new Date().toISOString()
+    }));
+    
+    const { error: userError } = await supabase
+      .from('user_profiles')
+      .insert(userProfiles);
+      
+    if (userError) throw userError;
+    
+    // Seed leads
+    // ...
+    
+    // Seed other tables
+    // ...
+    
+    console.log('Database seeding completed successfully!');
+  } catch (error) {
+    console.error('Error seeding database:', error);
+    // Implement rollback logic here
+    process.exit(1);
+  }
+}
+
+seedDatabase();
+```
 
 # Test Strategy:
-Test webhook endpoint with sample payloads. Verify proper authentication and data processing. Check error handling for various scenarios. Ensure proper logging of all webhook activities.
+1. Verify script execution:
+   - Run the seed script in a development environment
+   - Check for successful completion without errors
+   - Verify the script handles the `--reset`, `--count`, and `--environment` options correctly
+
+2. Validate data integrity:
+   - Connect to the Supabase database and query each table to verify record counts
+   - Check that all foreign key relationships are maintained (e.g., lead_id in lead_emails references valid leads)
+   - Verify UUID generation is working correctly for all primary keys
+   - Ensure timestamp fields contain valid ISO date strings
+
+3. Test data transformation:
+   - Compare sample records from the database against the original mock.json to verify correct transformation
+   - Check that JSONB fields are properly formatted
+   - Verify enum values are correctly mapped to database enum types
+
+4. Test error handling:
+   - Deliberately introduce errors (e.g., invalid data, connection issues) to verify error handling
+   - Test the rollback functionality by interrupting the script mid-execution
+   - Verify appropriate error messages are displayed
+
+5. Performance testing:
+   - Measure execution time for different data volumes
+   - Verify the script can handle the full dataset without memory issues
+
+6. Integration testing:
+   - Verify the application can correctly read and display the seeded data
+   - Test CRUD operations against the seeded database

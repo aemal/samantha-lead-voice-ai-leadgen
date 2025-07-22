@@ -251,18 +251,18 @@
       {
         "id": 16,
         "title": "Set Up Supabase Project and Database",
-        "description": "Initialize a Supabase project and configure the PostgreSQL database schema.",
-        "details": "Create a new Supabase project. Set up database tables for leads, phone_calls, lead_emails, lead_evaluations, lead_comments, and user_profiles as per the PRD schema. Configure proper indexes and foreign key relationships. Set up row-level security policies.",
-        "testStrategy": "Verify table creation and relationships. Test data insertion and retrieval. Check row-level security policy effectiveness. Perform basic CRUD operations to ensure schema correctness.",
-        "priority": "high",
-        "dependencies": [
-          2
-        ],
+        "description": "Initialize a Supabase project and configure the PostgreSQL database schema as the starting point for the database migration phase.",
         "status": "pending",
+        "dependencies": [
+          11
+        ],
+        "priority": "high",
+        "details": "Create a new Supabase project to begin the database migration phase. Set up database tables for leads, phone_calls, lead_emails, lead_evaluations, lead_comments, and user_profiles as per the PRD schema. Configure proper indexes and foreign key relationships. Set up row-level security policies. This task marks the transition from frontend mock data to persistent database storage.",
+        "testStrategy": "Verify table creation and relationships. Test data insertion and retrieval. Check row-level security policy effectiveness. Perform basic CRUD operations to ensure schema correctness.",
         "subtasks": []
       },
       {
-        "id": 17,
+        "id": 35,
         "title": "Implement Supabase Authentication",
         "description": "Integrate Supabase Auth for user management and session handling.",
         "details": "Set up Supabase Auth in the Next.js application. Implement sign up, login, and logout functionality. Create protected routes using Next.js middleware. Handle session persistence and refresh. Implement role-based access control using Supabase policies.",
@@ -275,7 +275,7 @@
         "subtasks": []
       },
       {
-        "id": 18,
+        "id": 36,
         "title": "Migrate Mock Data to Supabase",
         "description": "Transfer mock data from JSON to the Supabase PostgreSQL database.",
         "details": "Create a data migration script using Node.js and the Supabase JavaScript client. Ensure data integrity during migration. Handle potential conflicts or duplicates. Add proper error handling and logging. Create a rollback mechanism in case of migration failure.",
@@ -289,7 +289,7 @@
         "subtasks": []
       },
       {
-        "id": 19,
+        "id": 37,
         "title": "Refactor CRUD Operations to Use Supabase Client",
         "description": "Update all data operations to use the Supabase client instead of mock data.",
         "details": "Refactor the state management system to use Supabase queries. Implement optimistic updates for better UX. Handle offline scenarios and data syncing. Use Supabase real-time subscriptions for live updates. Ensure proper error handling for network issues.",
@@ -298,14 +298,14 @@
         "dependencies": [
           8,
           16,
-          17,
-          18
+          35,
+          36
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 20,
+        "id": 38,
         "title": "Implement Real-time Features",
         "description": "Add real-time updates for kanban board and lead details using Supabase subscriptions.",
         "details": "Set up Supabase real-time subscriptions for leads, calls, emails, and comments tables. Implement optimistic UI updates. Handle conflicts for concurrent edits. Add visual indicators for real-time changes. Implement reconnection logic for dropped connections.",
@@ -314,13 +314,13 @@
         "dependencies": [
           5,
           7,
-          19
+          37
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 21,
+        "id": 39,
         "title": "Enhance Lead Details Interface",
         "description": "Improve the lead details view with real data and advanced features.",
         "details": "Refactor lead details component to use real Supabase data. Implement lazy loading for large datasets. Add inline editing capabilities for lead information. Implement version history for lead changes. Add data export functionality (CSV, PDF).",
@@ -328,14 +328,14 @@
         "priority": "medium",
         "dependencies": [
           7,
-          19,
-          20
+          37,
+          38
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 22,
+        "id": 40,
         "title": "Implement Advanced Search and Filtering",
         "description": "Enhance search capabilities with full-text search and advanced filtering options.",
         "details": "Implement full-text search using Supabase's text search capabilities. Add advanced filtering options (date ranges, multiple statuses, tags). Implement saved searches functionality. Use debouncing for search input. Optimize query performance for large datasets.",
@@ -343,27 +343,27 @@
         "priority": "low",
         "dependencies": [
           9,
-          19
+          37
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 23,
+        "id": 41,
         "title": "Create Dashboard and Reporting Features",
         "description": "Develop a dashboard with key metrics and reporting capabilities.",
         "details": "Design a dashboard layout with key performance indicators. Implement charts and graphs using a library like Chart.js or D3.js. Add lead conversion funnel visualization. Create exportable reports (PDF, CSV). Implement date range selection for report generation.",
         "testStrategy": "Verify accuracy of displayed metrics and charts. Test report generation and export functionality. Check responsiveness of dashboard layout. Ensure real-time updates of dashboard data.",
         "priority": "low",
         "dependencies": [
-          19,
-          20
+          37,
+          38
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 24,
+        "id": 42,
         "title": "Implement Webhook Endpoint for n8n Integration",
         "description": "Create a webhook endpoint to receive updates from the n8n voice AI workflow.",
         "details": "Develop a secure webhook endpoint using Next.js API routes. Implement authentication for incoming webhooks. Process incoming data and update relevant database tables. Handle. Handle potential errors and data inconsistencies. Implement logging for all webhook activities.",
@@ -371,32 +371,190 @@
         "priority": "medium",
         "dependencies": [
           16,
-          19
+          37
         ],
         "status": "pending",
         "subtasks": []
       },
       {
-        "id": 25,
+        "id": 43,
         "title": "Optimize Performance and Implement Monitoring",
         "description": "Enhance application performance and set up monitoring and analytics.",
         "details": "Implement code splitting and lazy loading for improved initial load times. Set up Vercel Analytics for performance monitoring. Implement error tracking using a service like Sentry. Optimize database queries and indexes. Set up automated performance testing using Lighthouse CI.",
         "testStrategy": "Measure and compare performance metrics before and after optimization. Verify error tracking functionality. Check monitoring dashboards for accuracy. Run Lighthouse CI tests and ensure passing scores.",
         "priority": "low",
         "dependencies": [
-          19,
+          37,
+          38,
+          39,
+          40,
+          41
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 17,
+        "title": "Create Supabase PostgreSQL Migration File for Leads Table",
+        "description": "Develop a SQL migration file for the leads table with all required columns, appropriate data types, constraints, and performance-optimized indexes.",
+        "details": "Create a Supabase migration file in the project's migration directory with the following specifications:\n\n1. Define the leads table with these columns:\n   - id (UUID, primary key, default to gen_random_uuid())\n   - name (VARCHAR, not null)\n   - email (VARCHAR, not null, unique)\n   - phone (VARCHAR)\n   - status (ENUM type with values: 'lead', 'qualified', 'disqualified', 'appointment_booked')\n   - source (VARCHAR)\n   - created_at (TIMESTAMP with time zone, default to now())\n   - updated_at (TIMESTAMP with time zone, default to now())\n   - notes (TEXT)\n   - priority (ENUM type with values: 'low', 'medium', 'high', default to 'medium')\n\n2. Create appropriate indexes for performance:\n   - Index on email for quick lookups\n   - Index on status for filtering in kanban views\n   - Index on priority for sorting\n   - Index on created_at for chronological queries\n\n3. Add triggers to automatically update the updated_at timestamp when a record is modified\n\n4. Implement proper constraints:\n   - NOT NULL constraints on required fields\n   - CHECK constraints for any field validations\n   - Foreign key constraints if needed\n\n5. Include comments in the migration file explaining the purpose of each index and constraint\n\n6. Follow Supabase migration naming convention: YYYYMMDDHHMMSS_create_leads_table.sql\n\n7. Ensure the migration is idempotent by adding appropriate IF NOT EXISTS checks",
+        "testStrategy": "1. Run the migration in a development environment and verify successful execution without errors\n2. Validate the table structure using \\d+ leads in psql or Supabase Table Editor\n3. Insert test records to verify all constraints are working correctly:\n   - Test inserting records with all required fields\n   - Test inserting duplicate emails (should fail)\n   - Test inserting invalid status values (should fail)\n   - Test inserting invalid priority values (should fail)\n4. Verify indexes are created correctly using \\di in psql\n5. Test performance by running EXPLAIN ANALYZE on common queries:\n   - Filtering by status\n   - Sorting by priority\n   - Searching by email\n6. Verify the updated_at trigger works by updating a record and checking timestamp changes\n7. Test rollback functionality to ensure the migration can be reversed cleanly\n8. Document any issues encountered during testing",
+        "status": "pending",
+        "dependencies": [
+          16
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 18,
+        "title": "Create Supabase PostgreSQL Migration File for User Profiles Table",
+        "description": "Develop a SQL migration file for the user_profiles table that extends auth.users with additional columns for user management and role-based access control.",
+        "details": "Create a Supabase migration file in the project's migration directory with the following specifications:\n\n1. Define the user_profiles table with these columns:\n   - id (UUID primary key, foreign key to auth.users.id)\n   - display_name (VARCHAR(255), not null)\n   - role (ENUM type with values: 'admin', 'manager', 'sales_rep')\n   - avatar_url (VARCHAR(500))\n   - created_at (TIMESTAMP with time zone, default to now())\n   - last_active (TIMESTAMP with time zone)\n\n2. Add foreign key constraint:\n   ```sql\n   ALTER TABLE user_profiles\n   ADD CONSTRAINT fk_user_profiles_auth_users\n   FOREIGN KEY (id) REFERENCES auth.users(id)\n   ON DELETE CASCADE;\n   ```\n\n3. Create appropriate indexes:\n   ```sql\n   CREATE INDEX idx_user_profiles_role ON user_profiles(role);\n   ```\n\n4. Implement Row Level Security (RLS) policies:\n   ```sql\n   -- Enable RLS on the table\n   ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;\n\n   -- Policy for users to view their own profile\n   CREATE POLICY user_profiles_select_own ON user_profiles\n   FOR SELECT USING (auth.uid() = id);\n\n   -- Policy for users to update their own profile (except role)\n   CREATE POLICY user_profiles_update_own ON user_profiles\n   FOR UPDATE USING (auth.uid() = id)\n   WITH CHECK (auth.uid() = id AND role = OLD.role);\n\n   -- Policy for admins to view all profiles\n   CREATE POLICY user_profiles_select_admin ON user_profiles\n   FOR SELECT USING (\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE id = auth.uid() AND role = 'admin'\n     )\n   );\n\n   -- Policy for admins to update all profiles\n   CREATE POLICY user_profiles_update_admin ON user_profiles\n   FOR UPDATE USING (\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE id = auth.uid() AND role = 'admin'\n     )\n   );\n\n   -- Policy for managers to view their sales reps\n   CREATE POLICY user_profiles_select_manager ON user_profiles\n   FOR SELECT USING (\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE id = auth.uid() AND role = 'manager'\n     ) AND role = 'sales_rep'\n   );\n   ```\n\n5. Create a trigger to automatically create a user_profile entry when a new user is created:\n   ```sql\n   CREATE OR REPLACE FUNCTION public.handle_new_user()\n   RETURNS TRIGGER AS $$\n   BEGIN\n     INSERT INTO public.user_profiles (id, display_name, role, created_at)\n     VALUES (new.id, COALESCE(new.raw_user_meta_data->>'full_name', new.email), 'sales_rep', now());\n     RETURN new;\n   END;\n   $$ LANGUAGE plpgsql SECURITY DEFINER;\n\n   CREATE TRIGGER on_auth_user_created\n     AFTER INSERT ON auth.users\n     FOR EACH ROW EXECUTE FUNCTION public.handle_new_user();\n   ```\n\n6. Add comments to the table and columns for documentation:\n   ```sql\n   COMMENT ON TABLE user_profiles IS 'Extended profile information for application users';\n   COMMENT ON COLUMN user_profiles.id IS 'References the auth.users table';\n   COMMENT ON COLUMN user_profiles.role IS 'User role determining access permissions';\n   ```",
+        "testStrategy": "1. Run the migration in a development environment and verify successful execution without errors:\n   ```bash\n   npx supabase migration up\n   ```\n\n2. Validate the table structure using Supabase Table Editor or psql:\n   ```sql\n   \\d+ user_profiles\n   ```\n\n3. Test the foreign key constraint by:\n   - Creating a new auth.users entry and verifying the trigger creates a user_profile\n   - Attempting to create a user_profile with a non-existent auth.users ID (should fail)\n   - Deleting an auth.users entry and verifying the corresponding user_profile is deleted\n\n4. Test RLS policies by:\n   - Logging in as a regular user and verifying they can only view/edit their own profile\n   - Logging in as an admin and verifying they can view/edit all profiles\n   - Logging in as a manager and verifying they can view sales rep profiles\n   - Verifying a regular user cannot change their role\n   - Verifying an admin can change any user's role\n\n5. Test the trigger functionality:\n   - Create a new user through Supabase Auth\n   - Verify a corresponding user_profile is automatically created with correct defaults\n\n6. Verify indexes are properly created:\n   ```sql\n   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'user_profiles';\n   ```\n\n7. Test performance with a significant number of user records to ensure queries are using the indexes properly.",
+        "status": "pending",
+        "dependencies": [
+          16
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 19,
+        "title": "Create Supabase PostgreSQL Migration File for Lead Phone Calls Table",
+        "description": "Develop a SQL migration file for the lead_phone_calls table with all required columns, appropriate data types, constraints, and performance-optimized indexes.",
+        "details": "Create a Supabase migration file in the project's migration directory with the following specifications:\n\n1. Define the lead_phone_calls table with these columns:\n   - id (UUID, primary key, default to gen_random_uuid())\n   - lead_id (UUID, not null, foreign key to leads.id)\n   - call_date (TIMESTAMP with time zone, not null)\n   - duration (INTEGER, representing seconds)\n   - transcript (TEXT)\n   - call_outcome (ENUM type with values: 'answered', 'voicemail', 'no_answer', 'busy')\n   - ai_analysis (JSONB)\n   - created_at (TIMESTAMP with time zone, default to now())\n\n2. Add foreign key constraint:\n   ```sql\n   ALTER TABLE lead_phone_calls\n   ADD CONSTRAINT fk_lead_phone_calls_lead\n   FOREIGN KEY (lead_id)\n   REFERENCES leads(id)\n   ON DELETE CASCADE;\n   ```\n\n3. Create indexes for performance optimization:\n   ```sql\n   CREATE INDEX idx_lead_phone_calls_lead_id ON lead_phone_calls(lead_id);\n   CREATE INDEX idx_lead_phone_calls_call_date ON lead_phone_calls(call_date);\n   CREATE INDEX idx_lead_phone_calls_call_outcome ON lead_phone_calls(call_outcome);\n   ```\n\n4. Create the ENUM type for call outcomes:\n   ```sql\n   CREATE TYPE call_outcome_type AS ENUM ('answered', 'voicemail', 'no_answer', 'busy');\n   ```\n\n5. Add appropriate comments to the table and columns:\n   ```sql\n   COMMENT ON TABLE lead_phone_calls IS 'Records of phone calls made to leads';\n   COMMENT ON COLUMN lead_phone_calls.duration IS 'Call duration in seconds';\n   COMMENT ON COLUMN lead_phone_calls.ai_analysis IS 'JSON data containing AI analysis of the call';\n   ```\n\n6. Implement the migration using the Supabase migration format:\n   ```sql\n   -- Migration file: YYYYMMDDHHMMSS_create_lead_phone_calls_table.sql\n   \n   -- Create ENUM type for call outcomes\n   CREATE TYPE call_outcome_type AS ENUM ('answered', 'voicemail', 'no_answer', 'busy');\n   \n   -- Create lead_phone_calls table\n   CREATE TABLE lead_phone_calls (\n     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n     lead_id UUID NOT NULL,\n     call_date TIMESTAMP WITH TIME ZONE NOT NULL,\n     duration INTEGER,\n     transcript TEXT,\n     call_outcome call_outcome_type,\n     ai_analysis JSONB,\n     created_at TIMESTAMP WITH TIME ZONE DEFAULT now(),\n     \n     CONSTRAINT fk_lead_phone_calls_lead\n       FOREIGN KEY (lead_id)\n       REFERENCES leads(id)\n       ON DELETE CASCADE\n   );\n   \n   -- Create indexes\n   CREATE INDEX idx_lead_phone_calls_lead_id ON lead_phone_calls(lead_id);\n   CREATE INDEX idx_lead_phone_calls_call_date ON lead_phone_calls(call_date);\n   CREATE INDEX idx_lead_phone_calls_call_outcome ON lead_phone_calls(call_outcome);\n   \n   -- Add table and column comments\n   COMMENT ON TABLE lead_phone_calls IS 'Records of phone calls made to leads';\n   COMMENT ON COLUMN lead_phone_calls.duration IS 'Call duration in seconds';\n   COMMENT ON COLUMN lead_phone_calls.ai_analysis IS 'JSON data containing AI analysis of the call';\n   ```",
+        "testStrategy": "1. Run the migration in a development environment and verify successful execution without errors:\n   ```bash\n   npx supabase migration up\n   ```\n\n2. Validate the table structure using Supabase Table Editor or psql:\n   ```sql\n   \\d+ lead_phone_calls\n   ```\n\n3. Test the foreign key constraint by:\n   - Inserting a record with a non-existent lead_id (should fail)\n   - Deleting a lead and verifying cascade deletion of associated phone calls\n\n4. Test the ENUM constraint by:\n   - Inserting records with valid call outcomes\n   - Attempting to insert a record with an invalid call outcome (should fail)\n\n5. Verify indexes are created correctly:\n   ```sql\n   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'lead_phone_calls';\n   ```\n\n6. Insert test records to verify all columns accept appropriate data types:\n   ```sql\n   INSERT INTO lead_phone_calls (lead_id, call_date, duration, transcript, call_outcome, ai_analysis)\n   VALUES \n   ('existing-lead-uuid', now(), 120, 'Sample transcript text', 'answered', '{\"sentiment\": \"positive\", \"keywords\": [\"interested\", \"follow-up\"]}');\n   ```\n\n7. Query the inserted data to verify retrieval works correctly:\n   ```sql\n   SELECT * FROM lead_phone_calls WHERE lead_id = 'existing-lead-uuid';\n   ```\n\n8. Test JSONB functionality by querying based on JSON properties:\n   ```sql\n   SELECT * FROM lead_phone_calls WHERE ai_analysis->>'sentiment' = 'positive';\n   ```",
+        "status": "pending",
+        "dependencies": [
+          16,
+          17
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 20,
+        "title": "Create Supabase PostgreSQL Migration File for Lead Emails Table",
+        "description": "Develop a SQL migration file for the lead_emails table with all required columns, appropriate data types, constraints, and performance-optimized indexes.",
+        "details": "Create a Supabase migration file in the project's migration directory with the following specifications:\n\n1. Define the lead_emails table with these columns:\n   - id (UUID, primary key, default to gen_random_uuid())\n   - lead_id (UUID, not null, foreign key to leads.id)\n   - email_type (ENUM type with values: 'outbound', 'inbound')\n   - subject (VARCHAR(255))\n   - content (TEXT)\n   - sent_at (TIMESTAMP with time zone)\n   - opened_at (TIMESTAMP with time zone)\n   - clicked_at (TIMESTAMP with time zone)\n   - replied_at (TIMESTAMP with time zone)\n   - email_status (ENUM type with values: 'sent', 'delivered', 'opened', 'clicked', 'replied')\n   - created_at (TIMESTAMP with time zone, default to now())\n\n2. Add foreign key constraint:\n   ```sql\n   ALTER TABLE lead_emails\n   ADD CONSTRAINT fk_lead_emails_lead\n   FOREIGN KEY (lead_id)\n   REFERENCES leads(id)\n   ON DELETE CASCADE;\n   ```\n\n3. Create the following indexes for performance optimization:\n   ```sql\n   CREATE INDEX idx_lead_emails_lead_id ON lead_emails(lead_id);\n   CREATE INDEX idx_lead_emails_email_type ON lead_emails(email_type);\n   CREATE INDEX idx_lead_emails_email_status ON lead_emails(email_status);\n   CREATE INDEX idx_lead_emails_sent_at ON lead_emails(sent_at);\n   ```\n\n4. Add appropriate comments to document the table and columns:\n   ```sql\n   COMMENT ON TABLE lead_emails IS 'Stores all email communications with leads';\n   COMMENT ON COLUMN lead_emails.email_type IS 'Direction of email: outbound (sent to lead) or inbound (received from lead)';\n   COMMENT ON COLUMN lead_emails.email_status IS 'Current status of the email in the delivery/engagement lifecycle';\n   ```\n\n5. Create custom types if they don't exist:\n   ```sql\n   DO $$\n   BEGIN\n     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'email_type_enum') THEN\n       CREATE TYPE email_type_enum AS ENUM ('outbound', 'inbound');\n     END IF;\n     \n     IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'email_status_enum') THEN\n       CREATE TYPE email_status_enum AS ENUM ('sent', 'delivered', 'opened', 'clicked', 'replied');\n     END IF;\n   END\n   $$;",
+        "testStrategy": "1. Run the migration in a development environment and verify successful execution without errors:\n   ```bash\n   npx supabase migration up\n   ```\n\n2. Validate the table structure using Supabase Table Editor or psql:\n   ```sql\n   \\d+ lead_emails\n   ```\n\n3. Test the foreign key constraint by:\n   - Inserting a record with a non-existent lead_id (should fail)\n   - Deleting a lead and verifying cascade deletion of associated emails\n\n4. Test the ENUM constraints by:\n   - Inserting records with valid email_type values ('outbound', 'inbound')\n   - Attempting to insert a record with an invalid email_type (should fail)\n   - Inserting records with valid email_status values\n   - Attempting to insert a record with an invalid email_status (should fail)\n\n5. Verify indexes are created correctly:\n   ```sql\n   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'lead_emails';\n   ```\n\n6. Insert test records with various combinations of values and verify data integrity:\n   ```sql\n   INSERT INTO lead_emails (lead_id, email_type, subject, content, sent_at, email_status)\n   VALUES \n   ([valid_lead_id], 'outbound', 'Test Subject', 'Test Content', now(), 'sent');\n   ```\n\n7. Query the table to ensure data is stored and retrieved correctly:\n   ```sql\n   SELECT * FROM lead_emails WHERE lead_id = [valid_lead_id];\n   ```",
+        "status": "pending",
+        "dependencies": [
+          16,
+          17
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 21,
+        "title": "Create Supabase PostgreSQL Migration File for Lead Evaluations Table",
+        "description": "Develop a SQL migration file for the lead_evaluations table with all required columns, appropriate data types, constraints, and performance-optimized indexes.",
+        "details": "Create a Supabase migration file in the project's migration directory with the following specifications:\n\n1. Define the lead_evaluations table with these columns:\n   - id (UUID, primary key, default to gen_random_uuid())\n   - lead_id (UUID, not null, foreign key to leads.id)\n   - evaluation_type (ENUM type with values: 'phone', 'email')\n   - qualification_score (INTEGER, check constraint to ensure value between 1-100)\n   - evaluation_result (JSONB, to store detailed evaluation data)\n   - criteria_met (JSONB, to store which qualification criteria were satisfied)\n   - confidence_score (DECIMAL(3,2), to store AI confidence level)\n   - created_at (TIMESTAMP with time zone, default to now())\n   - evaluator_version (VARCHAR(50), to track which version of the evaluator made the assessment)\n\n2. Add foreign key constraint:\n   ```sql\n   ALTER TABLE lead_evaluations\n   ADD CONSTRAINT fk_lead_evaluations_lead\n   FOREIGN KEY (lead_id) REFERENCES leads(id)\n   ON DELETE CASCADE;\n   ```\n\n3. Create indexes for performance optimization:\n   ```sql\n   CREATE INDEX idx_lead_evaluations_lead_id ON lead_evaluations(lead_id);\n   CREATE INDEX idx_lead_evaluations_evaluation_type ON lead_evaluations(evaluation_type);\n   CREATE INDEX idx_lead_evaluations_qualification_score ON lead_evaluations(qualification_score);\n   CREATE INDEX idx_lead_evaluations_created_at ON lead_evaluations(created_at);\n   ```\n\n4. Add check constraint for qualification_score:\n   ```sql\n   ALTER TABLE lead_evaluations\n   ADD CONSTRAINT check_qualification_score\n   CHECK (qualification_score >= 1 AND qualification_score <= 100);\n   ```\n\n5. Create the migration file using Supabase CLI:\n   ```bash\n   npx supabase migration new create_lead_evaluations_table\n   ```\n\n6. Implement the migration file with proper up and down functions to allow rollback if needed.\n\n7. Document the schema with appropriate comments for future reference.",
+        "testStrategy": "1. Run the migration in a development environment and verify successful execution without errors:\n   ```bash\n   npx supabase migration up\n   ```\n\n2. Validate the table structure using Supabase Table Editor or psql:\n   ```sql\n   \\d+ lead_evaluations\n   ```\n\n3. Test the foreign key constraint by:\n   - Inserting a record with a non-existent lead_id (should fail)\n   - Deleting a lead and verifying cascade deletion of related evaluations\n\n4. Test the check constraint by:\n   - Attempting to insert records with qualification_score values outside the 1-100 range\n   - Verifying that valid scores within range are accepted\n\n5. Test JSONB columns by:\n   - Inserting complex JSON structures into evaluation_result and criteria_met\n   - Querying using JSONB operators to extract specific evaluation data\n\n6. Verify indexes are created correctly:\n   ```sql\n   SELECT indexname, indexdef FROM pg_indexes WHERE tablename = 'lead_evaluations';\n   ```\n\n7. Insert sample data and perform query performance tests to ensure indexes are effective:\n   ```sql\n   EXPLAIN ANALYZE SELECT * FROM lead_evaluations WHERE lead_id = 'some-uuid';\n   EXPLAIN ANALYZE SELECT * FROM lead_evaluations WHERE evaluation_type = 'phone';\n   ```\n\n8. Test rollback functionality by running:\n   ```bash\n   npx supabase migration down -n 1\n   ```\n   and verifying the table is properly removed.",
+        "status": "pending",
+        "dependencies": [
+          16,
+          17
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 22,
+        "title": "Create Supabase PostgreSQL Migration File for Lead Comments Table",
+        "description": "Develop a SQL migration file for the lead_comments table with all required columns, appropriate data types, constraints, and performance-optimized indexes.",
+        "details": "Create a Supabase migration file in the project's migration directory with the following specifications:\n\n1. Define the lead_comments table with these columns:\n   - id (UUID, primary key, default to gen_random_uuid())\n   - lead_id (UUID, not null, foreign key to leads.id)\n   - user_id (UUID, not null, foreign key to auth.users)\n   - comment_text (TEXT, not null)\n   - is_internal (BOOLEAN, not null, default to false)\n   - created_at (TIMESTAMP with time zone, not null, default to now())\n   - updated_at (TIMESTAMP with time zone, not null, default to now())\n   - parent_comment_id (UUID, nullable, self-referencing foreign key to lead_comments.id)\n\n2. Add foreign key constraints:\n   ```sql\n   ALTER TABLE lead_comments ADD CONSTRAINT fk_lead_comments_lead_id FOREIGN KEY (lead_id) REFERENCES leads(id) ON DELETE CASCADE;\n   ALTER TABLE lead_comments ADD CONSTRAINT fk_lead_comments_user_id FOREIGN KEY (user_id) REFERENCES auth.users(id) ON DELETE CASCADE;\n   ALTER TABLE lead_comments ADD CONSTRAINT fk_lead_comments_parent_id FOREIGN KEY (parent_comment_id) REFERENCES lead_comments(id) ON DELETE SET NULL;\n   ```\n\n3. Create indexes for performance optimization:\n   ```sql\n   CREATE INDEX idx_lead_comments_lead_id ON lead_comments(lead_id);\n   CREATE INDEX idx_lead_comments_user_id ON lead_comments(user_id);\n   CREATE INDEX idx_lead_comments_parent_id ON lead_comments(parent_comment_id);\n   CREATE INDEX idx_lead_comments_created_at ON lead_comments(created_at);\n   ```\n\n4. Implement Row Level Security (RLS) policies:\n   ```sql\n   -- Enable RLS on the table\n   ALTER TABLE lead_comments ENABLE ROW LEVEL SECURITY;\n\n   -- Create policy for viewing comments\n   CREATE POLICY \"Users can view all comments they have access to\" ON lead_comments\n   FOR SELECT USING (\n     -- Allow users to see comments they created\n     auth.uid() = user_id\n     -- Allow users to see non-internal comments\n     OR is_internal = false\n     -- Allow users with admin role to see all comments\n     OR EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE user_profiles.id = auth.uid() AND role = 'admin'\n     )\n   );\n\n   -- Create policy for inserting comments\n   CREATE POLICY \"Users can insert their own comments\" ON lead_comments\n   FOR INSERT WITH CHECK (auth.uid() = user_id);\n\n   -- Create policy for updating comments\n   CREATE POLICY \"Users can update their own comments\" ON lead_comments\n   FOR UPDATE USING (auth.uid() = user_id)\n   WITH CHECK (auth.uid() = user_id);\n\n   -- Create policy for deleting comments\n   CREATE POLICY \"Users can delete their own comments\" ON lead_comments\n   FOR DELETE USING (auth.uid() = user_id);\n   ```\n\n5. Create a trigger to automatically update the updated_at timestamp:\n   ```sql\n   CREATE OR REPLACE FUNCTION update_lead_comments_updated_at()\n   RETURNS TRIGGER AS $$\n   BEGIN\n     NEW.updated_at = now();\n     RETURN NEW;\n   END;\n   $$ LANGUAGE plpgsql;\n\n   CREATE TRIGGER set_lead_comments_updated_at\n   BEFORE UPDATE ON lead_comments\n   FOR EACH ROW\n   EXECUTE FUNCTION update_lead_comments_updated_at();\n   ```\n\n6. Add the migration file to the project's migration directory with an appropriate timestamp and name:\n   ```\n   supabase/migrations/[timestamp]_create_lead_comments_table.sql\n   ```",
+        "testStrategy": "1. Run the migration in a development environment and verify successful execution without errors:\n   ```bash\n   npx supabase migration up\n   ```\n\n2. Validate the table structure using Supabase Table Editor or psql:\n   ```sql\n   \\d+ lead_comments\n   ```\n\n3. Test the foreign key constraints by:\n   - Inserting a comment with a non-existent lead_id (should fail)\n   - Inserting a comment with a non-existent user_id (should fail)\n   - Inserting a comment with a non-existent parent_comment_id (should fail)\n   - Deleting a lead and verifying its comments are cascaded (should succeed)\n\n4. Test the RLS policies by:\n   - Creating a test user with a non-admin role and verifying they can only see their own comments and non-internal comments\n   - Creating a test user with an admin role and verifying they can see all comments\n   - Verifying users can only update and delete their own comments\n\n5. Test the updated_at trigger by:\n   - Inserting a new comment and verifying created_at and updated_at are set\n   - Updating a comment and verifying updated_at changes while created_at remains the same\n\n6. Test threading functionality by:\n   - Creating parent comments\n   - Creating child comments with parent_comment_id references\n   - Verifying the relationship is maintained correctly\n\n7. Test performance with a significant volume of test data:\n   - Insert 1000+ test comments\n   - Run query performance tests to ensure indexes are working correctly",
+        "status": "pending",
+        "dependencies": [
+          16,
+          17,
+          18,
+          11
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 23,
+        "title": "Create Row Level Security (RLS) Policies for Database Tables",
+        "description": "Implement Row Level Security policies for all database tables to ensure proper access control based on user authentication and role-based permissions.",
+        "details": "Create comprehensive Row Level Security (RLS) policies for all database tables in the Supabase PostgreSQL database with the following specifications:\n\n1. Enable RLS on all tables:\n   ```sql\n   ALTER TABLE leads ENABLE ROW LEVEL SECURITY;\n   ALTER TABLE lead_emails ENABLE ROW LEVEL SECURITY;\n   ALTER TABLE lead_evaluations ENABLE ROW LEVEL SECURITY;\n   ALTER TABLE lead_comments ENABLE ROW LEVEL SECURITY;\n   ALTER TABLE user_profiles ENABLE ROW LEVEL SECURITY;\n   ```\n\n2. Create authentication policies to ensure only authenticated users can access data:\n   ```sql\n   CREATE POLICY \"authenticated_users_can_read_leads\" \n   ON leads FOR SELECT \n   USING (auth.role() = 'authenticated');\n   ```\n\n3. Implement role-based access policies for each table:\n   \n   a. Admin role policies (full access):\n   ```sql\n   CREATE POLICY \"admins_can_manage_all_leads\" \n   ON leads FOR ALL \n   USING (\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE user_profiles.id = auth.uid() \n       AND user_profiles.role = 'admin'\n     )\n   );\n   ```\n   \n   b. Manager role policies (read all, modify team data):\n   ```sql\n   CREATE POLICY \"managers_can_read_all_leads\" \n   ON leads FOR SELECT \n   USING (\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE user_profiles.id = auth.uid() \n       AND user_profiles.role = 'manager'\n     )\n   );\n   \n   CREATE POLICY \"managers_can_modify_team_leads\" \n   ON leads FOR UPDATE \n   USING (\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE user_profiles.id = auth.uid() \n       AND user_profiles.role = 'manager'\n     )\n   );\n   ```\n   \n   c. Sales rep policies (access only assigned leads):\n   ```sql\n   CREATE POLICY \"sales_reps_can_read_assigned_leads\" \n   ON leads FOR SELECT \n   USING (\n     leads.assigned_to = auth.uid() OR\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE user_profiles.id = auth.uid() \n       AND user_profiles.role IN ('manager', 'admin')\n     )\n   );\n   ```\n\n4. Create data isolation policies for each table to ensure proper separation:\n   ```sql\n   CREATE POLICY \"users_can_only_see_their_comments\" \n   ON lead_comments FOR SELECT \n   USING (\n     lead_comments.user_id = auth.uid() OR\n     lead_comments.is_internal = false OR\n     EXISTS (\n       SELECT 1 FROM user_profiles\n       WHERE user_profiles.id = auth.uid() \n       AND user_profiles.role IN ('manager', 'admin')\n     )\n   );\n   ```\n\n5. Create a migration file that applies all RLS policies:\n   - Place the migration file in the project's migration directory\n   - Include all policy definitions for each table\n   - Add comments explaining the purpose of each policy\n   - Ensure policies are applied in the correct order\n\n6. Update the database schema documentation to reflect the security model implemented through RLS policies.\n\n7. Consider performance implications of RLS policies and optimize where necessary.",
+        "testStrategy": "1. Test authentication policies:\n   - Attempt to access data without authentication and verify access is denied\n   - Access data with valid authentication and verify access is granted\n\n2. Test role-based access policies:\n   - Create test users with different roles (admin, manager, sales_rep)\n   - Verify admin users can perform all operations on all tables\n   - Verify managers can read all data but only modify their team's data\n   - Verify sales reps can only access their assigned leads\n\n3. Test data isolation:\n   - Create test scenarios with multiple users and overlapping data\n   - Verify users can only see data they should have access to\n   - Test edge cases like shared resources and public data\n\n4. Performance testing:\n   - Measure query performance with and without RLS policies\n   - Identify any significant performance degradation\n   - Optimize policies if necessary\n\n5. Security audit:\n   - Perform a comprehensive security audit of all policies\n   - Attempt to bypass security through various attack vectors\n   - Verify no unintended access patterns exist\n\n6. Integration testing:\n   - Test the application with RLS policies enabled\n   - Verify all application features work correctly with security constraints\n   - Test user experience for different roles\n\n7. Create a test script that validates all policies are working as expected:\n   ```sql\n   -- Example test query\n   SET LOCAL ROLE authenticated;\n   SET LOCAL \"request.jwt.claims\" TO '{\"role\": \"authenticated\", \"sub\": \"test-user-id\"}';\n   SELECT * FROM leads; -- Should return only accessible leads\n   ```",
+        "status": "pending",
+        "dependencies": [
+          16,
+          17,
+          18,
+          20,
+          21,
+          22
+        ],
+        "priority": "high",
+        "subtasks": []
+      },
+      {
+        "id": 24,
+        "title": "Create Database Seed Script for Supabase",
+        "description": "Develop a comprehensive database seed script that populates all Supabase tables with mock data from mock.json, including proper data transformation and UUID generation.",
+        "details": "Create a TypeScript-based seed script that will:\n\n1. Import and parse the mock.json file created in Task 2\n2. Connect to the Supabase instance using the Supabase JavaScript client\n3. Transform the mock data to match the database schema:\n   - Generate UUIDs for all primary keys\n   - Format dates as ISO strings for timestamp fields\n   - Convert any nested objects to JSONB format for appropriate columns\n   - Ensure proper foreign key relationships between tables\n\n4. Implement the seeding process in the following order to maintain referential integrity:\n   - user_profiles (extending from auth.users)\n   - leads\n   - lead_emails\n   - lead_phone_calls\n   - lead_evaluations\n   - lead_comments\n\n5. Add error handling with detailed logging:\n   - Catch and log database errors\n   - Implement transaction support for atomicity\n   - Add rollback capability if seeding fails\n\n6. Create a CLI interface with options:\n   - `--reset` to clear existing data before seeding\n   - `--count` to specify the number of records to generate\n   - `--environment` to target different environments (dev, staging)\n\n7. Add progress indicators during the seeding process\n\n8. Document the script with JSDoc comments for maintainability\n\nExample implementation structure:\n```typescript\nimport { createClient } from '@supabase/supabase-js';\nimport fs from 'fs';\nimport { v4 as uuidv4 } from 'uuid';\nimport { program } from 'commander';\n\n// CLI configuration\nprogram\n  .option('-r, --reset', 'Clear existing data before seeding')\n  .option('-c, --count <number>', 'Number of records to generate', '50')\n  .option('-e, --environment <env>', 'Target environment', 'dev')\n  .parse(process.argv);\n\nconst options = program.opts();\n\n// Initialize Supabase client\nconst supabaseUrl = process.env.SUPABASE_URL;\nconst supabaseKey = process.env.SUPABASE_SERVICE_KEY;\nconst supabase = createClient(supabaseUrl, supabaseKey);\n\nasync function seedDatabase() {\n  try {\n    // Read mock data\n    const mockData = JSON.parse(fs.readFileSync('./mock.json', 'utf8'));\n    \n    // Begin transaction\n    console.log('Starting database seed...');\n    \n    // Clear existing data if reset option is enabled\n    if (options.reset) {\n      console.log('Clearing existing data...');\n      // Delete data in reverse order of dependencies\n      // ...\n    }\n    \n    // Seed user_profiles\n    console.log('Seeding user profiles...');\n    const userProfiles = mockData.users.map(user => ({\n      id: uuidv4(),\n      display_name: user.name,\n      role: user.role,\n      avatar_url: user.avatar,\n      created_at: new Date().toISOString(),\n      last_active: new Date().toISOString()\n    }));\n    \n    const { error: userError } = await supabase\n      .from('user_profiles')\n      .insert(userProfiles);\n      \n    if (userError) throw userError;\n    \n    // Seed leads\n    // ...\n    \n    // Seed other tables\n    // ...\n    \n    console.log('Database seeding completed successfully!');\n  } catch (error) {\n    console.error('Error seeding database:', error);\n    // Implement rollback logic here\n    process.exit(1);\n  }\n}\n\nseedDatabase();\n```",
+        "testStrategy": "1. Verify script execution:\n   - Run the seed script in a development environment\n   - Check for successful completion without errors\n   - Verify the script handles the `--reset`, `--count`, and `--environment` options correctly\n\n2. Validate data integrity:\n   - Connect to the Supabase database and query each table to verify record counts\n   - Check that all foreign key relationships are maintained (e.g., lead_id in lead_emails references valid leads)\n   - Verify UUID generation is working correctly for all primary keys\n   - Ensure timestamp fields contain valid ISO date strings\n\n3. Test data transformation:\n   - Compare sample records from the database against the original mock.json to verify correct transformation\n   - Check that JSONB fields are properly formatted\n   - Verify enum values are correctly mapped to database enum types\n\n4. Test error handling:\n   - Deliberately introduce errors (e.g., invalid data, connection issues) to verify error handling\n   - Test the rollback functionality by interrupting the script mid-execution\n   - Verify appropriate error messages are displayed\n\n5. Performance testing:\n   - Measure execution time for different data volumes\n   - Verify the script can handle the full dataset without memory issues\n\n6. Integration testing:\n   - Verify the application can correctly read and display the seeded data\n   - Test CRUD operations against the seeded database",
+        "status": "pending",
+        "dependencies": [
+          2,
+          16,
+          17,
+          18,
+          20,
+          21
+        ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 25,
+        "title": "Update Project README with Comprehensive Supabase Setup Instructions",
+        "description": "Create detailed documentation in the project README.md that provides comprehensive Supabase setup instructions, including environment configuration, migration commands, seeding, local development, and RLS policy deployment.",
+        "details": "Update the project README.md with the following comprehensive Supabase setup sections:\n\n1. **Supabase Project Setup**\n   - Instructions for creating a new Supabase project\n   - Dashboard navigation and project configuration\n   - Obtaining API keys and project URL\n\n2. **Environment Variables Configuration**\n   - Create a `.env.local.example` template file with all required Supabase variables:\n     ```\n     NEXT_PUBLIC_SUPABASE_URL=your-project-url\n     NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key\n     SUPABASE_SERVICE_ROLE_KEY=your-service-role-key\n     ```\n   - Instructions for copying to `.env.local` and filling in values\n   - Explanation of each environment variable's purpose and security considerations\n\n3. **Database Migration Instructions**\n   - Step-by-step guide for running migrations:\n     ```bash\n     npx supabase migration up\n     ```\n   - Explanation of migration file structure and naming conventions\n   - Instructions for creating new migrations\n   - Handling migration conflicts and rollbacks\n\n4. **Database Seeding Instructions**\n   - Commands for running the seed script:\n     ```bash\n     npm run seed\n     # or with options\n     npm run seed -- --reset --count=50 --environment=development\n     ```\n   - Explanation of seed script parameters and options\n   - Troubleshooting common seeding issues\n\n5. **Local Development Setup**\n   - Instructions for starting the Supabase local development environment\n   - Connecting the Next.js application to local Supabase\n   - Development workflow best practices\n   - Debugging tips for Supabase integration issues\n\n6. **Row Level Security (RLS) Policy Deployment**\n   - Explanation of RLS concepts and importance\n   - Instructions for deploying RLS policies via migrations\n   - Testing RLS policies in development\n   - Verifying policy effectiveness\n\n7. **Supabase Client Integration**\n   - Example of initializing the Supabase client in the application\n   - Best practices for using the client throughout the app\n   - Error handling and connection management\n\n8. **Troubleshooting Section**\n   - Common issues and their solutions\n   - Resources for further learning and support\n\nFormat the README with clear headings, code blocks with syntax highlighting, and step-by-step instructions that are easy to follow. Include links to official Supabase documentation where appropriate.",
+        "testStrategy": "1. Verify README completeness:\n   - Ensure all required sections are included and properly formatted\n   - Check that all code examples are correct and properly syntax-highlighted\n   - Verify that all commands and instructions are accurate\n\n2. Test instructions by following them on a fresh setup:\n   - Create a new local environment following only the README instructions\n   - Set up environment variables as documented\n   - Run migrations according to the instructions\n   - Execute the seeding process as described\n   - Verify RLS policies are correctly applied\n\n3. Peer review:\n   - Have another team member follow the instructions to verify clarity\n   - Collect feedback on any confusing or incomplete sections\n   - Update documentation based on feedback\n\n4. Documentation validation:\n   - Check for broken links or references\n   - Ensure consistency with actual codebase structure and commands\n   - Verify that screenshots or diagrams (if any) are current and accurate\n\n5. Accessibility check:\n   - Ensure the markdown is properly structured for screen readers\n   - Check that code blocks are properly formatted for accessibility\n   - Verify color contrast in any custom formatting",
+        "status": "pending",
+        "dependencies": [
+          1,
+          16,
+          17,
+          18,
           20,
           21,
           22,
-          23
+          23,
+          24
         ],
+        "priority": "medium",
+        "subtasks": []
+      },
+      {
+        "id": 26,
+        "title": "Create Next.js API Routes for Supabase CRUD Operations",
+        "description": "Develop API routes in Next.js for server-side CRUD operations with Supabase client integration for leads, phone calls, emails, evaluations, and comments with proper error handling, validation, and authentication middleware.",
+        "details": "Implement Next.js API routes in the app/api directory following these steps:\n\n1. Create a structured API route hierarchy:\n   ```\n   app/api/\n   ├── leads/\n   │   ├── route.ts (GET, POST)\n   │   └── [id]/\n   │       ├── route.ts (GET, PUT, DELETE)\n   │       ├── calls/route.ts\n   │       ├── emails/route.ts\n   │       ├── evaluations/route.ts\n   │       └── comments/route.ts\n   ├── calls/route.ts\n   ├── emails/route.ts\n   ├── evaluations/route.ts\n   └── comments/route.ts\n   ```\n\n2. Implement a middleware layer for authentication:\n   ```typescript\n   // app/api/middleware.ts\n   import { NextRequest, NextResponse } from 'next/server';\n   import { createClient } from '@supabase/supabase-js';\n\n   export async function withAuth(\n     req: NextRequest,\n     handler: (req: NextRequest, supabase: any) => Promise<NextResponse>\n   ) {\n     // Initialize Supabase client\n     const supabase = createClient(\n       process.env.NEXT_PUBLIC_SUPABASE_URL!,\n       process.env.SUPABASE_SERVICE_ROLE_KEY!\n     );\n     \n     // Get JWT from request\n     const authHeader = req.headers.get('authorization');\n     if (!authHeader || !authHeader.startsWith('Bearer ')) {\n       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });\n     }\n     \n     const token = authHeader.split(' ')[1];\n     \n     // Verify the token\n     const { data: { user }, error } = await supabase.auth.getUser(token);\n     \n     if (error || !user) {\n       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });\n     }\n     \n     // Call the handler with authenticated request\n     return handler(req, supabase);\n   }\n   ```\n\n3. Create a validation utility using zod:\n   ```typescript\n   // app/api/validation.ts\n   import { z } from 'zod';\n   import { NextRequest, NextResponse } from 'next/server';\n\n   export async function validateRequest<T>(\n     req: NextRequest,\n     schema: z.ZodType<T>\n   ): Promise<{ data: T; error: null } | { data: null; error: NextResponse }> {\n     try {\n       const body = await req.json();\n       const data = schema.parse(body);\n       return { data, error: null };\n     } catch (error) {\n       return {\n         data: null,\n         error: NextResponse.json(\n           { error: 'Validation error', details: error },\n           { status: 400 }\n         )\n       };\n     }\n   }\n   ```\n\n4. Define validation schemas for each entity:\n   ```typescript\n   // app/api/schemas.ts\n   import { z } from 'zod';\n\n   export const leadSchema = z.object({\n     name: z.string().min(1),\n     email: z.string().email(),\n     phone: z.string().optional(),\n     status: z.enum(['lead', 'qualified', 'disqualified', 'appointment_booked']),\n     source: z.string().optional()\n   });\n\n   export const callSchema = z.object({\n     lead_id: z.string().uuid(),\n     call_type: z.enum(['outbound', 'inbound']),\n     duration: z.number().int().min(0),\n     notes: z.string().optional(),\n     outcome: z.string().optional()\n   });\n\n   // Similar schemas for emails, evaluations, and comments\n   ```\n\n5. Implement the leads API routes:\n   ```typescript\n   // app/api/leads/route.ts\n   import { NextRequest, NextResponse } from 'next/server';\n   import { withAuth } from '../middleware';\n   import { validateRequest } from '../validation';\n   import { leadSchema } from '../schemas';\n\n   export async function GET(req: NextRequest) {\n     return withAuth(req, async (req, supabase) => {\n       const { data, error } = await supabase\n         .from('leads')\n         .select('*');\n       \n       if (error) {\n         return NextResponse.json({ error: error.message }, { status: 500 });\n       }\n       \n       return NextResponse.json(data);\n     });\n   }\n\n   export async function POST(req: NextRequest) {\n     return withAuth(req, async (req, supabase) => {\n       const validation = await validateRequest(req, leadSchema);\n       \n       if (validation.error) {\n         return validation.error;\n       }\n       \n       const { data, error } = await supabase\n         .from('leads')\n         .insert(validation.data)\n         .select();\n       \n       if (error) {\n         return NextResponse.json({ error: error.message }, { status: 500 });\n       }\n       \n       return NextResponse.json(data[0], { status: 201 });\n     });\n   }\n   ```\n\n6. Implement the single lead API routes:\n   ```typescript\n   // app/api/leads/[id]/route.ts\n   import { NextRequest, NextResponse } from 'next/server';\n   import { withAuth } from '../../middleware';\n   import { validateRequest } from '../../validation';\n   import { leadSchema } from '../../schemas';\n\n   export async function GET(\n     req: NextRequest,\n     { params }: { params: { id: string } }\n   ) {\n     return withAuth(req, async (req, supabase) => {\n       const { data, error } = await supabase\n         .from('leads')\n         .select('*')\n         .eq('id', params.id)\n         .single();\n       \n       if (error) {\n         if (error.code === 'PGRST116') {\n           return NextResponse.json({ error: 'Lead not found' }, { status: 404 });\n         }\n         return NextResponse.json({ error: error.message }, { status: 500 });\n       }\n       \n       return NextResponse.json(data);\n     });\n   }\n\n   export async function PUT(\n     req: NextRequest,\n     { params }: { params: { id: string } }\n   ) {\n     return withAuth(req, async (req, supabase) => {\n       const validation = await validateRequest(req, leadSchema.partial());\n       \n       if (validation.error) {\n         return validation.error;\n       }\n       \n       const { data, error } = await supabase\n         .from('leads')\n         .update(validation.data)\n         .eq('id', params.id)\n         .select();\n       \n       if (error) {\n         return NextResponse.json({ error: error.message }, { status: 500 });\n       }\n       \n       if (data.length === 0) {\n         return NextResponse.json({ error: 'Lead not found' }, { status: 404 });\n       }\n       \n       return NextResponse.json(data[0]);\n     });\n   }\n\n   export async function DELETE(\n     req: NextRequest,\n     { params }: { params: { id: string } }\n   ) {\n     return withAuth(req, async (req, supabase) => {\n       const { error } = await supabase\n         .from('leads')\n         .delete()\n         .eq('id', params.id);\n       \n       if (error) {\n         return NextResponse.json({ error: error.message }, { status: 500 });\n       }\n       \n       return NextResponse.json({}, { status: 204 });\n     });\n   }\n   ```\n\n7. Implement similar patterns for other entities (calls, emails, evaluations, comments).\n\n8. Add error handling utilities:\n   ```typescript\n   // app/api/error.ts\n   import { NextResponse } from 'next/server';\n\n   export function handleDatabaseError(error: any) {\n     console.error('Database error:', error);\n     \n     // Handle specific Postgres error codes\n     if (error.code === '23505') {\n       return NextResponse.json(\n         { error: 'Duplicate record', details: error.details },\n         { status: 409 }\n       );\n     }\n     \n     if (error.code === '23503') {\n       return NextResponse.json(\n         { error: 'Foreign key violation', details: error.details },\n         { status: 400 }\n       );\n     }\n     \n     return NextResponse.json(\n       { error: 'Database error', message: error.message },\n       { status: 500 }\n     );\n   }\n   ```\n\n9. Implement rate limiting middleware to prevent abuse:\n   ```typescript\n   // app/api/rate-limit.ts\n   import { NextRequest, NextResponse } from 'next/server';\n   import { Redis } from '@upstash/redis';\n\n   const redis = Redis.fromEnv();\n   const WINDOW_SIZE = 60; // 1 minute\n   const MAX_REQUESTS = 100; // per minute\n\n   export async function withRateLimit(\n     req: NextRequest,\n     handler: (req: NextRequest) => Promise<NextResponse>\n   ) {\n     const ip = req.headers.get('x-forwarded-for') || 'unknown';\n     const key = `rate-limit:${ip}`;\n     \n     const requests = await redis.incr(key);\n     if (requests === 1) {\n       await redis.expire(key, WINDOW_SIZE);\n     }\n     \n     if (requests > MAX_REQUESTS) {\n       return NextResponse.json(\n         { error: 'Too many requests' },\n         { status: 429 }\n       );\n     }\n     \n     return handler(req);\n   }\n   ```\n\n10. Implement proper logging for API requests:\n    ```typescript\n    // app/api/logger.ts\n    import { NextRequest, NextResponse } from 'next/server';\n\n    export async function withLogging(\n      req: NextRequest,\n      handler: (req: NextRequest) => Promise<NextResponse>\n    ) {\n      const start = Date.now();\n      const method = req.method;\n      const url = req.url;\n      \n      console.log(`[${method}] ${url} - Request received`);\n      \n      try {\n        const response = await handler(req);\n        const duration = Date.now() - start;\n        \n        console.log(`[${method}] ${url} - ${response.status} (${duration}ms)`);\n        \n        return response;\n      } catch (error) {\n        console.error(`[${method}] ${url} - Error:`, error);\n        throw error;\n      }\n    }\n    ```",
+        "testStrategy": "1. Unit Testing:\n   - Create Jest tests for each API route using Next.js testing utilities\n   - Mock the Supabase client responses for predictable test outcomes\n   - Test validation logic with valid and invalid payloads\n   - Verify error handling for various error scenarios\n   - Test authentication middleware with valid and invalid tokens\n\n   ```typescript\n   // Example unit test for leads POST endpoint\n   import { POST } from '@/app/api/leads/route';\n   import { createMocks } from 'node-mocks-http';\n   \n   jest.mock('@supabase/supabase-js', () => ({\n     createClient: jest.fn(() => ({\n       auth: {\n         getUser: jest.fn().mockResolvedValue({ data: { user: { id: 'test-user' } }, error: null })\n       },\n       from: jest.fn().mockReturnValue({\n         insert: jest.fn().mockReturnThis(),\n         select: jest.fn().mockResolvedValue({ data: [{ id: 'new-id', name: 'Test Lead' }], error: null })\n       })\n     }))\n   }));\n   \n   describe('POST /api/leads', () => {\n     it('should create a new lead with valid data', async () => {\n       const { req, res } = createMocks({\n         method: 'POST',\n         headers: { authorization: 'Bearer valid-token' },\n         body: {\n           name: 'Test Lead',\n           email: 'test@example.com',\n           status: 'lead'\n         }\n       });\n       \n       await POST(req, res);\n       \n       expect(res._getStatusCode()).toBe(201);\n       expect(JSON.parse(res._getData())).toHaveProperty('id', 'new-id');\n     });\n   });\n   ```\n\n2. Integration Testing:\n   - Set up a test Supabase project for integration tests\n   - Create test fixtures to populate the database with test data\n   - Test complete request/response cycles for each endpoint\n   - Verify database state changes after API operations\n   - Test relationships between entities (e.g., retrieving a lead's calls)\n\n   ```typescript\n   // Example integration test setup\n   import { createClient } from '@supabase/supabase-js';\n   import { setupServer } from 'msw/node';\n   import { rest } from 'msw';\n   \n   const supabase = createClient(\n     process.env.TEST_SUPABASE_URL!,\n     process.env.TEST_SUPABASE_ANON_KEY!\n   );\n   \n   beforeAll(async () => {\n     // Clear test database and insert test data\n     await supabase.from('leads').delete().neq('id', '00000000-0000-0000-0000-000000000000');\n     await supabase.from('leads').insert([\n       { id: 'test-lead-id', name: 'Test Lead', email: 'test@example.com', status: 'lead' }\n     ]);\n   });\n   ```\n\n3. API Testing:\n   - Use tools like Postman or Insomnia to create a collection of API tests\n   - Test each endpoint with various parameters and payloads\n   - Verify response status codes, headers, and body content\n   - Create environment variables for different testing scenarios\n   - Export the collection for CI/CD integration\n\n4. Security Testing:\n   - Test authentication by attempting to access endpoints without valid tokens\n   - Verify that rate limiting prevents excessive requests\n   - Test for SQL injection vulnerabilities using malicious input\n   - Verify that sensitive data is not exposed in responses\n   - Test CORS configuration for browser security\n\n5. Performance Testing:\n   - Use tools like k6 or Apache JMeter to simulate high load\n   - Measure response times under various load conditions\n   - Identify bottlenecks in the API implementation\n   - Test database query performance with larger datasets\n   - Verify that rate limiting effectively manages traffic spikes\n\n6. End-to-End Testing:\n   - Create Cypress tests that interact with the frontend and verify API integration\n   - Test complete user flows that involve multiple API calls\n   - Verify that UI components correctly display API response data\n   - Test error handling and loading states in the UI\n   - Simulate network conditions to test resilience\n\n7. Documentation Testing:\n   - Verify that API documentation accurately reflects the implemented endpoints\n   - Test example requests and responses in the documentation\n   - Ensure that error responses are properly documented\n   - Verify that authentication requirements are clearly specified",
         "status": "pending",
+        "dependencies": [
+          16,
+          17,
+          18,
+          20,
+          21
+        ],
+        "priority": "high",
         "subtasks": []
       }
     ],
     "metadata": {
       "created": "2025-07-21T14:46:32.667Z",
-      "updated": "2025-07-21T19:11:36.975Z",
+      "updated": "2025-07-22T12:30:48.163Z",
       "description": "Tasks for master context"
     }
   }

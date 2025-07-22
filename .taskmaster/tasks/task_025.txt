@@ -1,11 +1,93 @@
 # Task ID: 25
-# Title: Optimize Performance and Implement Monitoring
+# Title: Update Project README with Comprehensive Supabase Setup Instructions
 # Status: pending
-# Dependencies: 19, 20, 21, 22, 23
-# Priority: low
-# Description: Enhance application performance and set up monitoring and analytics.
+# Dependencies: 1, 16, 17, 18, 20, 21, 22, 23, 24
+# Priority: medium
+# Description: Create detailed documentation in the project README.md that provides comprehensive Supabase setup instructions, including environment configuration, migration commands, seeding, local development, and RLS policy deployment.
 # Details:
-Implement code splitting and lazy loading for improved initial load times. Set up Vercel Analytics for performance monitoring. Implement error tracking using a service like Sentry. Optimize database queries and indexes. Set up automated performance testing using Lighthouse CI.
+Update the project README.md with the following comprehensive Supabase setup sections:
+
+1. **Supabase Project Setup**
+   - Instructions for creating a new Supabase project
+   - Dashboard navigation and project configuration
+   - Obtaining API keys and project URL
+
+2. **Environment Variables Configuration**
+   - Create a `.env.local.example` template file with all required Supabase variables:
+     ```
+     NEXT_PUBLIC_SUPABASE_URL=your-project-url
+     NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+     SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
+     ```
+   - Instructions for copying to `.env.local` and filling in values
+   - Explanation of each environment variable's purpose and security considerations
+
+3. **Database Migration Instructions**
+   - Step-by-step guide for running migrations:
+     ```bash
+     npx supabase migration up
+     ```
+   - Explanation of migration file structure and naming conventions
+   - Instructions for creating new migrations
+   - Handling migration conflicts and rollbacks
+
+4. **Database Seeding Instructions**
+   - Commands for running the seed script:
+     ```bash
+     npm run seed
+     # or with options
+     npm run seed -- --reset --count=50 --environment=development
+     ```
+   - Explanation of seed script parameters and options
+   - Troubleshooting common seeding issues
+
+5. **Local Development Setup**
+   - Instructions for starting the Supabase local development environment
+   - Connecting the Next.js application to local Supabase
+   - Development workflow best practices
+   - Debugging tips for Supabase integration issues
+
+6. **Row Level Security (RLS) Policy Deployment**
+   - Explanation of RLS concepts and importance
+   - Instructions for deploying RLS policies via migrations
+   - Testing RLS policies in development
+   - Verifying policy effectiveness
+
+7. **Supabase Client Integration**
+   - Example of initializing the Supabase client in the application
+   - Best practices for using the client throughout the app
+   - Error handling and connection management
+
+8. **Troubleshooting Section**
+   - Common issues and their solutions
+   - Resources for further learning and support
+
+Format the README with clear headings, code blocks with syntax highlighting, and step-by-step instructions that are easy to follow. Include links to official Supabase documentation where appropriate.
 
 # Test Strategy:
-Measure and compare performance metrics before and after optimization. Verify error tracking functionality. Check monitoring dashboards for accuracy. Run Lighthouse CI tests and ensure passing scores.
+1. Verify README completeness:
+   - Ensure all required sections are included and properly formatted
+   - Check that all code examples are correct and properly syntax-highlighted
+   - Verify that all commands and instructions are accurate
+
+2. Test instructions by following them on a fresh setup:
+   - Create a new local environment following only the README instructions
+   - Set up environment variables as documented
+   - Run migrations according to the instructions
+   - Execute the seeding process as described
+   - Verify RLS policies are correctly applied
+
+3. Peer review:
+   - Have another team member follow the instructions to verify clarity
+   - Collect feedback on any confusing or incomplete sections
+   - Update documentation based on feedback
+
+4. Documentation validation:
+   - Check for broken links or references
+   - Ensure consistency with actual codebase structure and commands
+   - Verify that screenshots or diagrams (if any) are current and accurate
+
+5. Accessibility check:
+   - Ensure the markdown is properly structured for screen readers
+   - Check that code blocks are properly formatted for accessibility
+   - Verify color contrast in any custom formatting

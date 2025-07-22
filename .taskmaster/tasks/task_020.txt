@@ -1,0 +1,11 @@
+# Task ID: 20
+# Title: Implement Real-time Features
+# Status: pending
+# Dependencies: 5, 7, 19
+# Priority: medium
+# Description: Add real-time updates for kanban board and lead details using Supabase subscriptions.
+# Details:
+Set up Supabase real-time subscriptions for leads, calls, emails, and comments tables. Implement optimistic UI updates. Handle conflicts for concurrent edits. Add visual indicators for real-time changes. Implement reconnection logic for dropped connections.
+
+# Test Strategy:
+Test real-time updates across multiple clients. Verify conflict resolution for concurrent edits. Check performance with a high number of real-time events. Test reconnection scenarios.

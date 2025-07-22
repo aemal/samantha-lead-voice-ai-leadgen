@@ -19,7 +19,6 @@ export default function CommentList({
   className = ""
 }: CommentListProps) {
   const { getCommentsByLeadId, addComment, updateComment, deleteComment } = useData();
-  const [users, setUsers] = useState<{ [key: string]: UserProfile }>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showNewCommentForm, setShowNewCommentForm] = useState(false);
@@ -27,46 +26,27 @@ export default function CommentList({
   // Get comments from context
   const comments = getCommentsByLeadId(leadId);
 
-  // Load users data - use a stable string representation
-  const userIdsString = useMemo(() => {
-    const uniqueIds = [...new Set(comments.map(c => c.user_id))].sort();
-    return uniqueIds.join(',');
+  // Get users data - memoized to avoid recalculation
+  const users = useMemo(() => {
+    const uniqueUserIds = [...new Set(comments.map(c => c.user_id))];
+    const usersData: { [key: string]: UserProfile } = {};
+    
+    uniqueUserIds.forEach(userId => {
+      const user = CommentService.getUserById(userId);
+      if (user) {
+        usersData[userId] = user;
+      }
+    });
+    
+    return usersData;
   }, [comments]);
-  
-  useEffect(() => {
-    try {
-      const userIds = userIdsString ? userIdsString.split(',') : [];
-      const usersData: { [key: string]: UserProfile } = {};
-      
-      userIds.forEach(userId => {
-        const user = CommentService.getUserById(userId);
-        if (user) {
-          usersData[userId] = user;
-        }
-      });
-      
-      setUsers(usersData);
-      setError(null);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to load users');
-    }
-  }, [userIdsString]);
 
   // Handle new comment creation
   const handleCommentCreated = useCallback(async (newComment: Comment) => {
     // Add to data context
     addComment(newComment);
-    
-    // Load user data if not already loaded
-    if (!users[newComment.user_id]) {
-      const user = CommentService.getUserById(newComment.user_id);
-      if (user) {
-        setUsers(prev => ({ ...prev, [newComment.user_id]: user }));
-      }
-    }
-
     setShowNewCommentForm(false);
-  }, [users, addComment]);
+  }, [addComment]);
 
   // Handle comment editing
   const handleCommentEdit = useCallback(async (commentId: string, content: string) => {
@@ -188,10 +168,7 @@ export default function CommentList({
           <div className="flex items-center justify-between">
             <span>{error}</span>
             <button
-              onClick={() => {
-                setError(null);
-                setLoading(false); // Just clear the error and loading state
-              }}
+              onClick={() => setError(null)}
               className="text-sm text-red-600 hover:text-red-800 underline"
             >
               Retry

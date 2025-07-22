@@ -1,0 +1,11 @@
+# Task ID: 2
+# Title: Create Comprehensive Mock Data Structure
+# Status: done
+# Dependencies: 1
+# Priority: high
+# Description: Develop a detailed mock data JSON file with sample leads, phone calls, emails, and evaluations.
+# Details:
+Create a mock.json file in the project root. Include at least 20 sample leads with varying statuses, 50 phone calls, 100 emails, and 30 evaluations. Ensure data consistency across related entities. Use realistic names, email addresses, and phone numbers. Implement using TypeScript interfaces for type safety.
+
+# Test Strategy:
+Validate JSON structure using a JSON schema. Write unit tests to ensure data integrity and relationships between entities.

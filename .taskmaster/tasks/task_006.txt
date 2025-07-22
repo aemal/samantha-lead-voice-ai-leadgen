@@ -1,0 +1,11 @@
+# Task ID: 6
+# Title: Create 'Add New Lead' Form
+# Status: done
+# Dependencies: 2, 4
+# Priority: medium
+# Description: Develop a form interface for manually adding new leads to the system.
+# Details:
+Use Hero UI form components for consistency. Implement form validation using react-hook-form or Formik. Include fields for name, email, phone, status, source, and notes. Add a modal or slide-over component for form display. Use Tailwind CSS for styling.
+
+# Test Strategy:
+Unit test form validation logic. Test form submission with various input combinations. Verify proper error handling and success feedback.

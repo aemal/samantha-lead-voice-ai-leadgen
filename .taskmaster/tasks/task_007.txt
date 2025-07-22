@@ -1,0 +1,11 @@
+# Task ID: 7
+# Title: Implement Lead Details Drawer/Modal
+# Status: done
+# Dependencies: 2, 4
+# Priority: high
+# Description: Create a detailed view for individual leads with all associated information.
+# Details:
+Develop a drawer or modal component using Hero UI. Create tabs for different sections: Details, Calls, Emails, Evaluations. Implement scrollable content areas. Display full lead profile, communication history, and evaluation results. Add edit and delete options.
+
+# Test Strategy:
+Test drawer/modal opening and closing. Verify correct display of all lead information. Test tab switching and content scrolling. Ensure keyboard accessibility.

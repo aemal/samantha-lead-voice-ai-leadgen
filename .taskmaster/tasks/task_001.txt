@@ -1,0 +1,11 @@
+# Task ID: 1
+# Title: Initialize Next.js 15.4 Project with App Router
+# Status: done
+# Dependencies: None
+# Priority: high
+# Description: Set up a new Next.js 15.4 project with App Router, integrating Tailwind CSS, Hero UI, and Lucide Icons.
+# Details:
+Use create-next-app to initialize the project. Configure Tailwind CSS using the official Next.js integration. Install and set up Hero UI (Headless UI) for accessible components. Add Lucide Icons for consistent iconography. Ensure proper TypeScript configuration.
+
+# Test Strategy:
+Verify successful project creation and component rendering. Run lighthouse tests for initial performance and accessibility scores.

@@ -168,10 +168,10 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
 
   // Initialize data
   useEffect(() => {
-    const mockData = mockDataJson as MockData;
+    const mockData = mockDataJson as any;
     dispatch({ type: 'SET_LEADS', payload: mockData.leads });
     // Convert mock comments to new format and set them
-    const convertedComments = mockData.comments.map(comment => ({
+    const convertedComments = mockData.comments.map((comment: any) => ({
       id: comment.id,
       lead_id: comment.lead_id,
       user_id: comment.user_id,
@@ -316,7 +316,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     return state.leads.find(lead => lead.id === id);
   }, [state.leads]);
 
-  const mockData = mockDataJson as MockData;
+  const mockData = mockDataJson as any;
 
   const getPhoneCallsByLeadId = useCallback((leadId: string) => {
     return mockData.phone_calls.filter(call => call.lead_id === leadId);
@@ -330,9 +330,21 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     return mockData.evaluations.filter(evaluation => evaluation.lead_id === leadId);
   }, []);
 
-  const getCommentsByLeadId = useCallback((leadId: string) => {
-    return state.comments.filter(comment => comment.lead_id === leadId);
+  // Memoize comments per lead to prevent infinite re-renders
+  const commentsByLeadId = useMemo(() => {
+    const grouped: { [leadId: string]: Comment[] } = {};
+    state.comments.forEach(comment => {
+      if (!grouped[comment.lead_id]) {
+        grouped[comment.lead_id] = [];
+      }
+      grouped[comment.lead_id].push(comment);
+    });
+    return grouped;
   }, [state.comments]);
+
+  const getCommentsByLeadId = useCallback((leadId: string) => {
+    return commentsByLeadId[leadId] || [];
+  }, [commentsByLeadId]);
 
   // Comment operations
   const addComment = useCallback((comment: Comment) => {

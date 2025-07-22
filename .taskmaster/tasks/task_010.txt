@@ -1,0 +1,11 @@
+# Task ID: 10
+# Title: Implement Sorting Options
+# Status: done
+# Dependencies: 3, 4, 8
+# Priority: medium
+# Description: Add sorting functionality for leads by date, priority, name, and status.
+# Details:
+Create a sorting dropdown component. Implement sorting logic in the state management system. Use efficient sorting algorithms. Add visual indicators for current sort order. Persist sort preferences in local storage.
+
+# Test Strategy:
+Test sorting for each available option. Verify correct order after sorting. Check performance with large datasets. Test sort preference persistence across page reloads.

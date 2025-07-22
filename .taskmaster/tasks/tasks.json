@@ -249,67 +249,6 @@
         ]
       },
       {
-        "id": 12,
-        "title": "Create Timeline View for Lead Interactions",
-        "description": "Implement a chronological timeline view of all lead interactions.",
-        "details": "Design a vertical timeline component using Tailwind CSS. Integrate phone calls, emails, evaluations, and comments into a single timeline. Use appropriate icons for different interaction types. Implement infinite scrolling or pagination for long timelines.",
-        "testStrategy": "Verify correct chronological order of events. Test with various interaction types. Check infinite scrolling or pagination functionality. Ensure proper rendering on different screen sizes.",
-        "priority": "medium",
-        "dependencies": [
-          7,
-          8,
-          11
-        ],
-        "status": "pending",
-        "subtasks": []
-      },
-      {
-        "id": 13,
-        "title": "Add Visual Indicators for Communication Status",
-        "description": "Implement visual cues for recent communications and lead status changes.",
-        "details": "Create small badge components for recent calls, emails, or status changes. Use color coding for different interaction types. Implement tooltips for additional information. Ensure color choices meet WCAG contrast guidelines.",
-        "testStrategy": "Test badge rendering with various lead statuses. Verify tooltip functionality. Check color contrast ratios for accessibility. Test across different browsers and devices.",
-        "priority": "low",
-        "dependencies": [
-          4,
-          7,
-          12
-        ],
-        "status": "pending",
-        "subtasks": []
-      },
-      {
-        "id": 14,
-        "title": "Implement Bulk Operations",
-        "description": "Add functionality for selecting multiple leads and performing bulk actions.",
-        "details": "Implement a selection mechanism for lead cards. Create a bulk action toolbar that appears when leads are selected. Add options for bulk status change, assignment, or deletion. Implement confirmation dialogs for destructive actions. Use optimistic updates for better UX.",
-        "testStrategy": "Test lead selection and deselection. Verify bulk action execution for various scenarios. Check confirmation dialogs and error handling. Test with a large number of selected leads.",
-        "priority": "low",
-        "dependencies": [
-          3,
-          4,
-          8
-        ],
-        "status": "pending",
-        "subtasks": []
-      },
-      {
-        "id": 15,
-        "title": "Add Loading States and Error Handling",
-        "description": "Implement loading indicators and error handling throughout the application.",
-        "details": "Create reusable loading spinner and skeleton loader components. Implement error boundary components for graceful error handling. Add toast notifications for success and error messages using a library like react-hot-toast. Ensure all async operations have proper loading and error states.",
-        "testStrategy": "Test loading states for all async operations. Simulate errors and verify error handling. Check accessibility of loading indicators and error messages. Test toast notifications for various scenarios.",
-        "priority": "medium",
-        "dependencies": [
-          3,
-          4,
-          7,
-          8
-        ],
-        "status": "pending",
-        "subtasks": []
-      },
-      {
         "id": 16,
         "title": "Set Up Supabase Project and Database",
         "description": "Initialize a Supabase project and configure the PostgreSQL database schema.",

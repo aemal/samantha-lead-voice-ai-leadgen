@@ -8,7 +8,7 @@ export class CommentService {
 
   static {
     // Initialize with converted mock data
-    this.comments = mockDataJson.comments.map(comment => ({
+    this.comments = mockDataJson.comments.map((comment: any) => ({
       id: comment.id,
       lead_id: comment.lead_id,
       user_id: comment.user_id,

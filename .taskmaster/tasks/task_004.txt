@@ -1,0 +1,11 @@
+# Task ID: 4
+# Title: Develop Lead Card Component
+# Status: done
+# Dependencies: 2, 3
+# Priority: high
+# Description: Create a reusable lead card component displaying essential lead information.
+# Details:
+Design a compact card using Tailwind CSS and Hero UI. Display name, email, phone, status, and priority. Add visual indicators for communication history. Use Lucide Icons for status badges. Implement hover effects and focus states for accessibility.
+
+# Test Strategy:
+Unit test the component with various lead data. Verify correct display of all information. Test accessibility using axe-core.

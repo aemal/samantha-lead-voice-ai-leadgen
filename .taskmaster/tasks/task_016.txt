@@ -1,0 +1,11 @@
+# Task ID: 16
+# Title: Set Up Supabase Project and Database
+# Status: pending
+# Dependencies: 2
+# Priority: high
+# Description: Initialize a Supabase project and configure the PostgreSQL database schema.
+# Details:
+Create a new Supabase project. Set up database tables for leads, phone_calls, lead_emails, lead_evaluations, lead_comments, and user_profiles as per the PRD schema. Configure proper indexes and foreign key relationships. Set up row-level security policies.
+
+# Test Strategy:
+Verify table creation and relationships. Test data insertion and retrieval. Check row-level security policy effectiveness. Perform basic CRUD operations to ensure schema correctness.

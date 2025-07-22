@@ -1,0 +1,11 @@
+# Task ID: 5
+# Title: Implement Drag and Drop Functionality
+# Status: done
+# Dependencies: 3, 4
+# Priority: high
+# Description: Add drag and drop capability to move lead cards between kanban columns.
+# Details:
+Integrate @dnd-kit library for modern React 18+ compatibility. Implement drag sources on lead cards and drop targets on columns. Add visual feedback during drag operations. Handle state updates on successful drops. Implement touch support for mobile devices.
+
+# Test Strategy:
+Write integration tests for drag and drop operations. Test on various devices and browsers. Verify state updates after drag operations.

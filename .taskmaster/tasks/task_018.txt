@@ -1,0 +1,11 @@
+# Task ID: 18
+# Title: Migrate Mock Data to Supabase
+# Status: pending
+# Dependencies: 2, 16
+# Priority: medium
+# Description: Transfer mock data from JSON to the Supabase PostgreSQL database.
+# Details:
+Create a data migration script using Node.js and the Supabase JavaScript client. Ensure data integrity during migration. Handle potential conflicts or duplicates. Add proper error handling and logging. Create a rollback mechanism in case of migration failure.
+
+# Test Strategy:
+Verify successful data migration for all entities. Check data integrity and relationships post-migration. Test rollback functionality. Ensure no data loss or corruption during the process.

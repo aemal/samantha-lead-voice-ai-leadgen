@@ -31,7 +31,7 @@ const priorityLabels = {
 };
 
 export default function LeadCard({ lead, onClick }: LeadCardProps) {
-  const data = mockData as MockData;
+  const data = mockData as any;
   const { getCommentsByLeadId } = useData();
   
   const communicationStats = useMemo(() => {

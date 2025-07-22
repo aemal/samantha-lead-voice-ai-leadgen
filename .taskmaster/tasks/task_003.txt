@@ -1,0 +1,11 @@
+# Task ID: 3
+# Title: Implement Basic Kanban Layout
+# Status: done
+# Dependencies: 1, 2
+# Priority: high
+# Description: Create a responsive kanban board layout with three columns: Leads, Qualified, and Disqualified.
+# Details:
+Use Tailwind CSS grid and flexbox for layout. Implement responsive design for mobile, tablet, and desktop views. Create reusable column components. Use Next.js 15.4 App Router for routing. Implement column headers with lead counts.
+
+# Test Strategy:
+Test responsiveness across different screen sizes. Ensure accessibility with keyboard navigation. Verify correct lead count display.

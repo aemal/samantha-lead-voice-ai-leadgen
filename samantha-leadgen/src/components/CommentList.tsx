@@ -26,6 +26,14 @@ export default function CommentList({
   // Get comments from context
   const comments = getCommentsByLeadId(leadId);
 
+  // Load comments when component mounts or leadId changes
+  useEffect(() => {
+    // Trigger comment loading through global function if available
+    if ((window as any).__loadCommentsForLead) {
+      (window as any).__loadCommentsForLead(leadId);
+    }
+  }, [leadId]);
+
   // Get users data - memoized to avoid recalculation
   const users = useMemo(() => {
     const uniqueUserIds = [...new Set(comments.map(c => c.user_id))];

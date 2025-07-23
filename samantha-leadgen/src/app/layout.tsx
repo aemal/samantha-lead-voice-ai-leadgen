@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SupabaseDataProvider } from '@/contexts/SupabaseDataContext';
+import { DataProvider } from '@/contexts/DataContext';
+import { AuthProvider } from '@/contexts/AuthContext';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SupabaseDataProvider>
-          {children}
-        </SupabaseDataProvider>
+        <AuthProvider>
+          <DataProvider>
+            {children}
+          </DataProvider>
+        </AuthProvider>
       </body>
     </html>
   );

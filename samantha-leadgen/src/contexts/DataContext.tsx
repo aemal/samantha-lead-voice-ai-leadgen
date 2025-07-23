@@ -3,6 +3,8 @@
 import React, { createContext, useContext, useReducer, useMemo, useCallback, useEffect } from 'react';
 import { Lead, MockData, PhoneCall, Email, Evaluation, Comment } from '@/types';
 import mockDataJson from '@/data/mock.json';
+import { leadService } from '@/services/supabase/leadService';
+import { commentService } from '@/services/supabase/commentService';
 
 // Action types
 type DataAction = 
@@ -166,23 +168,81 @@ const DataContext = createContext<DataContextType | undefined>(undefined);
 export function DataProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(dataReducer, initialState);
 
-  // Initialize data
+  // Initialize data from Supabase
   useEffect(() => {
-    const mockData = mockDataJson as any;
-    dispatch({ type: 'SET_LEADS', payload: mockData.leads });
-    // Convert mock comments to new format and set them
-    const convertedComments = mockData.comments.map((comment: any) => ({
-      id: comment.id,
-      lead_id: comment.lead_id,
-      user_id: comment.user_id,
-      content: comment.comment_text,
-      is_internal: comment.is_internal,
-      created_at: comment.created_at,
-      updated_at: comment.updated_at,
-      parent_id: comment.parent_comment_id,
-      is_edited: false
-    }));
-    dispatch({ type: 'SET_COMMENTS', payload: convertedComments });
+    const loadData = async () => {
+      try {
+        // Try to load from Supabase first
+        const { data: leads, error } = await leadService.getLeads();
+        
+        if (!error && leads) {
+          dispatch({ type: 'SET_LEADS', payload: leads });
+          
+          // Set up real-time subscription
+          const subscription = leadService.subscribeToLeads((payload) => {
+            console.log('Real-time lead update:', payload);
+            
+            if (payload.eventType === 'INSERT' && payload.new) {
+              dispatch({ type: 'ADD_LEAD', payload: payload.new as Lead });
+            } else if (payload.eventType === 'UPDATE' && payload.new) {
+              dispatch({ 
+                type: 'UPDATE_LEAD', 
+                payload: { 
+                  id: (payload.new as Lead).id, 
+                  updates: payload.new as Lead 
+                } 
+              });
+            } else if (payload.eventType === 'DELETE' && payload.old) {
+              dispatch({ type: 'DELETE_LEAD', payload: (payload.old as any).id });
+            }
+          });
+
+          return () => {
+            subscription.unsubscribe();
+          };
+        } else {
+          // Fall back to mock data if Supabase fails
+          console.log('Falling back to mock data');
+          const mockData = mockDataJson as any;
+          dispatch({ type: 'SET_LEADS', payload: mockData.leads });
+          
+          // Convert mock comments to new format and set them
+          const convertedComments = mockData.comments.map((comment: any) => ({
+            id: comment.id,
+            lead_id: comment.lead_id,
+            user_id: comment.user_id,
+            content: comment.comment_text,
+            is_internal: comment.is_internal,
+            created_at: comment.created_at,
+            updated_at: comment.updated_at,
+            parent_id: comment.parent_comment_id,
+            is_edited: false
+          }));
+          dispatch({ type: 'SET_COMMENTS', payload: convertedComments });
+        }
+      } catch (error) {
+        console.error('Error loading data:', error);
+        // Fall back to mock data
+        const mockData = mockDataJson as any;
+        dispatch({ type: 'SET_LEADS', payload: mockData.leads });
+        
+        // Convert mock comments to new format and set them
+        const convertedComments = mockData.comments.map((comment: any) => ({
+          id: comment.id,
+          lead_id: comment.lead_id,
+          user_id: comment.user_id,
+          content: comment.comment_text,
+          is_internal: comment.is_internal,
+          created_at: comment.created_at,
+          updated_at: comment.updated_at,
+          parent_id: comment.parent_comment_id,
+          is_edited: false
+        }));
+        dispatch({ type: 'SET_COMMENTS', payload: convertedComments });
+      }
+    };
+
+    loadData();
   }, []);
 
   // Memoized filtered and sorted leads
@@ -264,23 +324,68 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     return filtered;
   }, [state.leads, state.filters]);
 
-  // Action creators
-  const addLead = useCallback((leadData: Omit<Lead, 'id' | 'created_at' | 'updated_at'>) => {
-    const newLead: Lead = {
-      ...leadData,
-      id: `lead-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
-      created_at: new Date().toISOString(),
-      updated_at: new Date().toISOString(),
-    };
-    dispatch({ type: 'ADD_LEAD', payload: newLead });
+  // Action creators - now using Supabase
+  const addLead = useCallback(async (leadData: Omit<Lead, 'id' | 'created_at' | 'updated_at'>) => {
+    try {
+      const { data, error } = await leadService.createLead(leadData);
+      
+      if (error) {
+        console.error('Error adding lead:', error);
+        // Fall back to local addition
+        const newLead: Lead = {
+          ...leadData,
+          id: `lead-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString(),
+        };
+        dispatch({ type: 'ADD_LEAD', payload: newLead });
+      }
+      // Real-time subscription will handle adding to state if successful
+    } catch (error) {
+      console.error('Error adding lead:', error);
+      // Fall back to local addition
+      const newLead: Lead = {
+        ...leadData,
+        id: `lead-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString(),
+      };
+      dispatch({ type: 'ADD_LEAD', payload: newLead });
+    }
   }, []);
 
-  const updateLead = useCallback((id: string, updates: Partial<Lead>) => {
-    dispatch({ type: 'UPDATE_LEAD', payload: { id, updates } });
+  const updateLead = useCallback(async (id: string, updates: Partial<Lead>) => {
+    try {
+      const { data, error } = await leadService.updateLead(id, updates);
+      
+      if (error) {
+        console.error('Error updating lead:', error);
+        // Fall back to local update
+        dispatch({ type: 'UPDATE_LEAD', payload: { id, updates } });
+      }
+      // Real-time subscription will handle updating state if successful
+    } catch (error) {
+      console.error('Error updating lead:', error);
+      // Fall back to local update
+      dispatch({ type: 'UPDATE_LEAD', payload: { id, updates } });
+    }
   }, []);
 
-  const deleteLead = useCallback((id: string) => {
-    dispatch({ type: 'DELETE_LEAD', payload: id });
+  const deleteLead = useCallback(async (id: string) => {
+    try {
+      const { error } = await leadService.deleteLead(id);
+      
+      if (error) {
+        console.error('Error deleting lead:', error);
+        // Fall back to local deletion
+        dispatch({ type: 'DELETE_LEAD', payload: id });
+      }
+      // Real-time subscription will handle removing from state if successful
+    } catch (error) {
+      console.error('Error deleting lead:', error);
+      // Fall back to local deletion
+      dispatch({ type: 'DELETE_LEAD', payload: id });
+    }
   }, []);
 
   const setSearchQuery = useCallback((query: string) => {
@@ -346,18 +451,117 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     return commentsByLeadId[leadId] || [];
   }, [commentsByLeadId]);
 
-  // Comment operations
-  const addComment = useCallback((comment: Comment) => {
-    dispatch({ type: 'ADD_COMMENT', payload: comment });
+  // Load comments for a lead when needed
+  const loadCommentsForLead = useCallback(async (leadId: string) => {
+    try {
+      const { data, error } = await commentService.getCommentsByLeadId(leadId);
+      
+      if (!error && data) {
+        const transformedComments = data.map(comment => ({
+          id: comment.id,
+          lead_id: comment.lead_id,
+          user_id: comment.user_id,
+          content: comment.comment_text,
+          is_internal: comment.is_internal,
+          created_at: comment.created_at,
+          updated_at: comment.updated_at,
+          parent_id: null,
+          is_edited: comment.created_at !== comment.updated_at,
+          user: comment.user
+        }));
+        
+        // Update only comments for this lead
+        dispatch({ type: 'SET_COMMENTS', payload: transformedComments });
+        
+        // Set up real-time subscription for this lead's comments
+        const subscription = commentService.subscribeToComments(leadId, (payload) => {
+          loadCommentsForLead(leadId); // Reload comments on any change
+        });
+        
+        return () => subscription.unsubscribe();
+      }
+    } catch (error) {
+      console.error('Error loading comments:', error);
+    }
   }, []);
 
-  const updateComment = useCallback((id: string, updates: Partial<Comment>) => {
-    dispatch({ type: 'UPDATE_COMMENT', payload: { id, updates } });
-  }, []);
+  // Make loadCommentsForLead available globally for components
+  React.useEffect(() => {
+    (window as any).__loadCommentsForLead = loadCommentsForLead;
+  }, [loadCommentsForLead]);
 
-  const deleteComment = useCallback((id: string) => {
-    dispatch({ type: 'DELETE_COMMENT', payload: id });
-  }, []);
+  // Comment operations - now using Supabase
+  const addComment = useCallback(async (comment: Comment) => {
+    try {
+      const { data, error } = await commentService.createComment({
+        lead_id: comment.lead_id,
+        comment_text: comment.content,
+        is_internal: comment.is_internal,
+        user_id: comment.user_id
+      });
+      
+      if (error) {
+        console.error('Error adding comment:', error);
+        // Fall back to local addition
+        dispatch({ type: 'ADD_COMMENT', payload: comment });
+      } else {
+        // Reload comments for this lead
+        loadCommentsForLead(comment.lead_id);
+      }
+    } catch (error) {
+      console.error('Error adding comment:', error);
+      // Fall back to local addition
+      dispatch({ type: 'ADD_COMMENT', payload: comment });
+    }
+  }, [loadCommentsForLead]);
+
+  const updateComment = useCallback(async (id: string, updates: Partial<Comment>) => {
+    try {
+      const { data, error } = await commentService.updateComment(id, {
+        comment_text: updates.content,
+        is_internal: updates.is_internal
+      });
+      
+      if (error) {
+        console.error('Error updating comment:', error);
+        // Fall back to local update
+        dispatch({ type: 'UPDATE_COMMENT', payload: { id, updates } });
+      } else {
+        // Find the lead_id from the comment and reload
+        const comment = state.comments.find(c => c.id === id);
+        if (comment) {
+          loadCommentsForLead(comment.lead_id);
+        }
+      }
+    } catch (error) {
+      console.error('Error updating comment:', error);
+      // Fall back to local update
+      dispatch({ type: 'UPDATE_COMMENT', payload: { id, updates } });
+    }
+  }, [state.comments, loadCommentsForLead]);
+
+  const deleteComment = useCallback(async (id: string) => {
+    try {
+      // Find the lead_id from the comment
+      const comment = state.comments.find(c => c.id === id);
+      
+      if (comment) {
+        const { error } = await commentService.deleteComment(id);
+        
+        if (error) {
+          console.error('Error deleting comment:', error);
+          // Fall back to local deletion
+          dispatch({ type: 'DELETE_COMMENT', payload: id });
+        } else {
+          loadCommentsForLead(comment.lead_id);
+        }
+      }
+    } catch (error) {
+      console.error('Error deleting comment:', error);
+      // Fall back to local deletion
+      dispatch({ type: 'DELETE_COMMENT', payload: id });
+    }
+  }, [state.comments, loadCommentsForLead]);
 
   const contextValue = useMemo(() => ({
     state,

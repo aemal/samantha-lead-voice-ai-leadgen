@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { Lead } from '@/lib/supabase';
 import KanbanColumn from './KanbanColumn';
-import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { useData } from '@/contexts/DataContext';
 import {
   DndContext,
   closestCenter,
@@ -27,7 +27,7 @@ import LeadDetailsDrawer from './LeadDetailsDrawer';
 const COLUMN_STATUS: Lead['status'][] = ['lead', 'qualified', 'appointment_booked', 'disqualified'];
 
 export default function KanbanBoard() {
-  const { state, filteredLeads, updateLead } = useSupabaseData();
+  const { state, filteredLeads, updateLead } = useData();
   const [activeId, setActiveId] = useState<string | null>(null);
   const [overId, setOverId] = useState<string | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);

@@ -4,13 +4,16 @@ import { useState } from 'react';
 import KanbanBoard from '@/components/KanbanBoard';
 import AddLeadModal from '@/components/AddLeadModal';
 import SearchAndFilterBar from '@/components/SearchAndFilterBar';
+import Header from '@/components/Header';
 import { PlusIcon } from '@heroicons/react/24/outline';
 import { Lead } from '@/lib/supabase';
-import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { useData } from '@/contexts/DataContext';
+import { useAuth } from '@/contexts/AuthContext';
 
 export default function Home() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const { addLead } = useSupabaseData();
+  const { addLead } = useData();
+  const { user, loading } = useAuth();
 
   const handleAddLead = async (leadData: Omit<Lead, 'id' | 'created_at' | 'updated_at'>) => {
     try {
@@ -22,15 +25,29 @@ export default function Home() {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-gray-500">Loading...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null; // Middleware should handle redirect
+  }
+
   return (
-    <main className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Header />
+      <main>
+        <div className="container mx-auto px-4 py-8">
         <div className="mb-8 flex justify-between items-start">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
               Lead Management Dashboard
             </h1>
-            <p className="text-gray-600 mt-2">
+            <p className="text-gray-600 dark:text-gray-400 mt-2">
               Manage and track your sales leads through the pipeline
             </p>
           </div>
@@ -52,6 +69,7 @@ export default function Home() {
           onSubmit={handleAddLead}
         />
       </div>
-    </main>
+      </main>
+    </div>
   );
 }

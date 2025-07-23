@@ -2,8 +2,8 @@
 
 import { useState, useCallback, useEffect } from 'react';
 import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon, ChevronDownIcon, ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/outline';
-import { useData } from '@/contexts/DataContext';
-import { Lead } from '@/types';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
+import { Lead } from '@/lib/supabase';
 
 // Debounce hook
 function useDebounce<T>(value: T, delay: number): T {
@@ -56,7 +56,7 @@ export default function SearchAndFilterBar() {
     setSortBy,
     setSortOrder,
     clearFilters,
-  } = useData();
+  } = useSupabaseData();
 
   const [searchInput, setSearchInput] = useState(state.filters.searchQuery);
   const [showFilters, setShowFilters] = useState(false);

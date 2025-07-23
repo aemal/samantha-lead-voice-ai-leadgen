@@ -1,0 +1,74 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Configure Environment Variables",
+        "description": "Set up the necessary environment variables in the .env.local file to connect the application with Supabase.",
+        "details": "Create or update the .env.local file at the project root with the following variables:\n\n```\nNEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url\nNEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key\nSUPABASE_SERVICE_ROLE_KEY=your_service_role_key (for seeding)\n```\n\nThese values can be found in your Supabase project dashboard under Project Settings > API. Ensure the file is properly formatted and all required variables are included. The NEXT_PUBLIC_ prefix makes these variables available to the client-side code.",
+        "testStrategy": "Verify environment variables are correctly set by running a simple test script that logs the values (without exposing sensitive information). Confirm the application can connect to Supabase by running a basic query.",
+        "priority": "high",
+        "dependencies": [],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 2,
+        "title": "Run Database Migrations",
+        "description": "Execute the existing migration files to create all required database tables in Supabase.",
+        "details": "Locate the 7 migration files mentioned in the PRD. These files should contain SQL statements to create the necessary tables and relationships. Run the migrations in the correct order using one of the following approaches:\n\n1. If using a migration tool like Prisma or Supabase CLI:\n```bash\nnpx supabase migration up\n# or\nnpx prisma migrate deploy\n```\n\n2. If using manual SQL execution, connect to the Supabase database and run each migration file in sequence through the SQL editor in the Supabase dashboard.\n\nVerify that all tables are created with the correct schema, including proper relationships, constraints, and indexes.",
+        "testStrategy": "After running migrations, inspect the database schema in the Supabase dashboard to confirm all tables exist with the correct structure. Run simple SELECT queries on each table to verify they were created successfully. Check for any error messages during migration execution.",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "done",
+        "subtasks": []
+      },
+      {
+        "id": 3,
+        "title": "Seed Database with Sample Data",
+        "description": "Execute the existing seed script to populate the database with initial sample data for testing.",
+        "details": "Run the seed script that has already been implemented. This will likely involve executing a command such as:\n\n```bash\nnpm run seed\n# or\nnode scripts/seed.js\n# or\nnpx prisma db seed\n```\n\nThe seed script should insert sample leads and any other required data into the appropriate tables. If the seed script requires authentication, ensure you're using the service role key from the environment variables.\n\nIf any errors occur during seeding, troubleshoot by checking:\n1. Database connection issues\n2. Schema mismatches between migration and seed expectations\n3. Constraint violations\n4. Permission issues (RLS policies might need adjustment)",
+        "testStrategy": "After seeding, query the database to verify that sample data has been correctly inserted into all relevant tables. Check record counts and sample records to ensure data integrity. Verify relationships between tables if applicable.",
+        "priority": "medium",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 4,
+        "title": "Test Full Integration",
+        "description": "Verify that the application can successfully connect to Supabase and perform all required operations with the database.",
+        "details": "Start the application in development mode:\n\n```bash\nnpm run dev\n```\n\nTest the following functionality:\n\n1. Application loads without database connection errors\n2. Leads display correctly from Supabase\n3. Adding new leads works and persists to the database\n4. Updating existing leads works\n5. Real-time updates function as expected when data changes\n\nCheck the browser console and server logs for any errors related to Supabase connections. Verify that the RLS policies are working correctly by testing with different user accounts if applicable.",
+        "testStrategy": "Create a test plan that covers all CRUD operations on leads. Test real-time functionality by making changes in one browser window and verifying updates appear in another. Test with both authenticated and unauthenticated users if applicable to verify RLS policies. Document any issues found during testing.",
+        "priority": "medium",
+        "dependencies": [
+          3
+        ],
+        "status": "pending",
+        "subtasks": []
+      },
+      {
+        "id": 5,
+        "title": "Resolve Connection Issues",
+        "description": "Identify and fix any connection issues between the application and Supabase.",
+        "details": "If any connection issues are identified during testing, follow these troubleshooting steps:\n\n1. Verify environment variables are correctly set and accessible\n2. Check network connectivity to Supabase endpoints\n3. Review Supabase logs in the dashboard for error messages\n4. Ensure RLS policies are not blocking legitimate requests\n5. Check for CORS issues if applicable\n6. Verify API routes are correctly implemented\n\nCommon solutions include:\n- Updating environment variables\n- Adjusting RLS policies\n- Adding appropriate error handling in the application code\n- Ensuring proper authentication flow\n\nDocument any changes made to resolve issues for future reference.",
+        "testStrategy": "After each fix, retest the specific functionality that was failing. Implement comprehensive error logging if not already present. Verify that all success criteria from the PRD are met after issues are resolved. Create a final verification checklist to ensure all requirements are satisfied.",
+        "priority": "medium",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": []
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-22T13:02:49.632Z",
+      "updated": "2025-07-23T12:13:03.692Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

@@ -5,15 +5,21 @@ import KanbanBoard from '@/components/KanbanBoard';
 import AddLeadModal from '@/components/AddLeadModal';
 import SearchAndFilterBar from '@/components/SearchAndFilterBar';
 import { PlusIcon } from '@heroicons/react/24/outline';
-import { Lead } from '@/types';
-import { useData } from '@/contexts/DataContext';
+import { Lead } from '@/lib/supabase';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 
 export default function Home() {
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-  const { addLead } = useData();
+  const { addLead } = useSupabaseData();
 
   const handleAddLead = async (leadData: Omit<Lead, 'id' | 'created_at' | 'updated_at'>) => {
-    addLead(leadData);
+    try {
+      await addLead(leadData);
+      setIsAddModalOpen(false);
+    } catch (error) {
+      console.error('Error adding lead:', error);
+      // TODO: Show error message to user
+    }
   };
 
   return (

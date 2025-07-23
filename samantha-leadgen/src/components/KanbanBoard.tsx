@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import { Lead } from '@/types';
+import { Lead } from '@/lib/supabase';
 import KanbanColumn from './KanbanColumn';
-import { useData } from '@/contexts/DataContext';
+import { useSupabaseData } from '@/contexts/SupabaseDataContext';
 import {
   DndContext,
   closestCenter,
@@ -27,7 +27,7 @@ import LeadDetailsDrawer from './LeadDetailsDrawer';
 const COLUMN_STATUS: Lead['status'][] = ['lead', 'qualified', 'appointment_booked', 'disqualified'];
 
 export default function KanbanBoard() {
-  const { state, filteredLeads, updateLead } = useData();
+  const { state, filteredLeads, updateLead } = useSupabaseData();
   const [activeId, setActiveId] = useState<string | null>(null);
   const [overId, setOverId] = useState<string | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
@@ -70,7 +70,7 @@ export default function KanbanBoard() {
     setActiveId(event.active.id.toString());
   };
 
-  const handleDragOver = (event: DragOverEvent) => {
+  const handleDragOver = async (event: DragOverEvent) => {
     const { active, over } = event;
 
     if (!over) {
@@ -87,7 +87,12 @@ export default function KanbanBoard() {
     if (COLUMN_STATUS.includes(overId as Lead['status'])) {
       const activeLead = filteredLeads.find(lead => lead.id === activeId);
       if (activeLead && activeLead.status !== overId) {
-        updateLead(activeId, { status: overId as Lead['status'] });
+        try {
+          await updateLead(activeId, { status: overId as Lead['status'] });
+        } catch (error) {
+          console.error('Error updating lead status:', error);
+          // TODO: Show error message to user
+        }
       }
     }
   };

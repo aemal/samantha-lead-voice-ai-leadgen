@@ -3,7 +3,7 @@
 import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon, PlusIcon } from '@heroicons/react/24/outline';
-import { Lead } from '@/types';
+import { Lead } from '@/lib/supabase';
 
 interface AddLeadModalProps {
   isOpen: boolean;

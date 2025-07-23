@@ -6,7 +6,11 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "seed": "node -r dotenv/config supabase/seed/seed.js dotenv_config_path=.env.local",
+    "setup": "node scripts/setup-database.js --full",
+    "setup:migrate": "node scripts/setup-database.js --migrate",
+    "setup:seed": "node scripts/setup-database.js --seed"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
@@ -14,17 +18,20 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@headlessui/react": "^2.2.4",
     "@heroicons/react": "^2.2.0",
+    "@supabase/supabase-js": "^2.52.0",
     "@tiptap/pm": "^3.0.7",
     "@tiptap/react": "^3.0.7",
     "@tiptap/starter-kit": "^3.0.7",
     "autoprefixer": "^10.4.21",
     "date-fns": "^4.1.0",
+    "dotenv": "^17.2.0",
     "lucide-react": "^0.525.0",
     "next": "15.4.2",
     "postcss": "^8.5.6",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "zod": "^4.0.5"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
@@ -33,6 +40,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.2",
+    "tsx": "^4.20.3",
     "typescript": "^5"
   }
 }

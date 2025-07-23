@@ -3,7 +3,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { MagnifyingGlassIcon, FunnelIcon, XMarkIcon, ChevronDownIcon, ArrowUpIcon, ArrowDownIcon } from '@heroicons/react/24/outline';
 import { useData } from '@/contexts/DataContext';
-import { Lead } from '@/lib/supabase';
+import { Lead } from '@/types';
 
 // Debounce hook
 function useDebounce<T>(value: T, delay: number): T {
@@ -144,25 +144,23 @@ export default function SearchAndFilterBar() {
           </button>
 
           {/* Sort dropdown */}
-          <div className="relative">
-            <select
-              value={state.filters.sortBy}
-              onChange={(e) => setSortBy(e.target.value as any)}
-              className="appearance-none bg-white border border-gray-300 rounded-md px-3 py-2 pr-8 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none cursor-pointer"
-            >
-              {sortOptions.map((option) => (
-                <option key={option.value} value={option.value}>
-                  Sort by {option.label}
-                </option>
-              ))}
-            </select>
-            <ChevronDownIcon className="absolute right-2 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
-          </div>
+          <select
+            value={state.filters.sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="w-48 px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+            aria-label="Sort by"
+          >
+            {sortOptions.map((option) => (
+              <option key={option.value} value={option.value}>
+                Sort by {option.label}
+              </option>
+            ))}
+          </select>
 
           {/* Sort order toggle */}
           <button
             onClick={toggleSortOrder}
-            className="inline-flex items-center px-2 py-2 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors"
+            className="inline-flex items-center justify-center w-10 h-10 border border-gray-300 rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none transition-colors"
             title={`Sort ${state.filters.sortOrder === 'asc' ? 'ascending' : 'descending'}`}
           >
             {state.filters.sortOrder === 'asc' ? (
@@ -191,7 +189,8 @@ export default function SearchAndFilterBar() {
               <select
                 value={state.filters.statusFilter}
                 onChange={(e) => setStatusFilter(e.target.value as Lead['status'] | 'all')}
-                className="block w-full px-3 py-2 text-gray-900 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+                aria-label="Filter by status"
               >
                 {statusOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -209,7 +208,8 @@ export default function SearchAndFilterBar() {
               <select
                 value={state.filters.priorityFilter}
                 onChange={(e) => setPriorityFilter(e.target.value as Lead['priority'] | 'all')}
-                className="block w-full px-3 py-2 text-gray-900 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+                aria-label="Filter by priority"
               >
                 {priorityOptions.map((option) => (
                   <option key={option.value} value={option.value}>
@@ -227,8 +227,13 @@ export default function SearchAndFilterBar() {
               <input
                 type="date"
                 value={startDate}
-                onChange={(e) => handleDateRangeChange(e.target.value, endDate)}
-                className="block w-full px-3 py-2 text-gray-900 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                onChange={(e) => {
+                  const dateString = e.target.value;
+                  setStartDate(dateString);
+                  handleDateRangeChange(dateString, endDate);
+                }}
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+                aria-label="Filter from date"
               />
             </div>
 
@@ -240,8 +245,13 @@ export default function SearchAndFilterBar() {
               <input
                 type="date"
                 value={endDate}
-                onChange={(e) => handleDateRangeChange(startDate, e.target.value)}
-                className="block w-full px-3 py-2 text-gray-900 bg-white border border-gray-300 rounded-md focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                onChange={(e) => {
+                  const dateString = e.target.value;
+                  setEndDate(dateString);
+                  handleDateRangeChange(startDate, dateString);
+                }}
+                className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+                aria-label="Filter to date"
               />
             </div>
           </div>

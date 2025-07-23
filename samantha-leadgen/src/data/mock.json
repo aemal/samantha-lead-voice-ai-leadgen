@@ -269,157 +269,1327 @@
   ],
   "phone_calls": [
     {
-      "id": "call-001",
-      "lead_id": "lead-001",
-      "call_date": "2024-01-15T14:30:00Z",
-      "duration": 180,
-      "transcript": "Hello, this is Samantha from LeadGen Solutions. I'm reaching out because you expressed interest in our enterprise platform through your website inquiry. Sarah mentioned you're looking for a solution that can handle 500+ employees. That's exactly what our platform is designed for. We've helped companies like TechGlobal and InnovateCorp streamline their operations. Would you be interested in a brief 15-minute demo to see how we can specifically help TechCorp? Great! I can see this aligning well with your current growth trajectory.",
-      "call_outcome": "answered",
+      "id": "call-014",
+      "lead_id": "lead-014",
+      "call_date": "2025-07-23T07:32:37.455Z",
+      "duration": 81,
+      "transcript": "Hello, Samantha from LeadGen Solutions here. I understand you attended our recent webinar on sales automation - thank you for joining! The Q&A session showed you're really thinking strategically about scaling your sales process. I'd love to continue that conversation and show you how our automation features could save your team 10+ hours per week.",
+      "call_outcome": "voicemail",
       "ai_analysis": {
         "interest_level": 8,
-        "budget_qualified": true,
-        "decision_maker": true,
-        "timeline": "Q1 2024",
-        "pain_points": ["scalability issues", "manual processes", "team coordination"],
-        "next_steps": "Schedule product demo for next week"
-      },
-      "created_at": "2024-01-15T14:33:00Z"
-    },
-    {
-      "id": "call-002",
-      "lead_id": "lead-002",
-      "call_date": "2024-01-16T15:45:00Z",
-      "duration": 95,
-      "transcript": "Hi Michael, this is Samantha from LeadGen Solutions. I saw your LinkedIn profile and noticed you're the CTO at InnovateStart. We specialize in scalable solutions for growing tech companies. I understand startups need flexible, cost-effective tools that can grow with them. Our platform has helped other CTOs like yourself reduce operational overhead by 40%. Would you have a few minutes to discuss your current challenges with team management and project coordination?",
-      "call_outcome": "answered",
-      "ai_analysis": {
-        "interest_level": 6,
-        "budget_qualified": false,
-        "decision_maker": true,
-        "timeline": "Q2 2024",
-        "pain_points": ["budget constraints", "rapid scaling", "tool integration"],
-        "next_steps": "Send pricing information and case studies"
-      },
-      "created_at": "2024-01-16T15:48:00Z"
-    },
-    {
-      "id": "call-003",
-      "lead_id": "lead-003",
-      "call_date": "2024-01-17T10:15:00Z",
-      "duration": 240,
-      "transcript": "Hello Emily, Samantha here from LeadGen Solutions. Thank you for taking my call. I understand from our mutual connection at NetworkPlus that you're spearheading the operational efficiency initiative at Global Ventures. That's fantastic that you already have budget approved for Q1! Our platform is perfect for VP-level executives who need comprehensive oversight while empowering their teams. We've worked with companies of your size and complexity before. The ROI typically shows within the first quarter. I'd love to show you exactly how we can support your Q1 implementation timeline.",
-      "call_outcome": "answered",
-      "ai_analysis": {
-        "interest_level": 9,
-        "budget_qualified": true,
-        "decision_maker": true,
-        "timeline": "Q1 2024",
-        "pain_points": ["operational inefficiency", "lack of visibility", "team coordination"],
-        "next_steps": "Schedule technical demo with IT team"
-      },
-      "created_at": "2024-01-17T10:19:00Z"
-    },
-    {
-      "id": "call-004",
-      "lead_id": "lead-004",
-      "call_date": "2024-01-17T11:30:00Z",
-      "duration": 120,
-      "transcript": "Hi David, this is Samantha calling from LeadGen Solutions. I wanted to follow up on your email inquiry about our retail management platform. I understand RetailPlus is exploring options to improve your inventory and customer management processes. However, I'm hearing that timing might be a challenge with current budget cycles. That's completely understandable. Many of our clients start their evaluation process 6-9 months before implementation. Would it be helpful if I send you some resources to review when your budget planning begins for the next fiscal year?",
-      "call_outcome": "answered",
-      "ai_analysis": {
-        "interest_level": 4,
         "budget_qualified": false,
         "decision_maker": true,
         "timeline": "6+ months",
-        "pain_points": ["budget timing", "current system limitations", "seasonal demands"],
-        "next_steps": "Follow up in Q3 for next year planning"
+        "pain_points": [
+          "manual processes",
+          "data silos",
+          "reporting gaps"
+        ],
+        "next_steps": "Follow up next quarter"
       },
-      "created_at": "2024-01-17T11:32:00Z"
+      "created_at": "2025-07-19T22:36:58.473Z"
     },
     {
-      "id": "call-005",
-      "lead_id": "lead-005",
-      "call_date": "2024-01-18T09:20:00Z",
-      "duration": 160,
-      "transcript": "Hello Jennifer, this is Samantha from LeadGen Solutions. I noticed you attended our healthcare IT webinar last week - thank you for joining us! I see you're the IT Director at Health Systems. Healthcare organizations have unique compliance and security requirements, which is exactly why we developed specialized features for HIPAA compliance and audit trails. Many healthcare IT directors tell us their biggest challenge is finding solutions that balance functionality with regulatory requirements. Does that resonate with your current situation?",
-      "call_outcome": "answered",
-      "ai_analysis": {
-        "interest_level": 7,
-        "budget_qualified": true,
-        "decision_maker": false,
-        "timeline": "Q2 2024",
-        "pain_points": ["compliance requirements", "data security", "integration challenges"],
-        "next_steps": "Connect with decision maker and compliance team"
-      },
-      "created_at": "2024-01-18T09:23:00Z"
-    },
-    {
-      "id": "call-006",
-      "lead_id": "lead-006",
-      "call_date": "2024-01-18T14:45:00Z",
-      "duration": 200,
-      "transcript": "Hi Robert, Samantha from LeadGen Solutions. It was great meeting you at the FinTech Trade Show last week. As we discussed, CFOs are increasingly looking for automation tools that can provide real-time financial insights while reducing manual processes. I remember you mentioning the challenges with your current quarterly reporting process. Our financial automation module has helped CFOs like yourself reduce reporting time by 60% while improving accuracy. You mentioned you're ready to move forward - shall we schedule a comprehensive demo for your finance team?",
+      "id": "call-068",
+      "lead_id": "lead-019",
+      "call_date": "2025-07-22T14:15:31.820Z",
+      "duration": 344,
+      "transcript": "Good afternoon Michelle, quick update from LeadGen Solutions. Your trial period is coming up, and I wanted to make sure you're getting the most out of it. Have you had a chance to test the reporting dashboard feature yet?",
       "call_outcome": "answered",
       "ai_analysis": {
         "interest_level": 9,
         "budget_qualified": true,
         "decision_maker": true,
         "timeline": "immediate",
-        "pain_points": ["manual reporting", "data accuracy", "time constraints"],
-        "next_steps": "Schedule team demo and send proposal"
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Schedule follow-up demo"
       },
-      "created_at": "2024-01-18T14:48:00Z"
+      "created_at": "2025-07-22T14:18:31.820Z"
     },
     {
-      "id": "call-007",
-      "lead_id": "lead-007",
-      "call_date": "2024-01-19T13:10:00Z",
-      "duration": 140,
-      "transcript": "Hello Lisa, this is Samantha from LeadGen Solutions. I see you found us through our Google ads campaign focused on education technology. That's great! As someone working in the education sector, you understand the unique challenges of managing student information, faculty coordination, and administrative processes. Our education-specific features include gradebook integration, parent communication portals, and compliance tracking for educational standards. Many institutions tell us they struggle with disparate systems that don't talk to each other. Is that something you're experiencing at EduTech?",
+      "id": "call-041",
+      "lead_id": "lead-008",
+      "call_date": "2025-07-22T14:15:31.819Z",
+      "duration": 350,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new growth package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 16% discount for Q1 signups.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-07-22T14:18:31.819Z"
+    },
+    {
+      "id": "call-017",
+      "lead_id": "lead-017",
+      "call_date": "2025-07-22T09:38:53.624Z",
+      "duration": 222,
+      "transcript": "Hi there, Samantha from LeadGen Solutions. Thanks for signing up for our free trial! I wanted to check in and see how your experience has been so far. Have you had a chance to import your leads and test out the automation features? I'm here to help you get the most value from your trial.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "6+ months",
+        "pain_points": [
+          "lead management",
+          "conversion tracking",
+          "team efficiency"
+        ],
+        "next_steps": "Follow up next quarter"
+      },
+      "created_at": "2025-07-19T17:39:02.087Z"
+    },
+    {
+      "id": "call-030",
+      "lead_id": "lead-004",
+      "call_date": "2025-07-21T14:15:31.819Z",
+      "duration": 312,
+      "transcript": "Hello David, following up on the email I sent with the case studies. Did you have a chance to review how we helped GlobalSales Inc achieve 24% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-07-21T14:18:31.819Z"
+    },
+    {
+      "id": "call-013",
+      "lead_id": "lead-013",
+      "call_date": "2025-07-21T07:01:16.034Z",
+      "duration": 61,
+      "transcript": "Hi there, this is Samantha calling from LeadGen Solutions. I saw your inquiry about our pricing plans - excellent timing! We just launched our new tier specifically for growing businesses. It includes all the core features you need without the enterprise-level complexity. Can I ask what your current team size is and what tools you're using today?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": false,
+        "timeline": "immediate",
+        "pain_points": [
+          "scalability",
+          "integration issues",
+          "cost concerns"
+        ],
+        "next_steps": "Follow up next quarter"
+      },
+      "created_at": "2025-07-19T20:32:17.430Z"
+    },
+    {
+      "id": "call-015",
+      "lead_id": "lead-015",
+      "call_date": "2025-07-21T04:30:07.825Z",
+      "duration": 226,
+      "transcript": "Hi, this is Samantha from LeadGen Solutions. Your colleague mentioned you might be interested in our platform. Word-of-mouth referrals are always exciting because it means someone you trust has seen the value we provide. What prompted them to suggest you reach out to us?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 4,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "lead management",
+          "conversion tracking",
+          "team efficiency"
+        ],
+        "next_steps": "Nurture with content"
+      },
+      "created_at": "2025-07-22T04:28:48.643Z"
+    },
+    {
+      "id": "call-072",
+      "lead_id": "lead-020",
+      "call_date": "2025-07-20T14:15:31.820Z",
+      "duration": 25,
+      "transcript": "Ryan, thanks for your time today. Based on your feedback about needing more customization, I've put together a custom package. This includes dedicated support during your first 30 days.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-07-20T14:18:31.820Z"
+    },
+    {
+      "id": "call-021",
+      "lead_id": "lead-001",
+      "call_date": "2025-07-20T14:15:31.819Z",
+      "duration": 23,
+      "transcript": "Hello Sarah, Samantha from LeadGen Solutions here. I'm calling to schedule our demo session. Based on our last discussion, I've prepared a customized demonstration focusing on your specific use case. Would Friday at 4 PM work for you?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-07-20T14:18:31.819Z"
+    },
+    {
+      "id": "call-023",
+      "lead_id": "lead-001",
+      "call_date": "2025-07-20T14:15:31.819Z",
+      "duration": 16,
+      "transcript": "Hello Sarah, Samantha from LeadGen Solutions here. I'm calling to schedule our demo session. Based on our last discussion, I've prepared a customized demonstration focusing on your specific use case. Would Friday at 2 PM work for you?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": false,
+        "decision_maker": false,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-07-20T14:18:31.819Z"
+    },
+    {
+      "id": "call-031",
+      "lead_id": "lead-004",
+      "call_date": "2025-07-20T14:15:31.819Z",
+      "duration": 419,
+      "transcript": "Good morning David, quick update from LeadGen Solutions. Your trial period is coming up, and I wanted to make sure you're getting the most out of it. Have you had a chance to test the lead scoring feature yet?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-07-20T14:18:31.819Z"
+    },
+    {
+      "id": "call-020",
+      "lead_id": "lead-020",
+      "call_date": "2025-07-20T10:57:42.416Z",
+      "duration": 194,
+      "transcript": "Hello, this is Samantha calling from LeadGen Solutions. I saw you registered for our upcoming product demo - fantastic! To make sure we cover everything relevant to your business, could you tell me a bit about your current sales process and where you see the biggest opportunities for improvement?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "manual processes",
+          "data silos",
+          "reporting gaps"
+        ],
+        "next_steps": "Connect with decision maker"
+      },
+      "created_at": "2025-07-22T01:52:59.822Z"
+    },
+    {
+      "id": "call-019",
+      "lead_id": "lead-019",
+      "call_date": "2025-07-20T00:32:40.610Z",
+      "duration": 175,
+      "transcript": "Hi, Samantha here from LeadGen Solutions. Your inquiry mentioned you're looking for a solution that integrates with your existing CRM. Good news - we have native integrations with all major CRMs and our API is very flexible. Which CRM are you currently using, and what's your ideal workflow?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "manual processes",
+          "data silos",
+          "reporting gaps"
+        ],
+        "next_steps": "Follow up next quarter"
+      },
+      "created_at": "2025-07-23T08:51:54.563Z"
+    },
+    {
+      "id": "call-032",
+      "lead_id": "lead-005",
+      "call_date": "2025-07-19T14:15:31.819Z",
+      "duration": 21,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new starter package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 15% discount for Q1 signups.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-19T14:18:31.819Z"
+    },
+    {
+      "id": "call-012",
+      "lead_id": "lead-012",
+      "call_date": "2025-07-19T09:29:13.256Z",
+      "duration": 105,
+      "transcript": "Hello, Samantha here from LeadGen Solutions. Thank you for downloading our case study on improving sales efficiency. I see you're in a competitive industry where every lead counts. Our platform has helped similar companies increase their conversion rates by 35%. Would you be interested in seeing how we could achieve similar results for your team?",
       "call_outcome": "answered",
       "ai_analysis": {
         "interest_level": 6,
         "budget_qualified": true,
         "decision_maker": false,
-        "timeline": "next semester",
-        "pain_points": ["system integration", "parent communication", "administrative burden"],
-        "next_steps": "Connect with IT department and administration"
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "scalability",
+          "integration issues",
+          "cost concerns"
+        ],
+        "next_steps": "Connect with decision maker"
       },
-      "created_at": "2024-01-19T13:13:00Z"
+      "created_at": "2025-07-22T22:58:55.999Z"
     },
     {
-      "id": "call-008",
-      "lead_id": "lead-008",
-      "call_date": "2024-01-15T16:00:00Z",
-      "duration": 85,
-      "transcript": "Hi Andrew, Samantha calling from LeadGen Solutions. I understand you were referred to us by one of our partners. Thank you for taking the time to speak with me. I see that you're in manufacturing, and I know that industry has very specific operational requirements. However, I'm understanding that you're currently locked into a contract with another provider for the next couple of years. That's completely fine - these decisions need to align with your contract cycles. Would it be helpful if I keep you updated on our new manufacturing features as they're released? That way you'll have current information when your contract renewal comes up.",
+      "id": "call-018",
+      "lead_id": "lead-018",
+      "call_date": "2025-07-19T07:52:08.724Z",
+      "duration": 65,
+      "transcript": "Hello, this is Samantha from LeadGen Solutions. I noticed you compared us to several competitors on your website - that's smart due diligence! What I find is that while features might look similar on paper, the real difference is in implementation and support. What are your top criteria for making this decision?",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": false,
+        "decision_maker": false,
+        "timeline": "immediate",
+        "pain_points": [
+          "manual processes",
+          "data silos",
+          "reporting gaps"
+        ],
+        "next_steps": "Follow up next quarter"
+      },
+      "created_at": "2025-07-23T09:12:29.606Z"
+    },
+    {
+      "id": "call-011",
+      "lead_id": "lead-011",
+      "call_date": "2025-07-19T04:10:23.004Z",
+      "duration": 230,
+      "transcript": "Hi, this is Samantha from LeadGen Solutions. I noticed you signed up for our newsletter - that's great! I wanted to reach out personally to understand what challenges you're facing in your business. Many of our clients come to us when they're struggling with lead management and conversion. What specific pain points are you hoping to solve?",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "lead management",
+          "conversion tracking",
+          "team efficiency"
+        ],
+        "next_steps": "Follow up next quarter"
+      },
+      "created_at": "2025-07-21T13:57:57.724Z"
+    },
+    {
+      "id": "call-016",
+      "lead_id": "lead-016",
+      "call_date": "2025-07-18T23:57:41.348Z",
+      "duration": 184,
+      "transcript": "Hello, Samantha calling from LeadGen Solutions. I see you've been browsing our ROI calculator multiple times - that tells me you're serious about understanding the financial impact. Most of our clients see ROI within 90 days. What metrics are most important to you when evaluating a solution like ours?",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "immediate",
+        "pain_points": [
+          "manual processes",
+          "data silos",
+          "reporting gaps"
+        ],
+        "next_steps": "Nurture with content"
+      },
+      "created_at": "2025-07-21T09:52:43.417Z"
+    },
+    {
+      "id": "call-043",
+      "lead_id": "lead-009",
+      "call_date": "2025-07-18T14:15:31.819Z",
+      "duration": 18,
+      "transcript": "Hi Maria, this is Samantha following up on our previous conversation. I wanted to check if you had a chance to review the proposal we sent over. Do you have any questions about the pricing or implementation timeline? I noticed you were particularly interested in our reporting features.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Provide additional case studies"
+      },
+      "created_at": "2025-07-18T14:18:31.819Z"
+    },
+    {
+      "id": "call-062",
+      "lead_id": "lead-017",
+      "call_date": "2025-07-18T14:15:31.819Z",
+      "duration": 33,
+      "transcript": "Hi Stephanie, this is Samantha following up on our previous conversation. I wanted to check if you had a chance to review the proposal we sent over. Do you have any questions about the pricing or implementation timeline? I noticed you were particularly interested in our reporting features.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-07-18T14:18:31.819Z"
+    },
+    {
+      "id": "call-054",
+      "lead_id": "lead-013",
+      "call_date": "2025-07-17T14:15:31.819Z",
+      "duration": 324,
+      "transcript": "Amanda, thanks for your time today. Based on your feedback about needing easier onboarding, I've put together a custom package. This includes dedicated support during your first 60 days.",
       "call_outcome": "answered",
       "ai_analysis": {
-        "interest_level": 3,
-        "budget_qualified": false,
-        "decision_maker": true,
-        "timeline": "2+ years",
-        "pain_points": ["contract constraints", "switching costs", "feature gaps"],
-        "next_steps": "Add to long-term nurture campaign"
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "6+ months",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Involve other stakeholders"
       },
-      "created_at": "2024-01-15T16:01:00Z"
+      "created_at": "2025-07-17T14:18:31.819Z"
     },
     {
-      "id": "call-009",
+      "id": "call-070",
+      "lead_id": "lead-019",
+      "call_date": "2025-07-16T14:15:31.820Z",
+      "duration": 198,
+      "transcript": "Hi Michelle, Samantha here. I wanted to address the integration concerns you mentioned. We have some flexible options that might work better for you. For instance, we could start with a pilot program for your sales team.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Schedule follow-up demo"
+      },
+      "created_at": "2025-07-16T14:18:31.820Z"
+    },
+    {
+      "id": "call-028",
+      "lead_id": "lead-003",
+      "call_date": "2025-07-16T14:15:31.819Z",
+      "duration": 311,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new enterprise package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 25% discount for Q1 signups.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-16T14:18:31.819Z"
+    },
+    {
+      "id": "call-033",
+      "lead_id": "lead-005",
+      "call_date": "2025-07-16T14:15:31.819Z",
+      "duration": 225,
+      "transcript": "Jennifer, thanks for taking my call. I spoke with our technical team about your specific requirements regarding security compliance. Good news - we can definitely accommodate that. Let me walk you through how we've done this for similar clients.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "6+ months",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-16T14:18:31.819Z"
+    },
+    {
+      "id": "call-042",
+      "lead_id": "lead-008",
+      "call_date": "2025-07-16T14:15:31.819Z",
+      "duration": 15,
+      "transcript": "Hello Andrew, following up on the email I sent with the case studies. Did you have a chance to review how we helped GlobalSales Inc achieve 44% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-16T14:18:31.819Z"
+    },
+    {
+      "id": "call-063",
+      "lead_id": "lead-017",
+      "call_date": "2025-07-16T14:15:31.819Z",
+      "duration": 220,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new growth package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 26% discount for Q1 signups.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-07-16T14:18:31.819Z"
+    },
+    {
+      "id": "call-064",
+      "lead_id": "lead-017",
+      "call_date": "2025-07-16T14:15:31.819Z",
+      "duration": 20,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new professional package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 21% discount for Q1 signups.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-07-16T14:18:31.819Z"
+    },
+    {
+      "id": "call-066",
+      "lead_id": "lead-018",
+      "call_date": "2025-07-15T14:15:31.820Z",
+      "duration": 39,
+      "transcript": "Hi Daniel, this is Samantha following up on our previous conversation. I wanted to check if you had a chance to review the proposal we sent over. Do you have any questions about the pricing or implementation timeline? I noticed you were particularly interested in our integration features.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-07-15T14:18:31.820Z"
+    },
+    {
+      "id": "call-045",
       "lead_id": "lead-009",
-      "call_date": "2024-01-20T10:30:00Z",
-      "duration": 175,
-      "transcript": "Hello Maria, this is Samantha from LeadGen Solutions. I noticed you downloaded our digital transformation whitepaper - excellent choice! As someone in consulting, you probably see firsthand how digital transformation initiatives can make or break an organization's competitive advantage. Our platform is designed specifically for consulting firms who need to manage multiple client projects while maintaining visibility across all engagements. The whitepaper mentioned the importance of data-driven decision making - that's exactly what our analytics dashboard provides. Are you currently managing client projects with disparate tools, or do you have an integrated system?",
+      "call_date": "2025-07-15T14:15:31.819Z",
+      "duration": 42,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new enterprise package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 18% discount for Q1 signups.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": false,
+        "decision_maker": false,
+        "timeline": "immediate",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-07-15T14:18:31.819Z"
+    },
+    {
+      "id": "call-056",
+      "lead_id": "lead-014",
+      "call_date": "2025-07-15T14:15:31.819Z",
+      "duration": 268,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new professional package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 15% discount for Q1 signups.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-15T14:18:31.819Z"
+    },
+    {
+      "id": "call-065",
+      "lead_id": "lead-018",
+      "call_date": "2025-07-13T14:15:31.820Z",
+      "duration": 28,
+      "transcript": "Hello Daniel, Samantha from LeadGen Solutions here. I'm calling to schedule our demo session. Based on our last discussion, I've prepared a customized demonstration focusing on your specific use case. Would Monday at 3 PM work for you?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Provide additional case studies"
+      },
+      "created_at": "2025-07-13T14:18:31.820Z"
+    },
+    {
+      "id": "call-035",
+      "lead_id": "lead-006",
+      "call_date": "2025-07-12T14:15:31.819Z",
+      "duration": 132,
+      "transcript": "Hi Robert, this is Samantha following up on our previous conversation. I wanted to check if you had a chance to review the proposal we sent over. Do you have any questions about the pricing or implementation timeline? I noticed you were particularly interested in our analytics features.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "6+ months",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Provide additional case studies"
+      },
+      "created_at": "2025-07-12T14:18:31.819Z"
+    },
+    {
+      "id": "call-029",
+      "lead_id": "lead-004",
+      "call_date": "2025-07-11T14:15:31.819Z",
+      "duration": 370,
+      "transcript": "Hello David, following up on the email I sent with the case studies. Did you have a chance to review how we helped Enterprise Solutions achieve 32% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-07-11T14:18:31.819Z"
+    },
+    {
+      "id": "call-036",
+      "lead_id": "lead-006",
+      "call_date": "2025-07-11T14:15:31.819Z",
+      "duration": 32,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new professional package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 13% discount for Q1 signups.",
       "call_outcome": "answered",
       "ai_analysis": {
         "interest_level": 7,
         "budget_qualified": true,
         "decision_maker": true,
-        "timeline": "Q2 2024",
-        "pain_points": ["project visibility", "client reporting", "resource allocation"],
-        "next_steps": "Send consulting industry case study and schedule demo"
+        "timeline": "6+ months",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Provide additional case studies"
       },
-      "created_at": "2024-01-20T10:33:00Z"
+      "created_at": "2025-07-11T14:18:31.819Z"
+    },
+    {
+      "id": "call-050",
+      "lead_id": "lead-012",
+      "call_date": "2025-07-10T14:15:31.819Z",
+      "duration": 150,
+      "transcript": "Hello Kevin, following up on the email I sent with the case studies. Did you have a chance to review how we helped TechCorp achieve 34% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Provide additional case studies"
+      },
+      "created_at": "2025-07-10T14:18:31.819Z"
+    },
+    {
+      "id": "call-071",
+      "lead_id": "lead-020",
+      "call_date": "2025-07-09T14:15:31.820Z",
+      "duration": 376,
+      "transcript": "Good afternoon Ryan, quick update from LeadGen Solutions. Your trial period is coming up, and I wanted to make sure you're getting the most out of it. Have you had a chance to test the email integration feature yet?",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-07-09T14:18:31.820Z"
+    },
+    {
+      "id": "call-069",
+      "lead_id": "lead-019",
+      "call_date": "2025-07-08T14:15:31.820Z",
+      "duration": 182,
+      "transcript": "Hello Michelle, following up on the email I sent with the case studies. Did you have a chance to review how we helped StartupHub achieve 29% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Schedule follow-up demo"
+      },
+      "created_at": "2025-07-08T14:18:31.820Z"
+    },
+    {
+      "id": "call-048",
+      "lead_id": "lead-011",
+      "call_date": "2025-07-08T14:15:31.819Z",
+      "duration": 44,
+      "transcript": "Hello Rachel, following up on the email I sent with the case studies. Did you have a chance to review how we helped GlobalSales Inc achieve 46% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Connect with technical team"
+      },
+      "created_at": "2025-07-08T14:18:31.819Z"
+    },
+    {
+      "id": "call-052",
+      "lead_id": "lead-013",
+      "call_date": "2025-07-08T14:15:31.819Z",
+      "duration": 313,
+      "transcript": "Hello Amanda, Samantha from LeadGen Solutions here. I'm calling to schedule our demo session. Based on our last discussion, I've prepared a customized demonstration focusing on your specific use case. Would Monday at 2 PM work for you?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "6+ months",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Provide additional case studies"
+      },
+      "created_at": "2025-07-08T14:18:31.819Z"
+    },
+    {
+      "id": "call-058",
+      "lead_id": "lead-015",
+      "call_date": "2025-07-08T14:15:31.819Z",
+      "duration": 34,
+      "transcript": "Nicole, thanks for taking my call. I spoke with our technical team about your specific requirements regarding security compliance. Good news - we can definitely accommodate that. Let me walk you through how we've done this for similar clients.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": false,
+        "decision_maker": false,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-07-08T14:18:31.819Z"
+    },
+    {
+      "id": "call-025",
+      "lead_id": "lead-002",
+      "call_date": "2025-07-07T14:15:31.819Z",
+      "duration": 39,
+      "transcript": "Michael, thanks for your time today. Based on your feedback about needing easier onboarding, I've put together a custom package. This includes dedicated support during your first 60 days.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-07-07T14:18:31.819Z"
+    },
+    {
+      "id": "call-040",
+      "lead_id": "lead-008",
+      "call_date": "2025-07-07T14:15:31.819Z",
+      "duration": 40,
+      "transcript": "Hi Andrew, Samantha here. I wanted to address the budget concerns you mentioned. We have some flexible options that might work better for you. For instance, we could start with a pilot program for your marketing team.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Connect with technical team"
+      },
+      "created_at": "2025-07-07T14:18:31.819Z"
+    },
+    {
+      "id": "call-067",
+      "lead_id": "lead-018",
+      "call_date": "2025-07-05T14:15:31.820Z",
+      "duration": 342,
+      "transcript": "Hello Daniel, Samantha from LeadGen Solutions here. I'm calling to schedule our demo session. Based on our last discussion, I've prepared a customized demonstration focusing on your specific use case. Would Monday at 4 PM work for you?",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Provide additional case studies"
+      },
+      "created_at": "2025-07-05T14:18:31.820Z"
+    },
+    {
+      "id": "call-038",
+      "lead_id": "lead-007",
+      "call_date": "2025-07-05T14:15:31.819Z",
+      "duration": 220,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new professional package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 13% discount for Q1 signups.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Connect with technical team"
+      },
+      "created_at": "2025-07-05T14:18:31.819Z"
+    },
+    {
+      "id": "call-024",
+      "lead_id": "lead-002",
+      "call_date": "2025-07-04T14:15:31.819Z",
+      "duration": 29,
+      "transcript": "Good morning Michael, quick update from LeadGen Solutions. Your trial period is coming up, and I wanted to make sure you're getting the most out of it. Have you had a chance to test the email integration feature yet?",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-04T14:18:31.819Z"
+    },
+    {
+      "id": "call-039",
+      "lead_id": "lead-007",
+      "call_date": "2025-07-03T14:15:31.819Z",
+      "duration": 38,
+      "transcript": "Hi Lisa, this is Samantha following up on our previous conversation. I wanted to check if you had a chance to review the proposal we sent over. Do you have any questions about the pricing or implementation timeline? I noticed you were particularly interested in our integration features.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-07-03T14:18:31.819Z"
+    },
+    {
+      "id": "call-044",
+      "lead_id": "lead-009",
+      "call_date": "2025-07-03T14:15:31.819Z",
+      "duration": 19,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new growth package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 27% discount for Q1 signups.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-03T14:18:31.819Z"
+    },
+    {
+      "id": "call-057",
+      "lead_id": "lead-015",
+      "call_date": "2025-07-03T14:15:31.819Z",
+      "duration": 18,
+      "transcript": "Hello Nicole, Samantha from LeadGen Solutions here. I'm calling to schedule our demo session. Based on our last discussion, I've prepared a customized demonstration focusing on your specific use case. Would Friday at 2 PM work for you?",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Schedule follow-up demo"
+      },
+      "created_at": "2025-07-03T14:18:31.819Z"
+    },
+    {
+      "id": "call-022",
+      "lead_id": "lead-001",
+      "call_date": "2025-07-02T14:15:31.819Z",
+      "duration": 215,
+      "transcript": "Sarah, thanks for your time today. Based on your feedback about needing more customization, I've put together a custom package. This includes dedicated support during your first 60 days.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-07-02T14:18:31.819Z"
+    },
+    {
+      "id": "call-049",
+      "lead_id": "lead-011",
+      "call_date": "2025-07-01T14:15:31.819Z",
+      "duration": 304,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new growth package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 29% discount for Q1 signups.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-07-01T14:18:31.819Z"
+    },
+    {
+      "id": "call-027",
+      "lead_id": "lead-003",
+      "call_date": "2025-06-30T14:15:31.819Z",
+      "duration": 40,
+      "transcript": "Hello Emily, following up on the email I sent with the case studies. Did you have a chance to review how we helped StartupHub achieve 51% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "immediate",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Schedule follow-up demo"
+      },
+      "created_at": "2025-06-30T14:18:31.819Z"
+    },
+    {
+      "id": "call-037",
+      "lead_id": "lead-007",
+      "call_date": "2025-06-30T14:15:31.819Z",
+      "duration": 19,
+      "transcript": "Hello Lisa, following up on the email I sent with the case studies. Did you have a chance to review how we helped GlobalSales Inc achieve 56% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": false,
+        "decision_maker": false,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-06-30T14:18:31.819Z"
+    },
+    {
+      "id": "call-046",
+      "lead_id": "lead-010",
+      "call_date": "2025-06-29T14:15:31.819Z",
+      "duration": 27,
+      "transcript": "James, thanks for your time today. Based on your feedback about needing better ROI tracking, I've put together a custom package. This includes dedicated support during your first 60 days.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Connect with technical team"
+      },
+      "created_at": "2025-06-29T14:18:31.819Z"
+    },
+    {
+      "id": "call-055",
+      "lead_id": "lead-014",
+      "call_date": "2025-06-29T14:15:31.819Z",
+      "duration": 241,
+      "transcript": "Hi Thomas, Samantha here. I wanted to address the timeline concerns you mentioned. We have some flexible options that might work better for you. For instance, we could start with a pilot program for your customer success team.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "immediate",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-06-29T14:18:31.819Z"
+    },
+    {
+      "id": "call-061",
+      "lead_id": "lead-016",
+      "call_date": "2025-06-29T14:15:31.819Z",
+      "duration": 213,
+      "transcript": "Hi Christopher, this is Samantha following up on our previous conversation. I wanted to check if you had a chance to review the proposal we sent over. Do you have any questions about the pricing or implementation timeline? I noticed you were particularly interested in our analytics features.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "efficiency gaps",
+          "manual processes",
+          "data silos"
+        ],
+        "next_steps": "Set up trial account"
+      },
+      "created_at": "2025-06-29T14:18:31.819Z"
+    },
+    {
+      "id": "call-053",
+      "lead_id": "lead-013",
+      "call_date": "2025-06-28T14:15:31.819Z",
+      "duration": 356,
+      "transcript": "Hello Amanda, following up on the email I sent with the case studies. Did you have a chance to review how we helped Enterprise Solutions achieve 30% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-06-28T14:18:31.819Z"
+    },
+    {
+      "id": "call-060",
+      "lead_id": "lead-016",
+      "call_date": "2025-06-27T14:15:31.819Z",
+      "duration": 302,
+      "transcript": "Hi, this is Samantha. Quick follow-up call - I just wanted to let you know about our new starter package that might be a better fit for your needs. It includes everything we discussed plus some additional features at a 23% discount for Q1 signups.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q3 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-06-27T14:18:31.819Z"
+    },
+    {
+      "id": "call-051",
+      "lead_id": "lead-012",
+      "call_date": "2025-06-26T14:15:31.819Z",
+      "duration": 20,
+      "transcript": "Hi Kevin, Samantha here. I wanted to address the budget concerns you mentioned. We have some flexible options that might work better for you. For instance, we could start with a pilot program for your operations team.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Schedule follow-up demo"
+      },
+      "created_at": "2025-06-26T14:18:31.819Z"
+    },
+    {
+      "id": "call-047",
+      "lead_id": "lead-010",
+      "call_date": "2025-06-25T14:15:31.819Z",
+      "duration": 41,
+      "transcript": "James, thanks for taking my call. I spoke with our technical team about your specific requirements regarding API integration. Good news - we can definitely accommodate that. Let me walk you through how we've done this for similar clients.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-06-25T14:18:31.819Z"
+    },
+    {
+      "id": "call-073",
+      "lead_id": "lead-020",
+      "call_date": "2025-06-24T14:15:31.820Z",
+      "duration": 29,
+      "transcript": "Hi Ryan, Samantha here. I wanted to address the budget concerns you mentioned. We have some flexible options that might work better for you. For instance, we could start with a pilot program for your marketing team.",
+      "call_outcome": "voicemail",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "cost optimization",
+          "resource allocation",
+          "performance tracking"
+        ],
+        "next_steps": "Send revised proposal"
+      },
+      "created_at": "2025-06-24T14:18:31.820Z"
+    },
+    {
+      "id": "call-026",
+      "lead_id": "lead-003",
+      "call_date": "2025-06-24T14:15:31.819Z",
+      "duration": 360,
+      "transcript": "Emily, thanks for your time today. Based on your feedback about needing better ROI tracking, I've put together a custom package. This includes dedicated support during your first 30 days.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 5,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "team coordination",
+          "visibility gaps",
+          "process automation"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-06-24T14:18:31.819Z"
+    },
+    {
+      "id": "call-034",
+      "lead_id": "lead-006",
+      "call_date": "2025-06-24T14:15:31.819Z",
+      "duration": 234,
+      "transcript": "Hi Robert, Samantha here. I wanted to address the integration concerns you mentioned. We have some flexible options that might work better for you. For instance, we could start with a pilot program for your customer success team.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Involve other stakeholders"
+      },
+      "created_at": "2025-06-24T14:18:31.819Z"
+    },
+    {
+      "id": "call-059",
+      "lead_id": "lead-015",
+      "call_date": "2025-06-23T14:15:31.819Z",
+      "duration": 152,
+      "transcript": "Hello Nicole, following up on the email I sent with the case studies. Did you have a chance to review how we helped TechCorp achieve 53% improvement in their sales efficiency? I'd love to discuss how we can replicate those results for you.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "6+ months",
+        "pain_points": [
+          "scalability concerns",
+          "integration challenges",
+          "reporting issues"
+        ],
+        "next_steps": "Address specific concerns"
+      },
+      "created_at": "2025-06-23T14:18:31.819Z"
     },
     {
       "id": "call-010",
@@ -433,42 +1603,1270 @@
         "budget_qualified": true,
         "decision_maker": true,
         "timeline": "immediate",
-        "pain_points": ["supply chain delays", "lack of visibility", "manual tracking"],
+        "pain_points": [
+          "supply chain delays",
+          "lack of visibility",
+          "manual tracking"
+        ],
         "next_steps": "Schedule urgent demo and prepare ROI analysis"
       },
       "created_at": "2024-01-20T15:48:00Z"
+    },
+    {
+      "id": "call-009",
+      "lead_id": "lead-009",
+      "call_date": "2024-01-20T10:30:00Z",
+      "duration": 175,
+      "transcript": "Hello Maria, this is Samantha from LeadGen Solutions. I noticed you downloaded our digital transformation whitepaper - excellent choice! As someone in consulting, you probably see firsthand how digital transformation initiatives can make or break an organization's competitive advantage. Our platform is designed specifically for consulting firms who need to manage multiple client projects while maintaining visibility across all engagements. The whitepaper mentioned the importance of data-driven decision making - that's exactly what our analytics dashboard provides. Are you currently managing client projects with disparate tools, or do you have an integrated system?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "project visibility",
+          "client reporting",
+          "resource allocation"
+        ],
+        "next_steps": "Send consulting industry case study and schedule demo"
+      },
+      "created_at": "2024-01-20T10:33:00Z"
+    },
+    {
+      "id": "call-007",
+      "lead_id": "lead-007",
+      "call_date": "2024-01-19T13:10:00Z",
+      "duration": 140,
+      "transcript": "Hello Lisa, this is Samantha from LeadGen Solutions. I see you found us through our Google ads campaign focused on education technology. That's great! As someone working in the education sector, you understand the unique challenges of managing student information, faculty coordination, and administrative processes. Our education-specific features include gradebook integration, parent communication portals, and compliance tracking for educational standards. Many institutions tell us they struggle with disparate systems that don't talk to each other. Is that something you're experiencing at EduTech?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "next semester",
+        "pain_points": [
+          "system integration",
+          "parent communication",
+          "administrative burden"
+        ],
+        "next_steps": "Connect with IT department and administration"
+      },
+      "created_at": "2024-01-19T13:13:00Z"
+    },
+    {
+      "id": "call-006",
+      "lead_id": "lead-006",
+      "call_date": "2024-01-18T14:45:00Z",
+      "duration": 200,
+      "transcript": "Hi Robert, Samantha from LeadGen Solutions. It was great meeting you at the FinTech Trade Show last week. As we discussed, CFOs are increasingly looking for automation tools that can provide real-time financial insights while reducing manual processes. I remember you mentioning the challenges with your current quarterly reporting process. Our financial automation module has helped CFOs like yourself reduce reporting time by 60% while improving accuracy. You mentioned you're ready to move forward - shall we schedule a comprehensive demo for your finance team?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "immediate",
+        "pain_points": [
+          "manual reporting",
+          "data accuracy",
+          "time constraints"
+        ],
+        "next_steps": "Schedule team demo and send proposal"
+      },
+      "created_at": "2024-01-18T14:48:00Z"
+    },
+    {
+      "id": "call-005",
+      "lead_id": "lead-005",
+      "call_date": "2024-01-18T09:20:00Z",
+      "duration": 160,
+      "transcript": "Hello Jennifer, this is Samantha from LeadGen Solutions. I noticed you attended our healthcare IT webinar last week - thank you for joining us! I see you're the IT Director at Health Systems. Healthcare organizations have unique compliance and security requirements, which is exactly why we developed specialized features for HIPAA compliance and audit trails. Many healthcare IT directors tell us their biggest challenge is finding solutions that balance functionality with regulatory requirements. Does that resonate with your current situation?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 7,
+        "budget_qualified": true,
+        "decision_maker": false,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "compliance requirements",
+          "data security",
+          "integration challenges"
+        ],
+        "next_steps": "Connect with decision maker and compliance team"
+      },
+      "created_at": "2024-01-18T09:23:00Z"
+    },
+    {
+      "id": "call-004",
+      "lead_id": "lead-004",
+      "call_date": "2024-01-17T11:30:00Z",
+      "duration": 120,
+      "transcript": "Hi David, this is Samantha calling from LeadGen Solutions. I wanted to follow up on your email inquiry about our retail management platform. I understand RetailPlus is exploring options to improve your inventory and customer management processes. However, I'm hearing that timing might be a challenge with current budget cycles. That's completely understandable. Many of our clients start their evaluation process 6-9 months before implementation. Would it be helpful if I send you some resources to review when your budget planning begins for the next fiscal year?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 4,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "6+ months",
+        "pain_points": [
+          "budget timing",
+          "current system limitations",
+          "seasonal demands"
+        ],
+        "next_steps": "Follow up in Q3 for next year planning"
+      },
+      "created_at": "2024-01-17T11:32:00Z"
+    },
+    {
+      "id": "call-003",
+      "lead_id": "lead-003",
+      "call_date": "2024-01-17T10:15:00Z",
+      "duration": 240,
+      "transcript": "Hello Emily, Samantha here from LeadGen Solutions. Thank you for taking my call. I understand from our mutual connection at NetworkPlus that you're spearheading the operational efficiency initiative at Global Ventures. That's fantastic that you already have budget approved for Q1! Our platform is perfect for VP-level executives who need comprehensive oversight while empowering their teams. We've worked with companies of your size and complexity before. The ROI typically shows within the first quarter. I'd love to show you exactly how we can support your Q1 implementation timeline.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 9,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "operational inefficiency",
+          "lack of visibility",
+          "team coordination"
+        ],
+        "next_steps": "Schedule technical demo with IT team"
+      },
+      "created_at": "2024-01-17T10:19:00Z"
+    },
+    {
+      "id": "call-002",
+      "lead_id": "lead-002",
+      "call_date": "2024-01-16T15:45:00Z",
+      "duration": 95,
+      "transcript": "Hi Michael, this is Samantha from LeadGen Solutions. I saw your LinkedIn profile and noticed you're the CTO at InnovateStart. We specialize in scalable solutions for growing tech companies. I understand startups need flexible, cost-effective tools that can grow with them. Our platform has helped other CTOs like yourself reduce operational overhead by 40%. Would you have a few minutes to discuss your current challenges with team management and project coordination?",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 6,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "Q2 2024",
+        "pain_points": [
+          "budget constraints",
+          "rapid scaling",
+          "tool integration"
+        ],
+        "next_steps": "Send pricing information and case studies"
+      },
+      "created_at": "2024-01-16T15:48:00Z"
+    },
+    {
+      "id": "call-008",
+      "lead_id": "lead-008",
+      "call_date": "2024-01-15T16:00:00Z",
+      "duration": 85,
+      "transcript": "Hi Andrew, Samantha calling from LeadGen Solutions. I understand you were referred to us by one of our partners. Thank you for taking the time to speak with me. I see that you're in manufacturing, and I know that industry has very specific operational requirements. However, I'm understanding that you're currently locked into a contract with another provider for the next couple of years. That's completely fine - these decisions need to align with your contract cycles. Would it be helpful if I keep you updated on our new manufacturing features as they're released? That way you'll have current information when your contract renewal comes up.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 3,
+        "budget_qualified": false,
+        "decision_maker": true,
+        "timeline": "2+ years",
+        "pain_points": [
+          "contract constraints",
+          "switching costs",
+          "feature gaps"
+        ],
+        "next_steps": "Add to long-term nurture campaign"
+      },
+      "created_at": "2024-01-15T16:01:00Z"
+    },
+    {
+      "id": "call-001",
+      "lead_id": "lead-001",
+      "call_date": "2024-01-15T14:30:00Z",
+      "duration": 180,
+      "transcript": "Hello, this is Samantha from LeadGen Solutions. I'm reaching out because you expressed interest in our enterprise platform through your website inquiry. Sarah mentioned you're looking for a solution that can handle 500+ employees. That's exactly what our platform is designed for. We've helped companies like TechGlobal and InnovateCorp streamline their operations. Would you be interested in a brief 15-minute demo to see how we can specifically help TechCorp? Great! I can see this aligning well with your current growth trajectory.",
+      "call_outcome": "answered",
+      "ai_analysis": {
+        "interest_level": 8,
+        "budget_qualified": true,
+        "decision_maker": true,
+        "timeline": "Q1 2024",
+        "pain_points": [
+          "scalability issues",
+          "manual processes",
+          "team coordination"
+        ],
+        "next_steps": "Schedule product demo for next week"
+      },
+      "created_at": "2024-01-15T14:33:00Z"
     }
   ],
   "emails": [
     {
-      "id": "email-001",
-      "lead_id": "lead-001",
+      "id": "email-010",
+      "lead_id": "lead-013",
       "email_type": "outbound",
-      "subject": "Follow-up: Enterprise Platform Demo for TechCorp",
-      "content": "Hi Sarah,\n\nThank you for the great conversation yesterday! I'm excited about the potential to help TechCorp streamline operations for your 500+ employee growth.\n\nAs discussed, I'm sending you:\n- Case study: How TechGlobal increased efficiency by 40%\n- ROI calculator specifically for enterprise implementations\n- Technical requirements checklist\n\nI have availability for the demo next Tuesday at 2 PM or Wednesday at 10 AM. Which works better for your schedule?\n\nBest regards,\nSamantha",
-      "sent_at": "2024-01-16T09:15:00Z",
-      "opened_at": "2024-01-16T10:30:00Z",
-      "clicked_at": "2024-01-16T10:32:00Z",
-      "email_status": "clicked"
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Amanda,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-23T03:21:22.301Z",
+      "email_status": "clicked",
+      "opened_at": null,
+      "clicked_at": "2025-07-20T10:15:04.263Z",
+      "replied_at": null
     },
     {
-      "id": "email-002",
-      "lead_id": "lead-001",
+      "id": "email-013",
+      "lead_id": "lead-015",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Nicole,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-22T22:04:00.884Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-21T10:19:17.370Z",
+      "clicked_at": "2025-07-21T12:38:24.558Z",
+      "replied_at": null
+    },
+    {
+      "id": "email-019",
+      "lead_id": "lead-020",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Ryan,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-22T07:31:49.809Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-19T22:31:48.075Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-015",
+      "lead_id": "lead-016",
       "email_type": "inbound",
-      "subject": "Re: Follow-up: Enterprise Platform Demo for TechCorp",
-      "content": "Hi Samantha,\n\nThanks for sending those resources. The TechGlobal case study is very relevant to our situation. I reviewed the ROI calculator and the numbers look promising.\n\nTuesday at 2 PM works perfectly for the demo. Could you also include our IT Director, Mark Stevens, in the meeting? His email is mark.stevens@techcorp.com.\n\nLooking forward to seeing the platform in action.\n\nBest,\nSarah Johnson\nVP Operations, TechCorp",
-      "sent_at": "2024-01-16T14:20:00Z",
-      "email_status": "replied"
+      "subject": "Re: Following up on your interest in LeadGen Solutions",
+      "content": "Hi Samantha,\n\nThank you for reaching out. We're currently evaluating several solutions for our sales team.\n\nI'd be interested in learning more about your integration capabilities and pricing options.\n\nCould you send over some more detailed information?\n\nBest,\nChristopher Taylor",
+      "sent_at": "2025-07-21T15:45:51.262Z",
+      "email_status": "replied",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": "2025-07-21T20:47:59.405Z"
     },
     {
-      "id": "email-003",
+      "id": "email-045",
+      "lead_id": "lead-007",
+      "email_type": "outbound",
+      "subject": "Important Update: New Features for Sales Teams",
+      "content": "Hi Lisa,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 43 reps\n• Average deal size: $24652\n• Current conversion rate: 9%\n\nWith LeadGen Solutions, you could potentially see:\n• 41% increase in conversion rates\n• 57% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-21T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-21T16:31:12.270Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-072",
+      "lead_id": "lead-014",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Pricing",
+      "content": "Dear Thomas Anderson,\n\nI thought you might be interested in seeing how FinanceFirst, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Manual reporting\n• Solution: Implemented LeadGen Solutions Growth package\n• Results: 78% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-21T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-22T04:47:41.888Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-090",
+      "lead_id": "lead-019",
+      "email_type": "outbound",
+      "subject": "Michelle, Here's the Information You Requested",
+      "content": "Dear Michelle White,\n\nI thought you might be interested in seeing how FinanceFirst, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Manual reporting\n• Solution: Implemented LeadGen Solutions Professional package\n• Results: 57% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-21T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-22T14:11:28.108Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-018",
+      "lead_id": "lead-019",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Michelle,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-20T23:38:35.079Z",
+      "email_status": "sent",
+      "opened_at": "2025-07-20T15:00:44.310Z",
+      "clicked_at": "2025-07-21T19:58:09.402Z",
+      "replied_at": null
+    },
+    {
+      "id": "email-043",
+      "lead_id": "lead-007",
+      "email_type": "inbound",
+      "subject": "Need more information about integrations",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the trial period.\n\nNext steps from our end:\n- Get approval from board\n- Schedule kickoff with our 20-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nLisa Thompson",
+      "sent_at": "2025-07-20T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-21T04:53:08.017Z",
+      "clicked_at": "2025-07-21T00:36:38.439Z",
+      "replied_at": "2025-07-20T14:15:31.837Z"
+    },
+    {
+      "id": "email-054",
+      "lead_id": "lead-009",
+      "email_type": "inbound",
+      "subject": "Re: Maria, Here's the Information You Requested",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the full implementation.\n\nNext steps from our end:\n- Get approval from IT security\n- Schedule kickoff with our 19-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nMaria Garcia",
+      "sent_at": "2025-07-20T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-21T05:32:56.299Z",
+      "clicked_at": "2025-07-20T18:48:45.514Z",
+      "replied_at": "2025-07-20T14:15:31.837Z"
+    },
+    {
+      "id": "email-056",
+      "lead_id": "lead-010",
+      "email_type": "outbound",
+      "subject": "James, Quick Question About Your Sales Process",
+      "content": "Hi James,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 11 reps\n• Average deal size: $38721\n• Current conversion rate: 17%\n\nWith LeadGen Solutions, you could potentially see:\n• 26% increase in conversion rates\n• 61% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-20T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-20T19:05:35.461Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-062",
+      "lead_id": "lead-011",
+      "email_type": "inbound",
+      "subject": "Questions about pricing and implementation",
+      "content": "Hi Samantha,\n\nThanks for the follow-up. We're definitely interested but need to understand:\n\n1. How does your solution integrate with HubSpot?\n2. What's the typical implementation timeline?\n3. Can you provide references from similar-sized companies?\n\nLooking forward to your response.\n\nBest,\nRachel Green",
+      "sent_at": "2025-07-20T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-20T20:20:12.423Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-20T14:15:31.837Z"
+    },
+    {
+      "id": "email-026",
+      "lead_id": "lead-002",
+      "email_type": "inbound",
+      "subject": "Need more information about integrations",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than our budget\n- We need more clarity on data security\n- Timeline might conflict with our year-end close\n\nCan we discuss these points?\n\nMichael Chen",
+      "sent_at": "2025-07-20T14:15:31.836Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-20T17:50:18.759Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-20T14:15:31.836Z"
+    },
+    {
+      "id": "email-016",
+      "lead_id": "lead-017",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Stephanie,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-19T21:21:06.879Z",
+      "email_status": "sent",
+      "opened_at": "2025-07-22T04:22:07.359Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-012",
+      "lead_id": "lead-014",
+      "email_type": "inbound",
+      "subject": "Re: Following up on your interest in LeadGen Solutions",
+      "content": "Hi Samantha,\n\nThank you for reaching out. We're currently evaluating several solutions for our sales team.\n\nI'd be interested in learning more about your integration capabilities and pricing options.\n\nCould you send over some more detailed information?\n\nBest,\nThomas Anderson",
+      "sent_at": "2025-07-19T17:36:15.135Z",
+      "email_status": "replied",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": "2025-07-21T08:28:49.180Z"
+    },
+    {
+      "id": "email-052",
+      "lead_id": "lead-009",
+      "email_type": "outbound",
+      "subject": "Your Custom Demo Recording + Next Steps",
+      "content": "Hi Maria,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 39 reps\n• Average deal size: $21619\n• Current conversion rate: 18%\n\nWith LeadGen Solutions, you could potentially see:\n• 26% increase in conversion rates\n• 45% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-19T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-19T18:15:26.843Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-074",
+      "lead_id": "lead-015",
+      "email_type": "inbound",
+      "subject": "Technical requirements clarification needed",
+      "content": "Hi Samantha,\n\nThanks for the follow-up. We're definitely interested but need to understand:\n\n1. How does your solution integrate with Salesforce?\n2. What's the typical implementation timeline?\n3. Can you provide references from similar-sized companies?\n\nLooking forward to your response.\n\nBest,\nNicole Martinez",
+      "sent_at": "2025-07-19T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-20T11:30:41.012Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-19T14:15:31.837Z"
+    },
+    {
+      "id": "email-091",
+      "lead_id": "lead-020",
+      "email_type": "inbound",
+      "subject": "Technical requirements clarification needed",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the full implementation.\n\nNext steps from our end:\n- Get approval from board\n- Schedule kickoff with our 20-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nRyan Murphy",
+      "sent_at": "2025-07-19T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-20T04:00:37.557Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-19T14:15:31.837Z"
+    },
+    {
+      "id": "email-011",
+      "lead_id": "lead-014",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Thomas,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-19T08:44:50.565Z",
+      "email_status": "clicked",
+      "opened_at": null,
+      "clicked_at": "2025-07-22T04:22:20.762Z",
+      "replied_at": null
+    },
+    {
+      "id": "email-017",
+      "lead_id": "lead-018",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Daniel,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-19T07:32:01.696Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-19T23:44:44.288Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-009",
+      "lead_id": "lead-012",
+      "email_type": "inbound",
+      "subject": "Re: Following up on your interest in LeadGen Solutions",
+      "content": "Hi Samantha,\n\nThank you for reaching out. We're currently evaluating several solutions for our sales team.\n\nI'd be interested in learning more about your integration capabilities and pricing options.\n\nCould you send over some more detailed information?\n\nBest,\nKevin Lee",
+      "sent_at": "2025-07-19T02:45:31.312Z",
+      "email_status": "replied",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": "2025-07-23T12:45:41.190Z"
+    },
+    {
+      "id": "email-014",
+      "lead_id": "lead-016",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Christopher,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-18T19:51:47.648Z",
+      "email_status": "opened",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-029",
+      "lead_id": "lead-003",
+      "email_type": "outbound",
+      "subject": "Emily - Limited Time Offer for Q1 Implementation",
+      "content": "Hi Emily,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 52 reps\n• Average deal size: $30076\n• Current conversion rate: 14%\n\nWith LeadGen Solutions, you could potentially see:\n• 42% increase in conversion rates\n• 39% reduction in sales cycle time\n• ROI within 4 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-18T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-038",
+      "lead_id": "lead-005",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Timeline",
+      "content": "Dear Jennifer Smith,\n\nI thought you might be interested in seeing how TechCorp, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Manual reporting\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 47% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-18T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-18T19:56:12.751Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-063",
+      "lead_id": "lead-012",
+      "email_type": "outbound",
+      "subject": "Important Update: New Features for Enterprise",
+      "content": "Dear Kevin Lee,\n\nI thought you might be interested in seeing how TechCorp, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Poor lead visibility\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 41% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-18T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-18T21:50:22.432Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-069",
+      "lead_id": "lead-013",
+      "email_type": "inbound",
+      "subject": "Need more information about integrations",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the trial period.\n\nNext steps from our end:\n- Get approval from board\n- Schedule kickoff with our 20-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nAmanda Brown",
+      "sent_at": "2025-07-18T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-18T18:21:08.025Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-18T14:15:31.837Z"
+    },
+    {
+      "id": "email-084",
+      "lead_id": "lead-018",
+      "email_type": "outbound",
+      "subject": "Daniel, Quick Question About Your Sales Process",
+      "content": "Dear Daniel Rodriguez,\n\nI thought you might be interested in seeing how FinanceFirst, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Disconnected sales tools\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 71% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-18T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-18T17:34:21.756Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-040",
+      "lead_id": "lead-006",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Pricing",
+      "content": "Hi Robert,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 30% discount on annual plans\n✓ Free data migration (normally $4103)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-17T14:15:31.837Z",
+      "email_status": "sent",
+      "opened_at": "2025-07-17T23:18:52.589Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-050",
+      "lead_id": "lead-008",
+      "email_type": "inbound",
+      "subject": "Questions about pricing and implementation",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than what we discussed\n- We need more clarity on customization options\n- Timeline might conflict with our Q2 initiatives\n\nCan we discuss these points?\n\nAndrew Davis",
+      "sent_at": "2025-07-17T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-17T16:19:35.286Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-17T14:15:31.837Z"
+    },
+    {
+      "id": "email-093",
+      "lead_id": "lead-020",
+      "email_type": "outbound",
+      "subject": "Case Study: How We Helped Similar Companies in Your Industry",
+      "content": "Hi Ryan,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 17 reps\n• Average deal size: $42285\n• Current conversion rate: 5%\n\nWith LeadGen Solutions, you could potentially see:\n• 33% increase in conversion rates\n• 69% reduction in sales cycle time\n• ROI within 4 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-17T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-17T20:50:27.171Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-024",
       "lead_id": "lead-002",
       "email_type": "outbound",
-      "subject": "Startup-Friendly Pricing & InnovateStart Case Studies",
-      "content": "Hi Michael,\n\nGreat speaking with you yesterday about InnovateStart's scaling challenges. I understand budget considerations are crucial for startups.\n\nI'm attaching:\n- Startup pricing tier (50% discount for first year)\n- Case study: How StartupSuccess scaled from 10 to 100 employees\n- Integration guide for common startup tools (Slack, GitHub, etc.)\n\nOur startup program is designed to grow with you - you only pay for what you use. Would you like to see a personalized demo focused on your specific tech stack?\n\nCheers,\nSamantha",
-      "sent_at": "2024-01-17T11:00:00Z",
-      "opened_at": "2024-01-17T15:30:00Z",
-      "email_status": "opened"
+      "subject": "Addressing Your Concerns About Training",
+      "content": "Hi Michael,\n\nI hope this email finds you well. I wanted to follow up on our conversation about your sales challenges.\n\nYou mentioned that reporting was a particular pain point. I've been thinking about your specific situation and have some ideas that might help.\n\nWould you be open to a brief 15-minute call this week to discuss?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-17T14:15:31.836Z",
+      "email_status": "sent",
+      "opened_at": "2025-07-17T21:28:37.024Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-008",
+      "lead_id": "lead-012",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Kevin,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-17T03:49:44.724Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-22T20:27:12.287Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-007",
+      "lead_id": "lead-011",
+      "email_type": "outbound",
+      "subject": "Following up on your interest in LeadGen Solutions",
+      "content": "Hi Rachel,\n\nI hope this email finds you well. I wanted to follow up on your recent activity with LeadGen Solutions.\n\nI noticed you've been exploring our platform, and I'd love to help you understand how we can specifically address your business needs.\n\nWould you be available for a brief 15-minute call this week to discuss your requirements?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-16T19:11:55.267Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-22T05:30:04.463Z",
+      "clicked_at": "2025-07-19T15:57:02.504Z",
+      "replied_at": null
+    },
+    {
+      "id": "email-041",
+      "lead_id": "lead-006",
+      "email_type": "outbound",
+      "subject": "Robert, Quick Question About Your Sales Process",
+      "content": "Hi Robert,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 30% discount on annual plans\n✓ Free data migration (normally $4629)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-16T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-17T08:40:21.397Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-081",
+      "lead_id": "lead-017",
+      "email_type": "outbound",
+      "subject": "Case Study: How We Helped Similar Companies in Your Industry",
+      "content": "Dear Stephanie Clark,\n\nI thought you might be interested in seeing how TechCorp, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Poor lead visibility\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 58% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-16T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-028",
+      "lead_id": "lead-003",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Timeline",
+      "content": "Hi Emily,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 49 reps\n• Average deal size: $41192\n• Current conversion rate: 11%\n\nWith LeadGen Solutions, you could potentially see:\n• 38% increase in conversion rates\n• 69% reduction in sales cycle time\n• ROI within 4 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-15T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-16T05:45:53.878Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-035",
+      "lead_id": "lead-005",
+      "email_type": "outbound",
+      "subject": "Jennifer, Here's the Information You Requested",
+      "content": "Hi Jennifer,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 36 reps\n• Average deal size: $15539\n• Current conversion rate: 14%\n\nWith LeadGen Solutions, you could potentially see:\n• 23% increase in conversion rates\n• 35% reduction in sales cycle time\n• ROI within 2 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-15T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-16T06:37:20.708Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-082",
+      "lead_id": "lead-017",
+      "email_type": "inbound",
+      "subject": "Comparing you with Competitor B",
+      "content": "Hi Samantha,\n\nThanks for the follow-up. We're definitely interested but need to understand:\n\n1. How does your solution integrate with HubSpot?\n2. What's the typical implementation timeline?\n3. Can you provide references from similar-sized companies?\n\nLooking forward to your response.\n\nBest,\nStephanie Clark",
+      "sent_at": "2025-07-15T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-16T06:17:06.468Z",
+      "clicked_at": "2025-07-16T09:15:46.397Z",
+      "replied_at": "2025-07-15T14:15:31.837Z"
+    },
+    {
+      "id": "email-021",
+      "lead_id": "lead-001",
+      "email_type": "outbound",
+      "subject": "Your Custom Demo Recording + Next Steps",
+      "content": "Hi Sarah,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 47% discount on annual plans\n✓ Free data migration (normally $6170)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-15T14:15:31.836Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-15T19:15:47.903Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-065",
+      "lead_id": "lead-012",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Pricing",
+      "content": "Dear Kevin Lee,\n\nI thought you might be interested in seeing how HealthSystem Inc, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Manual reporting\n• Solution: Implemented LeadGen Solutions Growth package\n• Results: 62% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-14T14:15:31.837Z",
+      "email_status": "sent",
+      "opened_at": "2025-07-15T00:33:38.211Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-078",
+      "lead_id": "lead-016",
+      "email_type": "outbound",
+      "subject": "Christopher - Limited Time Offer for Q1 Implementation",
+      "content": "Hi Christopher,\n\nI hope this email finds you well. I wanted to follow up on our conversation about your sales challenges.\n\nYou mentioned that automation was a particular pain point. I've been thinking about your specific situation and have some ideas that might help.\n\nWould you be open to a brief 15-minute call this week to discuss?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-14T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-15T01:39:31.409Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-036",
+      "lead_id": "lead-005",
+      "email_type": "outbound",
+      "subject": "Jennifer, Quick Question About Your Sales Process",
+      "content": "Dear Jennifer Smith,\n\nI thought you might be interested in seeing how HealthSystem Inc, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Disconnected sales tools\n• Solution: Implemented LeadGen Solutions Growth package\n• Results: 32% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-12T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-037",
+      "lead_id": "lead-005",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Pricing",
+      "content": "Hi Jennifer,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 53 reps\n• Average deal size: $25109\n• Current conversion rate: 9%\n\nWith LeadGen Solutions, you could potentially see:\n• 37% increase in conversion rates\n• 67% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-10T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-022",
+      "lead_id": "lead-001",
+      "email_type": "outbound",
+      "subject": "Important Update: New Features for Enterprise",
+      "content": "Hi Sarah,\n\nI hope this email finds you well. I wanted to follow up on our conversation about your sales challenges.\n\nYou mentioned that automation was a particular pain point. I've been thinking about your specific situation and have some ideas that might help.\n\nWould you be open to a brief 15-minute call this week to discuss?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-10T14:15:31.836Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-10T21:27:27.877Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-047",
+      "lead_id": "lead-008",
+      "email_type": "outbound",
+      "subject": "Andrew - Limited Time Offer for Q1 Implementation",
+      "content": "Hi Andrew,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 20% discount on annual plans\n✓ Free data migration (normally $5517)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-09T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-085",
+      "lead_id": "lead-018",
+      "email_type": "outbound",
+      "subject": "Your Custom Demo Recording + Next Steps",
+      "content": "Dear Daniel Rodriguez,\n\nI thought you might be interested in seeing how GlobalRetail, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Inefficient workflows\n• Solution: Implemented LeadGen Solutions Growth package\n• Results: 30% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-09T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-10T01:46:41.290Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-034",
+      "lead_id": "lead-004",
+      "email_type": "inbound",
+      "subject": "Ready to move forward - next steps?",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the trial period.\n\nNext steps from our end:\n- Get approval from legal\n- Schedule kickoff with our 18-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nDavid Park",
+      "sent_at": "2025-07-08T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-08T22:24:03.849Z",
+      "clicked_at": "2025-07-09T16:45:16.629Z",
+      "replied_at": "2025-07-08T14:15:31.837Z"
+    },
+    {
+      "id": "email-058",
+      "lead_id": "lead-010",
+      "email_type": "outbound",
+      "subject": "Following Up: ROI Calculator Results for Wilson",
+      "content": "Hi James,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 14 reps\n• Average deal size: $45540\n• Current conversion rate: 14%\n\nWith LeadGen Solutions, you could potentially see:\n• 20% increase in conversion rates\n• 42% reduction in sales cycle time\n• ROI within 4 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-08T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-09T10:28:37.317Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-073",
+      "lead_id": "lead-014",
+      "email_type": "outbound",
+      "subject": "Thomas, Here's the Information You Requested",
+      "content": "Dear Thomas Anderson,\n\nI thought you might be interested in seeing how FinanceFirst, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Poor lead visibility\n• Solution: Implemented LeadGen Solutions Growth package\n• Results: 70% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-08T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-09T09:52:26.222Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-089",
+      "lead_id": "lead-019",
+      "email_type": "outbound",
+      "subject": "Following Up: ROI Calculator Results for White",
+      "content": "Hi Michelle,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 33% discount on annual plans\n✓ Free data migration (normally $4207)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-08T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-09T01:35:42.361Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-053",
+      "lead_id": "lead-009",
+      "email_type": "inbound",
+      "subject": "Technical requirements clarification needed",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than what we discussed\n- We need more clarity on customization options\n- Timeline might conflict with our upcoming merger\n\nCan we discuss these points?\n\nMaria Garcia",
+      "sent_at": "2025-07-07T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-08T10:24:30.466Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-07T14:15:31.837Z"
+    },
+    {
+      "id": "email-067",
+      "lead_id": "lead-013",
+      "email_type": "outbound",
+      "subject": "Case Study: How We Helped Similar Companies in Your Industry",
+      "content": "Hi Amanda,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 17 reps\n• Average deal size: $38452\n• Current conversion rate: 12%\n\nWith LeadGen Solutions, you could potentially see:\n• 28% increase in conversion rates\n• 57% reduction in sales cycle time\n• ROI within 2 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-07T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-07T20:36:55.653Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-070",
+      "lead_id": "lead-013",
+      "email_type": "outbound",
+      "subject": "Following Up: ROI Calculator Results for Brown",
+      "content": "Hi Amanda,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 29 reps\n• Average deal size: $19085\n• Current conversion rate: 11%\n\nWith LeadGen Solutions, you could potentially see:\n• 38% increase in conversion rates\n• 65% reduction in sales cycle time\n• ROI within 4 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-07T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-08T09:02:14.531Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-033",
+      "lead_id": "lead-004",
+      "email_type": "outbound",
+      "subject": "David, Here's the Information You Requested",
+      "content": "Hi David,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 34% discount on annual plans\n✓ Free data migration (normally $4538)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-06T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-07T08:51:58.105Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-044",
+      "lead_id": "lead-007",
+      "email_type": "outbound",
+      "subject": "Your Custom Demo Recording + Next Steps",
+      "content": "Hi Lisa,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 36% discount on annual plans\n✓ Free data migration (normally $5662)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-06T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-06T21:05:30.963Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-061",
+      "lead_id": "lead-011",
+      "email_type": "outbound",
+      "subject": "Rachel, Quick Question About Your Sales Process",
+      "content": "Dear Rachel Green,\n\nI thought you might be interested in seeing how FinanceFirst, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Inefficient workflows\n• Solution: Implemented LeadGen Solutions Growth package\n• Results: 68% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-06T14:15:31.837Z",
+      "email_status": "sent",
+      "opened_at": "2025-07-06T18:58:04.746Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-080",
+      "lead_id": "lead-017",
+      "email_type": "inbound",
+      "subject": "Ready to move forward - next steps?",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the trial period.\n\nNext steps from our end:\n- Get approval from board\n- Schedule kickoff with our 24-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nStephanie Clark",
+      "sent_at": "2025-07-06T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-07T02:44:53.655Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-06T14:15:31.837Z"
+    },
+    {
+      "id": "email-027",
+      "lead_id": "lead-002",
+      "email_type": "inbound",
+      "subject": "Technical requirements clarification needed",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the full implementation.\n\nNext steps from our end:\n- Get approval from CFO\n- Schedule kickoff with our 13-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nMichael Chen",
+      "sent_at": "2025-07-06T14:15:31.836Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-06T19:37:24.002Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-06T14:15:31.836Z"
+    },
+    {
+      "id": "email-046",
+      "lead_id": "lead-007",
+      "email_type": "inbound",
+      "subject": "Need more information about integrations",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the pilot program.\n\nNext steps from our end:\n- Get approval from IT security\n- Schedule kickoff with our 6-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nLisa Thompson",
+      "sent_at": "2025-07-05T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-06T06:30:39.098Z",
+      "clicked_at": "2025-07-07T03:44:44.965Z",
+      "replied_at": "2025-07-05T14:15:31.837Z"
+    },
+    {
+      "id": "email-086",
+      "lead_id": "lead-018",
+      "email_type": "outbound",
+      "subject": "Following Up: ROI Calculator Results for Rodriguez",
+      "content": "Dear Daniel Rodriguez,\n\nI thought you might be interested in seeing how HealthSystem Inc, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Inefficient workflows\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 34% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-07-05T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-06T11:32:04.684Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-030",
+      "lead_id": "lead-003",
+      "email_type": "inbound",
+      "subject": "Re: Case Study: How We Helped Similar Companies in Your Industry",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than competitors\n- We need more clarity on training requirements\n- Timeline might conflict with our Q2 initiatives\n\nCan we discuss these points?\n\nEmily Rodriguez",
+      "sent_at": "2025-07-04T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-05T09:24:14.051Z",
+      "clicked_at": "2025-07-06T07:41:34.408Z",
+      "replied_at": "2025-07-04T14:15:31.837Z"
+    },
+    {
+      "id": "email-031",
+      "lead_id": "lead-003",
+      "email_type": "inbound",
+      "subject": "Need more information about integrations",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the full implementation.\n\nNext steps from our end:\n- Get approval from IT security\n- Schedule kickoff with our 21-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nEmily Rodriguez",
+      "sent_at": "2025-07-04T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-05T14:05:24.703Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-04T14:15:31.837Z"
+    },
+    {
+      "id": "email-087",
+      "lead_id": "lead-018",
+      "email_type": "inbound",
+      "subject": "Comparing you with Competitor B",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than what we discussed\n- We need more clarity on data security\n- Timeline might conflict with our Q2 initiatives\n\nCan we discuss these points?\n\nDaniel Rodriguez",
+      "sent_at": "2025-07-04T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-05T13:15:18.122Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-04T14:15:31.837Z"
+    },
+    {
+      "id": "email-023",
+      "lead_id": "lead-001",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Timeline",
+      "content": "Hi Sarah,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 30 reps\n• Average deal size: $50609\n• Current conversion rate: 6%\n\nWith LeadGen Solutions, you could potentially see:\n• 26% increase in conversion rates\n• 32% reduction in sales cycle time\n• ROI within 2 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-04T14:15:31.836Z",
+      "email_status": "clicked",
+      "opened_at": "2025-07-05T05:06:49.307Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-060",
+      "lead_id": "lead-011",
+      "email_type": "outbound",
+      "subject": "Rachel, Here's the Information You Requested",
+      "content": "Hi Rachel,\n\nI hope this email finds you well. I wanted to follow up on our conversation about your sales challenges.\n\nYou mentioned that lead tracking was a particular pain point. I've been thinking about your specific situation and have some ideas that might help.\n\nWould you be open to a brief 15-minute call this week to discuss?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-03T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-07-04T14:01:24.376Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-071",
+      "lead_id": "lead-014",
+      "email_type": "outbound",
+      "subject": "Following Up: ROI Calculator Results for Anderson",
+      "content": "Hi Thomas,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 10 reps\n• Average deal size: $13681\n• Current conversion rate: 13%\n\nWith LeadGen Solutions, you could potentially see:\n• 48% increase in conversion rates\n• 42% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-03T14:15:31.837Z",
+      "email_status": "sent",
+      "opened_at": "2025-07-03T18:19:38.741Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-039",
+      "lead_id": "lead-006",
+      "email_type": "outbound",
+      "subject": "Your Custom Demo Recording + Next Steps",
+      "content": "Hi Robert,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 41% discount on annual plans\n✓ Free data migration (normally $5076)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-07-02T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-059",
+      "lead_id": "lead-011",
+      "email_type": "inbound",
+      "subject": "Re: Rachel, Quick Question About Your Sales Process",
+      "content": "Hi Samantha,\n\nThanks for the follow-up. We're definitely interested but need to understand:\n\n1. How does your solution integrate with Microsoft Dynamics?\n2. What's the typical implementation timeline?\n3. Can you provide references from similar-sized companies?\n\nLooking forward to your response.\n\nBest,\nRachel Green",
+      "sent_at": "2025-07-02T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-02T18:28:03.185Z",
+      "clicked_at": "2025-07-04T02:52:34.477Z",
+      "replied_at": "2025-07-02T14:15:31.837Z"
+    },
+    {
+      "id": "email-088",
+      "lead_id": "lead-019",
+      "email_type": "outbound",
+      "subject": "Michelle - Limited Time Offer for Q1 Implementation",
+      "content": "Hi Michelle,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 31 reps\n• Average deal size: $48580\n• Current conversion rate: 5%\n\nWith LeadGen Solutions, you could potentially see:\n• 45% increase in conversion rates\n• 57% reduction in sales cycle time\n• ROI within 2 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-02T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-042",
+      "lead_id": "lead-006",
+      "email_type": "outbound",
+      "subject": "Addressing Your Concerns About Integration",
+      "content": "Hi Robert,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 14 reps\n• Average deal size: $27306\n• Current conversion rate: 17%\n\nWith LeadGen Solutions, you could potentially see:\n• 44% increase in conversion rates\n• 44% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-07-01T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-068",
+      "lead_id": "lead-013",
+      "email_type": "inbound",
+      "subject": "Questions about pricing and implementation",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than competitors\n- We need more clarity on data security\n- Timeline might conflict with our Q2 initiatives\n\nCan we discuss these points?\n\nAmanda Brown",
+      "sent_at": "2025-07-01T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-07-01T15:46:45.391Z",
+      "clicked_at": null,
+      "replied_at": "2025-07-01T14:15:31.837Z"
+    },
+    {
+      "id": "email-032",
+      "lead_id": "lead-004",
+      "email_type": "outbound",
+      "subject": "Your Custom Demo Recording + Next Steps",
+      "content": "Dear David Park,\n\nI thought you might be interested in seeing how HealthSystem Inc, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Inefficient workflows\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 49% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-06-28T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-057",
+      "lead_id": "lead-010",
+      "email_type": "inbound",
+      "subject": "Technical requirements clarification needed",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than competitors\n- We need more clarity on customization options\n- Timeline might conflict with our Q2 initiatives\n\nCan we discuss these points?\n\nJames Wilson",
+      "sent_at": "2025-06-28T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-06-28T22:30:13.330Z",
+      "clicked_at": "2025-06-29T19:29:19.269Z",
+      "replied_at": "2025-06-28T14:15:31.837Z"
+    },
+    {
+      "id": "email-066",
+      "lead_id": "lead-012",
+      "email_type": "inbound",
+      "subject": "Ready to move forward - next steps?",
+      "content": "Hi Samantha,\n\nWe're ready to move forward with the pilot program.\n\nNext steps from our end:\n- Get approval from legal\n- Schedule kickoff with our 21-person team\n- Finalize contract terms\n\nWhat do you need from us to proceed?\n\nBest regards,\nKevin Lee",
+      "sent_at": "2025-06-28T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-06-29T02:49:09.066Z",
+      "clicked_at": null,
+      "replied_at": "2025-06-28T14:15:31.837Z"
+    },
+    {
+      "id": "email-075",
+      "lead_id": "lead-015",
+      "email_type": "outbound",
+      "subject": "Important Update: New Features for Sales Teams",
+      "content": "Dear Nicole Martinez,\n\nI thought you might be interested in seeing how FinanceFirst, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Manual reporting\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 70% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-06-28T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-06-29T10:52:38.271Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-094",
+      "lead_id": "lead-020",
+      "email_type": "outbound",
+      "subject": "Ryan, Here's the Information You Requested",
+      "content": "Hi Ryan,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 43% discount on annual plans\n✓ Free data migration (normally $5217)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-06-28T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-06-29T00:30:07.868Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-049",
+      "lead_id": "lead-008",
+      "email_type": "outbound",
+      "subject": "Case Study: How We Helped Similar Companies in Your Industry",
+      "content": "Hi Andrew,\n\nI hope this email finds you well. I wanted to follow up on our conversation about your sales challenges.\n\nYou mentioned that team coordination was a particular pain point. I've been thinking about your specific situation and have some ideas that might help.\n\nWould you be open to a brief 15-minute call this week to discuss?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-06-27T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-06-27T20:49:46.663Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-055",
+      "lead_id": "lead-010",
+      "email_type": "outbound",
+      "subject": "Your Custom Demo Recording + Next Steps",
+      "content": "Hi James,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 22% discount on annual plans\n✓ Free data migration (normally $4373)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-06-27T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-06-28T03:11:29.608Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-076",
+      "lead_id": "lead-015",
+      "email_type": "inbound",
+      "subject": "Questions about pricing and implementation",
+      "content": "Samantha,\n\nI've reviewed the proposal with my team. We have a few concerns:\n\n- The pricing seems higher than competitors\n- We need more clarity on data security\n- Timeline might conflict with our Q2 initiatives\n\nCan we discuss these points?\n\nNicole Martinez",
+      "sent_at": "2025-06-27T14:15:31.837Z",
+      "email_status": "replied",
+      "opened_at": "2025-06-27T16:48:50.863Z",
+      "clicked_at": null,
+      "replied_at": "2025-06-27T14:15:31.837Z"
+    },
+    {
+      "id": "email-079",
+      "lead_id": "lead-016",
+      "email_type": "outbound",
+      "subject": "Christopher - Limited Time Offer for Q1 Implementation",
+      "content": "Dear Christopher Taylor,\n\nI thought you might be interested in seeing how HealthSystem Inc, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Poor lead visibility\n• Solution: Implemented LeadGen Solutions Growth package\n• Results: 31% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-06-27T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-051",
+      "lead_id": "lead-009",
+      "email_type": "outbound",
+      "subject": "Maria, Here's the Information You Requested",
+      "content": "Hi Maria,\n\nI hope this email finds you well. I wanted to follow up on our conversation about your sales challenges.\n\nYou mentioned that reporting was a particular pain point. I've been thinking about your specific situation and have some ideas that might help.\n\nWould you be open to a brief 15-minute call this week to discuss?\n\nBest regards,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-06-26T14:15:31.837Z",
+      "email_status": "clicked",
+      "opened_at": "2025-06-27T08:46:49.945Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-077",
+      "lead_id": "lead-016",
+      "email_type": "outbound",
+      "subject": "Christopher, Here's the Information You Requested",
+      "content": "Dear Christopher Taylor,\n\nI thought you might be interested in seeing how GlobalRetail, a company similar to yours, achieved remarkable results with our platform:\n\n• Challenge: Poor lead visibility\n• Solution: Implemented LeadGen Solutions Enterprise package\n• Results: 65% improvement in sales efficiency\n\nFull case study attached. I'd love to show you how we can achieve similar results for your team.\n\nBest regards,\nSamantha",
+      "sent_at": "2025-06-26T14:15:31.837Z",
+      "email_status": "sent",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-092",
+      "lead_id": "lead-020",
+      "email_type": "outbound",
+      "subject": "Important Update: New Features for Sales Teams",
+      "content": "Hi Ryan,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 10 reps\n• Average deal size: $58793\n• Current conversion rate: 12%\n\nWith LeadGen Solutions, you could potentially see:\n• 45% increase in conversion rates\n• 42% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-06-26T14:15:31.837Z",
+      "email_status": "sent",
+      "opened_at": "2025-06-26T23:02:10.688Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-025",
+      "lead_id": "lead-002",
+      "email_type": "outbound",
+      "subject": "Case Study: How We Helped Similar Companies in Your Industry",
+      "content": "Hi Michael,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 35 reps\n• Average deal size: $40334\n• Current conversion rate: 10%\n\nWith LeadGen Solutions, you could potentially see:\n• 48% increase in conversion rates\n• 35% reduction in sales cycle time\n• ROI within 3 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-06-26T14:15:31.836Z",
+      "email_status": "opened",
+      "opened_at": "2025-06-27T06:55:10.064Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-020",
+      "lead_id": "lead-001",
+      "email_type": "outbound",
+      "subject": "Sarah - Limited Time Offer for Q1 Implementation",
+      "content": "Hi Sarah,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 33 reps\n• Average deal size: $49062\n• Current conversion rate: 9%\n\nWith LeadGen Solutions, you could potentially see:\n• 41% increase in conversion rates\n• 53% reduction in sales cycle time\n• ROI within 4 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-06-26T14:15:31.820Z",
+      "email_status": "sent",
+      "opened_at": "2025-06-26T21:45:33.970Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-048",
+      "lead_id": "lead-008",
+      "email_type": "outbound",
+      "subject": "Andrew, Quick Question About Your Sales Process",
+      "content": "Hi Andrew,\n\nI ran the numbers through our ROI calculator based on the information you shared:\n\n• Current team size: 13 reps\n• Average deal size: $33151\n• Current conversion rate: 7%\n\nWith LeadGen Solutions, you could potentially see:\n• 39% increase in conversion rates\n• 38% reduction in sales cycle time\n• ROI within 2 months\n\nI've attached a detailed breakdown. When can we discuss this further?\n\nBest,\nSamantha",
+      "sent_at": "2025-06-25T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-06-26T03:59:36.618Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-064",
+      "lead_id": "lead-012",
+      "email_type": "outbound",
+      "subject": "Important Update: New Features for Enterprise",
+      "content": "Hi Kevin,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 48% discount on annual plans\n✓ Free data migration (normally $5125)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-06-25T14:15:31.837Z",
+      "email_status": "sent",
+      "opened_at": null,
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-083",
+      "lead_id": "lead-017",
+      "email_type": "outbound",
+      "subject": "Case Study: How We Helped Similar Companies in Your Industry",
+      "content": "Hi Stephanie,\n\nGreat news! For Q1 implementations, we're offering:\n\n✓ 36% discount on annual plans\n✓ Free data migration (normally $2664)\n✓ Dedicated onboarding specialist\n✓ 90-day success guarantee\n\nThis offer expires 8/6/2025. \n\nCan we schedule a quick call to discuss how you can take advantage of this?\n\nBest,\nSamantha\nLeadGen Solutions",
+      "sent_at": "2025-06-25T14:15:31.837Z",
+      "email_status": "opened",
+      "opened_at": "2025-06-25T18:01:08.201Z",
+      "clicked_at": null,
+      "replied_at": null
+    },
+    {
+      "id": "email-005",
+      "lead_id": "lead-003",
+      "email_type": "inbound",
+      "subject": "Re: Technical Demo Scheduling - Global Ventures Implementation",
+      "content": "Hi Samantha,\n\nPerfect! I've reviewed the security documentation - looks comprehensive.\n\nFor the technical demo, please include:\n- John Mitchell (IT Director) - john.mitchell@globalventures.com\n- Lisa Park (Security Lead) - lisa.park@globalventures.com\n- Robert Chen (Finance Director) - robert.chen@globalventures.com\n- Maria Santos (HR Director) - maria.santos@globalventures.com\n\nWould Thursday, January 25th at 10 AM EST work for everyone? I can send calendar invites once confirmed.\n\nAlso, please send the implementation timeline template you mentioned.\n\nBest,\nEmily Rodriguez\nVP Operations, Global Ventures",
+      "sent_at": "2024-01-18T11:30:00Z",
+      "email_status": "replied"
     },
     {
       "id": "email-004",
@@ -483,15 +2881,6 @@
       "email_status": "replied"
     },
     {
-      "id": "email-005",
-      "lead_id": "lead-003",
-      "email_type": "inbound",
-      "subject": "Re: Technical Demo Scheduling - Global Ventures Implementation",
-      "content": "Hi Samantha,\n\nPerfect! I've reviewed the security documentation - looks comprehensive.\n\nFor the technical demo, please include:\n- John Mitchell (IT Director) - john.mitchell@globalventures.com\n- Lisa Park (Security Lead) - lisa.park@globalventures.com\n- Robert Chen (Finance Director) - robert.chen@globalventures.com\n- Maria Santos (HR Director) - maria.santos@globalventures.com\n\nWould Thursday, January 25th at 10 AM EST work for everyone? I can send calendar invites once confirmed.\n\nAlso, please send the implementation timeline template you mentioned.\n\nBest,\nEmily Rodriguez\nVP Operations, Global Ventures",
-      "sent_at": "2024-01-18T11:30:00Z",
-      "email_status": "replied"
-    },
-    {
       "id": "email-006",
       "lead_id": "lead-004",
       "email_type": "outbound",
@@ -500,6 +2889,36 @@
       "sent_at": "2024-01-17T16:00:00Z",
       "opened_at": "2024-01-18T09:45:00Z",
       "email_status": "opened"
+    },
+    {
+      "id": "email-003",
+      "lead_id": "lead-002",
+      "email_type": "outbound",
+      "subject": "Startup-Friendly Pricing & InnovateStart Case Studies",
+      "content": "Hi Michael,\n\nGreat speaking with you yesterday about InnovateStart's scaling challenges. I understand budget considerations are crucial for startups.\n\nI'm attaching:\n- Startup pricing tier (50% discount for first year)\n- Case study: How StartupSuccess scaled from 10 to 100 employees\n- Integration guide for common startup tools (Slack, GitHub, etc.)\n\nOur startup program is designed to grow with you - you only pay for what you use. Would you like to see a personalized demo focused on your specific tech stack?\n\nCheers,\nSamantha",
+      "sent_at": "2024-01-17T11:00:00Z",
+      "opened_at": "2024-01-17T15:30:00Z",
+      "email_status": "opened"
+    },
+    {
+      "id": "email-002",
+      "lead_id": "lead-001",
+      "email_type": "inbound",
+      "subject": "Re: Follow-up: Enterprise Platform Demo for TechCorp",
+      "content": "Hi Samantha,\n\nThanks for sending those resources. The TechGlobal case study is very relevant to our situation. I reviewed the ROI calculator and the numbers look promising.\n\nTuesday at 2 PM works perfectly for the demo. Could you also include our IT Director, Mark Stevens, in the meeting? His email is mark.stevens@techcorp.com.\n\nLooking forward to seeing the platform in action.\n\nBest,\nSarah Johnson\nVP Operations, TechCorp",
+      "sent_at": "2024-01-16T14:20:00Z",
+      "email_status": "replied"
+    },
+    {
+      "id": "email-001",
+      "lead_id": "lead-001",
+      "email_type": "outbound",
+      "subject": "Follow-up: Enterprise Platform Demo for TechCorp",
+      "content": "Hi Sarah,\n\nThank you for the great conversation yesterday! I'm excited about the potential to help TechCorp streamline operations for your 500+ employee growth.\n\nAs discussed, I'm sending you:\n- Case study: How TechGlobal increased efficiency by 40%\n- ROI calculator specifically for enterprise implementations\n- Technical requirements checklist\n\nI have availability for the demo next Tuesday at 2 PM or Wednesday at 10 AM. Which works better for your schedule?\n\nBest regards,\nSamantha",
+      "sent_at": "2024-01-16T09:15:00Z",
+      "opened_at": "2024-01-16T10:30:00Z",
+      "clicked_at": "2024-01-16T10:32:00Z",
+      "email_status": "clicked"
     }
   ],
   "evaluations": [
@@ -511,8 +2930,15 @@
       "evaluation_result": {
         "qualified": true,
         "reason": "Strong decision maker with clear need, approved budget, and immediate timeline",
-        "strengths": ["VP-level decision maker", "Approved budget", "Clear pain points", "Immediate timeline"],
-        "concerns": ["None identified"],
+        "strengths": [
+          "VP-level decision maker",
+          "Approved budget",
+          "Clear pain points",
+          "Immediate timeline"
+        ],
+        "concerns": [
+          "None identified"
+        ],
         "recommendation": "Prioritize for immediate follow-up and technical demo"
       },
       "criteria_met": {
@@ -533,8 +2959,16 @@
       "evaluation_result": {
         "qualified": false,
         "reason": "Decision maker with clear need but budget constraints typical of early-stage startup",
-        "strengths": ["CTO-level decision maker", "Clear technical need", "Growth trajectory"],
-        "concerns": ["Limited budget", "Startup uncertainty", "Longer timeline"],
+        "strengths": [
+          "CTO-level decision maker",
+          "Clear technical need",
+          "Growth trajectory"
+        ],
+        "concerns": [
+          "Limited budget",
+          "Startup uncertainty",
+          "Longer timeline"
+        ],
         "recommendation": "Nurture with startup program, focus on ROI and scalability"
       },
       "criteria_met": {
@@ -555,8 +2989,16 @@
       "evaluation_result": {
         "qualified": true,
         "reason": "Perfect fit - VP decision maker, pre-approved budget, immediate timeline, clear ROI focus",
-        "strengths": ["VP-level authority", "Pre-approved budget", "Q1 timeline", "Referral source", "ROI focused"],
-        "concerns": ["None identified"],
+        "strengths": [
+          "VP-level authority",
+          "Pre-approved budget",
+          "Q1 timeline",
+          "Referral source",
+          "ROI focused"
+        ],
+        "concerns": [
+          "None identified"
+        ],
         "recommendation": "Fast-track to technical demo and proposal stage"
       },
       "criteria_met": {
@@ -577,8 +3019,15 @@
       "evaluation_result": {
         "qualified": false,
         "reason": "Budget timing mismatch - interested but not financially ready for 6+ months",
-        "strengths": ["Decision maker", "Understands need"],
-        "concerns": ["No current budget", "6+ month timeline", "Competing priorities"],
+        "strengths": [
+          "Decision maker",
+          "Understands need"
+        ],
+        "concerns": [
+          "No current budget",
+          "6+ month timeline",
+          "Competing priorities"
+        ],
         "recommendation": "Long-term nurture campaign, reconnect in Q3 for next year planning"
       },
       "criteria_met": {
@@ -599,8 +3048,17 @@
       "evaluation_result": {
         "qualified": false,
         "reason": "Strong interest and budget but not the final decision maker - needs stakeholder buy-in",
-        "strengths": ["Healthcare expertise", "Budget available", "Compliance focused", "Webinar engagement"],
-        "concerns": ["Not final decision maker", "Complex approval process", "Multiple stakeholders"],
+        "strengths": [
+          "Healthcare expertise",
+          "Budget available",
+          "Compliance focused",
+          "Webinar engagement"
+        ],
+        "concerns": [
+          "Not final decision maker",
+          "Complex approval process",
+          "Multiple stakeholders"
+        ],
         "recommendation": "Connect with decision makers and build stakeholder consensus"
       },
       "criteria_met": {
@@ -621,8 +3079,15 @@
       "evaluation_result": {
         "qualified": true,
         "reason": "CFO with authority, clear pain points, immediate need, and ready to move forward",
-        "strengths": ["C-level decision maker", "Clear ROI focus", "Immediate timeline", "Pain points identified"],
-        "concerns": ["None identified"],
+        "strengths": [
+          "C-level decision maker",
+          "Clear ROI focus",
+          "Immediate timeline",
+          "Pain points identified"
+        ],
+        "concerns": [
+          "None identified"
+        ],
         "recommendation": "Schedule comprehensive demo and prepare detailed proposal"
       },
       "criteria_met": {
@@ -643,8 +3108,17 @@
       "evaluation_result": {
         "qualified": false,
         "reason": "Good fit for education sector but not final decision maker and complex approval process",
-        "strengths": ["Education expertise", "Budget potential", "Clear use case", "Semester planning"],
-        "concerns": ["Not decision maker", "Education approval complexity", "Multiple stakeholders"],
+        "strengths": [
+          "Education expertise",
+          "Budget potential",
+          "Clear use case",
+          "Semester planning"
+        ],
+        "concerns": [
+          "Not decision maker",
+          "Education approval complexity",
+          "Multiple stakeholders"
+        ],
         "recommendation": "Connect with administration and IT decision makers"
       },
       "criteria_met": {
@@ -665,8 +3139,15 @@
       "evaluation_result": {
         "qualified": false,
         "reason": "Long-term contract commitment prevents immediate consideration",
-        "strengths": ["Manufacturing expertise", "Decision maker"],
-        "concerns": ["Contract locked for 2 years", "Switching costs", "Current solution satisfaction"],
+        "strengths": [
+          "Manufacturing expertise",
+          "Decision maker"
+        ],
+        "concerns": [
+          "Contract locked for 2 years",
+          "Switching costs",
+          "Current solution satisfaction"
+        ],
         "recommendation": "Long-term nurture, reconnect 6 months before contract renewal"
       },
       "criteria_met": {
@@ -687,8 +3168,16 @@
       "evaluation_result": {
         "qualified": true,
         "reason": "Consulting firm leader with clear need for project management and client visibility",
-        "strengths": ["Decision maker", "Budget capability", "Clear use case", "Industry expertise"],
-        "concerns": ["Longer evaluation timeline", "Multiple tool evaluation"],
+        "strengths": [
+          "Decision maker",
+          "Budget capability",
+          "Clear use case",
+          "Industry expertise"
+        ],
+        "concerns": [
+          "Longer evaluation timeline",
+          "Multiple tool evaluation"
+        ],
         "recommendation": "Provide consulting-specific demo and case studies"
       },
       "criteria_met": {
@@ -709,8 +3198,16 @@
       "evaluation_result": {
         "qualified": true,
         "reason": "Operations manager with urgent need, clear authority, and immediate timeline",
-        "strengths": ["Operations authority", "Urgent need", "Clear pain points", "Immediate timeline", "ROI focus"],
-        "concerns": ["Pressure for quick decision"],
+        "strengths": [
+          "Operations authority",
+          "Urgent need",
+          "Clear pain points",
+          "Immediate timeline",
+          "ROI focus"
+        ],
+        "concerns": [
+          "Pressure for quick decision"
+        ],
         "recommendation": "Fast-track demo and proposal, emphasize quick implementation"
       },
       "criteria_met": {
@@ -721,6 +3218,296 @@
       },
       "confidence_score": 0.93,
       "created_at": "2024-01-20T15:50:00Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-011",
+      "lead_id": "lead-011",
+      "evaluation_type": "phone",
+      "qualification_score": 77,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.793,
+      "created_at": "2025-07-22T11:51:21.312Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-012",
+      "lead_id": "lead-012",
+      "evaluation_type": "phone",
+      "qualification_score": 90,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.91,
+      "created_at": "2025-07-18T19:51:50.403Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-013",
+      "lead_id": "lead-013",
+      "evaluation_type": "phone",
+      "qualification_score": 71,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.739,
+      "created_at": "2025-07-23T11:27:58.061Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-014",
+      "lead_id": "lead-014",
+      "evaluation_type": "phone",
+      "qualification_score": 55,
+      "evaluation_result": {
+        "qualified": false,
+        "reason": "Needs further nurturing before qualifying for sales engagement",
+        "strengths": [
+          "Interest in solution",
+          "Willing to learn more"
+        ],
+        "concerns": [
+          "Budget constraints",
+          "Longer decision timeline",
+          "Evaluating multiple vendors"
+        ],
+        "recommendation": "Add to nurture campaign and follow up in 30 days"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.5950000000000001,
+      "created_at": "2025-07-23T01:44:46.445Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-015",
+      "lead_id": "lead-015",
+      "evaluation_type": "phone",
+      "qualification_score": 44,
+      "evaluation_result": {
+        "qualified": false,
+        "reason": "Needs further nurturing before qualifying for sales engagement",
+        "strengths": [
+          "Interest in solution",
+          "Willing to learn more"
+        ],
+        "concerns": [
+          "Budget constraints",
+          "Longer decision timeline",
+          "Evaluating multiple vendors"
+        ],
+        "recommendation": "Add to nurture campaign and follow up in 30 days"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.496,
+      "created_at": "2025-07-21T18:53:17.469Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-016",
+      "lead_id": "lead-016",
+      "evaluation_type": "phone",
+      "qualification_score": 97,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.973,
+      "created_at": "2025-07-23T02:18:13.098Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-017",
+      "lead_id": "lead-017",
+      "evaluation_type": "phone",
+      "qualification_score": 91,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.919,
+      "created_at": "2025-07-21T20:39:25.817Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-018",
+      "lead_id": "lead-018",
+      "evaluation_type": "phone",
+      "qualification_score": 97,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": false,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.973,
+      "created_at": "2025-07-21T08:01:06.316Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-019",
+      "lead_id": "lead-019",
+      "evaluation_type": "phone",
+      "qualification_score": 88,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": false,
+        "authority": true,
+        "need": true,
+        "timeline": true
+      },
+      "confidence_score": 0.892,
+      "created_at": "2025-07-23T10:28:33.736Z",
+      "evaluator_version": "v2.1.0"
+    },
+    {
+      "id": "eval-020",
+      "lead_id": "lead-020",
+      "evaluation_type": "phone",
+      "qualification_score": 79,
+      "evaluation_result": {
+        "qualified": true,
+        "reason": "Meets qualification criteria with good potential for conversion",
+        "strengths": [
+          "Clear need identified",
+          "Engaged in conversation",
+          "Timeline established"
+        ],
+        "concerns": [
+          "Budget confirmation needed",
+          "Multiple stakeholders involved"
+        ],
+        "recommendation": "Schedule product demonstration and provide pricing"
+      },
+      "criteria_met": {
+        "budget": true,
+        "authority": true,
+        "need": true,
+        "timeline": false
+      },
+      "confidence_score": 0.811,
+      "created_at": "2025-07-18T16:28:46.233Z",
       "evaluator_version": "v2.1.0"
     }
   ],
@@ -814,6 +3601,195 @@
       "is_internal": true,
       "created_at": "2024-01-20T11:00:00Z",
       "updated_at": "2024-01-20T11:00:00Z"
+    },
+    {
+      "id": "comment-011",
+      "lead_id": "lead-011",
+      "user_id": "user-003",
+      "comment_text": "Great fit for our mid-market package. Pricing seems to be within their range.",
+      "is_internal": true,
+      "created_at": "2025-07-18T19:16:17.059Z",
+      "updated_at": "2025-07-22T11:42:13.979Z"
+    },
+    {
+      "id": "comment-012",
+      "lead_id": "lead-012",
+      "user_id": "user-002",
+      "comment_text": "Great fit for our mid-market package. Pricing seems to be within their range.",
+      "is_internal": true,
+      "created_at": "2025-07-19T08:31:27.742Z",
+      "updated_at": "2025-07-23T01:53:31.427Z"
+    },
+    {
+      "id": "comment-013",
+      "lead_id": "lead-012",
+      "user_id": "user-001",
+      "comment_text": "They mentioned specific pain points around reporting. Our analytics dashboard would be perfect for them.",
+      "is_internal": true,
+      "created_at": "2025-07-18T12:18:26.113Z",
+      "updated_at": "2025-07-20T11:13:07.287Z"
+    },
+    {
+      "id": "comment-014",
+      "lead_id": "lead-013",
+      "user_id": "user-001",
+      "comment_text": "Initial contact made. Seems interested but needs more information about pricing.",
+      "is_internal": true,
+      "created_at": "2025-07-19T17:50:18.568Z",
+      "updated_at": "2025-07-17T13:25:00.207Z"
+    },
+    {
+      "id": "comment-015",
+      "lead_id": "lead-013",
+      "user_id": "user-001",
+      "comment_text": "Great fit for our mid-market package. Pricing seems to be within their range.",
+      "is_internal": true,
+      "created_at": "2025-07-18T05:48:38.596Z",
+      "updated_at": "2025-07-18T04:47:56.668Z"
+    },
+    {
+      "id": "comment-016",
+      "lead_id": "lead-013",
+      "user_id": "user-001",
+      "comment_text": "Very technical buyer. Need to involve our solutions engineer in next call.",
+      "is_internal": true,
+      "created_at": "2025-07-16T17:41:26.144Z",
+      "updated_at": "2025-07-20T08:20:29.212Z"
+    },
+    {
+      "id": "comment-017",
+      "lead_id": "lead-014",
+      "user_id": "user-003",
+      "comment_text": "Left voicemail. Will try again tomorrow morning.",
+      "is_internal": true,
+      "created_at": "2025-07-19T07:01:25.860Z",
+      "updated_at": "2025-07-21T23:09:18.333Z"
+    },
+    {
+      "id": "comment-018",
+      "lead_id": "lead-014",
+      "user_id": "user-002",
+      "comment_text": "Initial contact made. Seems interested but needs more information about pricing.",
+      "is_internal": true,
+      "created_at": "2025-07-20T02:14:48.370Z",
+      "updated_at": "2025-07-21T23:08:04.197Z"
+    },
+    {
+      "id": "comment-019",
+      "lead_id": "lead-015",
+      "user_id": "user-003",
+      "comment_text": "Left voicemail. Will try again tomorrow morning.",
+      "is_internal": true,
+      "created_at": "2025-07-19T06:31:19.661Z",
+      "updated_at": "2025-07-19T17:46:16.998Z"
+    },
+    {
+      "id": "comment-020",
+      "lead_id": "lead-016",
+      "user_id": "user-003",
+      "comment_text": "Good conversation today. They're comparing us with competitors. Need to emphasize our unique value props.",
+      "is_internal": true,
+      "created_at": "2025-07-22T15:22:32.929Z",
+      "updated_at": "2025-07-18T18:14:28.998Z"
+    },
+    {
+      "id": "comment-021",
+      "lead_id": "lead-016",
+      "user_id": "user-001",
+      "comment_text": "They mentioned specific pain points around reporting. Our analytics dashboard would be perfect for them.",
+      "is_internal": true,
+      "created_at": "2025-07-18T12:08:54.022Z",
+      "updated_at": "2025-07-20T02:36:29.997Z"
+    },
+    {
+      "id": "comment-022",
+      "lead_id": "lead-016",
+      "user_id": "user-001",
+      "comment_text": "Requested case studies from similar companies. Sending over our retail/manufacturing examples.",
+      "is_internal": true,
+      "created_at": "2025-07-21T17:39:40.551Z",
+      "updated_at": "2025-07-19T05:53:49.851Z"
+    },
+    {
+      "id": "comment-023",
+      "lead_id": "lead-017",
+      "user_id": "user-002",
+      "comment_text": "They mentioned specific pain points around reporting. Our analytics dashboard would be perfect for them.",
+      "is_internal": true,
+      "created_at": "2025-07-23T11:31:09.301Z",
+      "updated_at": "2025-07-18T14:01:55.639Z"
+    },
+    {
+      "id": "comment-024",
+      "lead_id": "lead-017",
+      "user_id": "user-003",
+      "comment_text": "They mentioned specific pain points around reporting. Our analytics dashboard would be perfect for them.",
+      "is_internal": true,
+      "created_at": "2025-07-19T20:23:29.006Z",
+      "updated_at": "2025-07-21T19:27:58.123Z"
+    },
+    {
+      "id": "comment-025",
+      "lead_id": "lead-018",
+      "user_id": "user-002",
+      "comment_text": "Great fit for our mid-market package. Pricing seems to be within their range.",
+      "is_internal": true,
+      "created_at": "2025-07-20T17:16:45.038Z",
+      "updated_at": "2025-07-22T04:50:38.311Z"
+    },
+    {
+      "id": "comment-026",
+      "lead_id": "lead-018",
+      "user_id": "user-003",
+      "comment_text": "Very technical buyer. Need to involve our solutions engineer in next call.",
+      "is_internal": true,
+      "created_at": "2025-07-22T03:38:15.742Z",
+      "updated_at": "2025-07-19T03:39:31.710Z"
+    },
+    {
+      "id": "comment-027",
+      "lead_id": "lead-018",
+      "user_id": "user-002",
+      "comment_text": "Great fit for our mid-market package. Pricing seems to be within their range.",
+      "is_internal": true,
+      "created_at": "2025-07-18T06:54:56.148Z",
+      "updated_at": "2025-07-20T00:11:11.974Z"
+    },
+    {
+      "id": "comment-028",
+      "lead_id": "lead-019",
+      "user_id": "user-001",
+      "comment_text": "Follow-up call scheduled for next week. Make sure to prepare industry-specific examples.",
+      "is_internal": true,
+      "created_at": "2025-07-21T19:42:54.814Z",
+      "updated_at": "2025-07-20T10:18:09.745Z"
+    },
+    {
+      "id": "comment-029",
+      "lead_id": "lead-019",
+      "user_id": "user-001",
+      "comment_text": "Timeline has shifted to next quarter. Moving to long-term nurture.",
+      "is_internal": true,
+      "created_at": "2025-07-20T08:59:25.586Z",
+      "updated_at": "2025-07-17T13:10:27.455Z"
+    },
+    {
+      "id": "comment-030",
+      "lead_id": "lead-019",
+      "user_id": "user-003",
+      "comment_text": "Left voicemail. Will try again tomorrow morning.",
+      "is_internal": true,
+      "created_at": "2025-07-23T05:19:55.556Z",
+      "updated_at": "2025-07-22T13:23:35.931Z"
+    },
+    {
+      "id": "comment-031",
+      "lead_id": "lead-020",
+      "user_id": "user-002",
+      "comment_text": "Very technical buyer. Need to involve our solutions engineer in next call.",
+      "is_internal": true,
+      "created_at": "2025-07-16T21:29:41.211Z",
+      "updated_at": "2025-07-17T06:56:19.800Z"
     }
   ]
 }

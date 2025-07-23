@@ -5,6 +5,9 @@ import { Lead, MockData, PhoneCall, Email, Evaluation, Comment } from '@/types';
 import mockDataJson from '@/data/mock.json';
 import { leadService } from '@/services/supabase/leadService';
 import { commentService } from '@/services/supabase/commentService';
+import { phoneCallService } from '@/services/supabase/phoneCallService';
+import { emailService } from '@/services/supabase/emailService';
+import { evaluationService } from '@/services/supabase/evaluationService';
 
 // Action types
 type DataAction = 
@@ -22,7 +25,13 @@ type DataAction =
   | { type: 'SET_COMMENTS'; payload: Comment[] }
   | { type: 'ADD_COMMENT'; payload: Comment }
   | { type: 'UPDATE_COMMENT'; payload: { id: string; updates: Partial<Comment> } }
-  | { type: 'DELETE_COMMENT'; payload: string };
+  | { type: 'DELETE_COMMENT'; payload: string }
+  | { type: 'SET_PHONE_CALLS'; payload: PhoneCall[] }
+  | { type: 'ADD_PHONE_CALL'; payload: PhoneCall }
+  | { type: 'SET_EMAILS'; payload: Email[] }
+  | { type: 'ADD_EMAIL'; payload: Email }
+  | { type: 'SET_EVALUATIONS'; payload: Evaluation[] }
+  | { type: 'ADD_EVALUATION'; payload: Evaluation };
 
 type SortOption = 'name' | 'created_at' | 'updated_at' | 'priority' | 'status';
 
@@ -158,6 +167,30 @@ function dataReducer(state: DataState, action: DataAction): DataState {
       return { ...state, comments: filteredComments };
     }
     
+    case 'SET_PHONE_CALLS':
+      return { ...state, phoneCalls: action.payload };
+    
+    case 'ADD_PHONE_CALL': {
+      const newPhoneCalls = [...state.phoneCalls, action.payload];
+      return { ...state, phoneCalls: newPhoneCalls };
+    }
+    
+    case 'SET_EMAILS':
+      return { ...state, emails: action.payload };
+    
+    case 'ADD_EMAIL': {
+      const newEmails = [...state.emails, action.payload];
+      return { ...state, emails: newEmails };
+    }
+    
+    case 'SET_EVALUATIONS':
+      return { ...state, evaluations: action.payload };
+    
+    case 'ADD_EVALUATION': {
+      const newEvaluations = [...state.evaluations, action.payload];
+      return { ...state, evaluations: newEvaluations };
+    }
+    
     default:
       return state;
   }
@@ -168,15 +201,72 @@ const DataContext = createContext<DataContextType | undefined>(undefined);
 export function DataProvider({ children }: { children: React.ReactNode }) {
   const [state, dispatch] = useReducer(dataReducer, initialState);
 
-  // Initialize data from Supabase
+  // Load all data from Supabase services
+  const loadAllSupabaseData = useCallback(async (leads: Lead[]) => {
+    try {
+      // Load phone calls
+      const phoneCallsPromises = leads.map(lead => phoneCallService.getPhoneCallsByLeadId(lead.id));
+      const phoneCallsResults = await Promise.all(phoneCallsPromises);
+      const allPhoneCalls = phoneCallsResults.flatMap(result => result.data || []);
+      dispatch({ type: 'SET_PHONE_CALLS', payload: allPhoneCalls });
+
+      // Load emails
+      const emailsPromises = leads.map(lead => emailService.getEmailsByLeadId(lead.id));
+      const emailsResults = await Promise.all(emailsPromises);
+      const allEmails = emailsResults.flatMap(result => result.data || []);
+      dispatch({ type: 'SET_EMAILS', payload: allEmails });
+
+      // Load evaluations
+      const evaluationsPromises = leads.map(lead => evaluationService.getEvaluationsByLeadId(lead.id));
+      const evaluationsResults = await Promise.all(evaluationsPromises);
+      const allEvaluations = evaluationsResults.flatMap(result => result.data || []);
+      dispatch({ type: 'SET_EVALUATIONS', payload: allEvaluations });
+
+      // Load comments
+      const commentsPromises = leads.map(lead => commentService.getCommentsByLeadId(lead.id));
+      const commentsResults = await Promise.all(commentsPromises);
+      const allComments = commentsResults.flatMap(result => {
+        return (result.data || []).map(comment => ({
+          id: comment.id,
+          lead_id: comment.lead_id,
+          user_id: comment.user_id,
+          content: comment.comment_text,
+          is_internal: comment.is_internal,
+          created_at: comment.created_at,
+          updated_at: comment.updated_at,
+          parent_id: comment.parent_comment_id,
+          is_edited: comment.created_at !== comment.updated_at
+        }));
+      });
+      dispatch({ type: 'SET_COMMENTS', payload: allComments });
+
+      console.log('📊 Loaded from Supabase:', {
+        phoneCalls: allPhoneCalls.length,
+        emails: allEmails.length,
+        evaluations: allEvaluations.length,
+        comments: allComments.length
+      });
+    } catch (error) {
+      console.error('Error loading Supabase data:', error);
+    }
+  }, []);
+
+  // Initialize data from Supabase or mock data
   useEffect(() => {
     const loadData = async () => {
       try {
         // Try to load from Supabase first
+        console.log('🔄 Attempting to load data from Supabase...');
         const { data: leads, error } = await leadService.getLeads();
         
-        if (!error && leads) {
+        console.log('Supabase response:', { leads: leads?.length, error });
+        
+        if (!error && leads && leads.length > 0) {
+          console.log('✅ Successfully loaded', leads.length, 'leads from Supabase');
           dispatch({ type: 'SET_LEADS', payload: leads });
+          
+          // Load all related data from Supabase
+          await loadAllSupabaseData(leads);
           
           // Set up real-time subscription
           const subscription = leadService.subscribeToLeads((payload) => {
@@ -201,28 +291,11 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
             subscription.unsubscribe();
           };
         } else {
-          // Fall back to mock data if Supabase fails
-          console.log('Falling back to mock data');
-          const mockData = mockDataJson as any;
-          dispatch({ type: 'SET_LEADS', payload: mockData.leads });
-          
-          // Convert mock comments to new format and set them
-          const convertedComments = mockData.comments.map((comment: any) => ({
-            id: comment.id,
-            lead_id: comment.lead_id,
-            user_id: comment.user_id,
-            content: comment.comment_text,
-            is_internal: comment.is_internal,
-            created_at: comment.created_at,
-            updated_at: comment.updated_at,
-            parent_id: comment.parent_comment_id,
-            is_edited: false
-          }));
-          dispatch({ type: 'SET_COMMENTS', payload: convertedComments });
+          throw new Error('No data from Supabase, falling back to mock data');
         }
       } catch (error) {
-        console.error('Error loading data:', error);
         // Fall back to mock data
+        console.log('❌ Supabase failed, falling back to mock data. Error:', error);
         const mockData = mockDataJson as any;
         dispatch({ type: 'SET_LEADS', payload: mockData.leads });
         
@@ -231,14 +304,15 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
           id: comment.id,
           lead_id: comment.lead_id,
           user_id: comment.user_id,
-          content: comment.comment_text,
+          content: comment.comment_text || comment.content,
           is_internal: comment.is_internal,
           created_at: comment.created_at,
           updated_at: comment.updated_at,
-          parent_id: comment.parent_comment_id,
-          is_edited: false
+          parent_id: comment.parent_comment_id || comment.parent_id,
+          is_edited: comment.is_edited || (comment.created_at !== comment.updated_at)
         }));
         dispatch({ type: 'SET_COMMENTS', payload: convertedComments });
+        console.log('📝 Loaded', convertedComments.length, 'comments from mock data');
       }
     };
 
@@ -355,19 +429,20 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const updateLead = useCallback(async (id: string, updates: Partial<Lead>) => {
+    // Update local state immediately for instant UI feedback
+    dispatch({ type: 'UPDATE_LEAD', payload: { id, updates } });
+    
     try {
       const { data, error } = await leadService.updateLead(id, updates);
       
       if (error) {
-        console.error('Error updating lead:', error);
-        // Fall back to local update
-        dispatch({ type: 'UPDATE_LEAD', payload: { id, updates } });
+        console.error('Error updating lead in database:', error);
+        // Could revert the local change here if needed
       }
-      // Real-time subscription will handle updating state if successful
+      // Real-time subscription will sync any server-side changes
     } catch (error) {
       console.error('Error updating lead:', error);
-      // Fall back to local update
-      dispatch({ type: 'UPDATE_LEAD', payload: { id, updates } });
+      // Local state is already updated, so UI remains responsive
     }
   }, []);
 
@@ -421,19 +496,17 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     return state.leads.find(lead => lead.id === id);
   }, [state.leads]);
 
-  const mockData = mockDataJson as any;
-
   const getPhoneCallsByLeadId = useCallback((leadId: string) => {
-    return mockData.phone_calls.filter(call => call.lead_id === leadId);
-  }, []);
+    return state.phoneCalls.filter(call => call.lead_id === leadId);
+  }, [state.phoneCalls]);
 
   const getEmailsByLeadId = useCallback((leadId: string) => {
-    return mockData.emails.filter(email => email.lead_id === leadId);
-  }, []);
+    return state.emails.filter(email => email.lead_id === leadId);
+  }, [state.emails]);
 
   const getEvaluationsByLeadId = useCallback((leadId: string) => {
-    return mockData.evaluations.filter(evaluation => evaluation.lead_id === leadId);
-  }, []);
+    return state.evaluations.filter(evaluation => evaluation.lead_id === leadId);
+  }, [state.evaluations]);
 
   // Memoize comments per lead to prevent infinite re-renders
   const commentsByLeadId = useMemo(() => {
@@ -454,6 +527,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   // Load comments for a lead when needed
   const loadCommentsForLead = useCallback(async (leadId: string) => {
     try {
+      // Try Supabase first
       const { data, error } = await commentService.getCommentsByLeadId(leadId);
       
       if (!error && data) {
@@ -479,9 +553,13 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         });
         
         return () => subscription.unsubscribe();
+      } else {
+        // Fallback: Comments are already loaded from mock data, no need to reload
+        console.log('📝 Comments already loaded from mock data for lead:', leadId);
       }
     } catch (error) {
-      console.error('Error loading comments:', error);
+      console.error('Error loading comments from Supabase, using mock data:', error);
+      // Comments should already be loaded from mock data in the initial load
     }
   }, []);
 
@@ -490,9 +568,10 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     (window as any).__loadCommentsForLead = loadCommentsForLead;
   }, [loadCommentsForLead]);
 
-  // Comment operations - now using Supabase
+  // Comment operations - try Supabase first, fall back to mock service
   const addComment = useCallback(async (comment: Comment) => {
     try {
+      // Try Supabase first
       const { data, error } = await commentService.createComment({
         lead_id: comment.lead_id,
         comment_text: comment.content,
@@ -501,16 +580,15 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
       });
       
       if (error) {
-        console.error('Error adding comment:', error);
-        // Fall back to local addition
-        dispatch({ type: 'ADD_COMMENT', payload: comment });
+        throw new Error('Supabase failed, falling back to mock service');
       } else {
         // Reload comments for this lead
         loadCommentsForLead(comment.lead_id);
+        return;
       }
     } catch (error) {
-      console.error('Error adding comment:', error);
-      // Fall back to local addition
+      console.log('Using mock comment service for adding comment');
+      // Fall back to mock service and local state
       dispatch({ type: 'ADD_COMMENT', payload: comment });
     }
   }, [loadCommentsForLead]);

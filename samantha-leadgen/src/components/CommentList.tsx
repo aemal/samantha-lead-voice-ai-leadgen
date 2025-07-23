@@ -32,7 +32,8 @@ export default function CommentList({
     if ((window as any).__loadCommentsForLead) {
       (window as any).__loadCommentsForLead(leadId);
     }
-  }, [leadId]);
+    console.log('🔍 CommentList mounted for lead:', leadId, 'Found comments:', comments.length);
+  }, [leadId, comments.length]);
 
   // Get users data - memoized to avoid recalculation
   const users = useMemo(() => {

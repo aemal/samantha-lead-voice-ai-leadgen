@@ -1,55 +1,59 @@
-'use client';
+"use client";
 
-import { Fragment, useState } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon, PlusIcon } from '@heroicons/react/24/outline';
-import { Lead } from '@/lib/supabase';
+import { Fragment, useState } from "react";
+import { Dialog, Transition } from "@headlessui/react";
+import { XMarkIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { Lead } from "@/types";
 
 interface AddLeadModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (leadData: Omit<Lead, 'id' | 'created_at' | 'updated_at'>) => void;
+  onSubmit: (leadData: Omit<Lead, "id" | "created_at" | "updated_at">) => void;
 }
 
 const sourceOptions = [
-  { value: 'website_contact_form', label: 'Website Contact Form' },
-  { value: 'linkedin_outreach', label: 'LinkedIn Outreach' },
-  { value: 'referral', label: 'Referral' },
-  { value: 'cold_email', label: 'Cold Email' },
-  { value: 'webinar_registration', label: 'Webinar Registration' },
-  { value: 'trade_show', label: 'Trade Show' },
-  { value: 'google_ads', label: 'Google Ads' },
-  { value: 'partner_referral', label: 'Partner Referral' },
-  { value: 'content_download', label: 'Content Download' },
-  { value: 'website_chat', label: 'Website Chat' },
-  { value: 'email_campaign', label: 'Email Campaign' },
-  { value: 'social_media', label: 'Social Media' },
-  { value: 'cold_call', label: 'Cold Call' },
-  { value: 'other', label: 'Other' },
+  { value: "website_contact_form", label: "Website Contact Form" },
+  { value: "linkedin_outreach", label: "LinkedIn Outreach" },
+  { value: "referral", label: "Referral" },
+  { value: "cold_email", label: "Cold Email" },
+  { value: "webinar_registration", label: "Webinar Registration" },
+  { value: "trade_show", label: "Trade Show" },
+  { value: "google_ads", label: "Google Ads" },
+  { value: "partner_referral", label: "Partner Referral" },
+  { value: "content_download", label: "Content Download" },
+  { value: "website_chat", label: "Website Chat" },
+  { value: "email_campaign", label: "Email Campaign" },
+  { value: "social_media", label: "Social Media" },
+  { value: "cold_call", label: "Cold Call" },
+  { value: "other", label: "Other" },
 ];
 
 const statusOptions = [
-  { value: 'lead', label: 'Lead' },
-  { value: 'qualified', label: 'Qualified' },
-  { value: 'appointment_booked', label: 'Appointment Booked' },
-  { value: 'disqualified', label: 'Disqualified' },
+  { value: "lead", label: "Lead" },
+  { value: "qualified", label: "Qualified" },
+  { value: "appointment_booked", label: "Appointment Booked" },
+  { value: "disqualified", label: "Disqualified" },
 ];
 
 const priorityOptions = [
-  { value: 'low', label: 'Low' },
-  { value: 'medium', label: 'Medium' },
-  { value: 'high', label: 'High' },
+  { value: "low", label: "Low" },
+  { value: "medium", label: "Medium" },
+  { value: "high", label: "High" },
 ];
 
-export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModalProps) {
+export default function AddLeadModal({
+  isOpen,
+  onClose,
+  onSubmit,
+}: AddLeadModalProps) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    status: 'lead' as Lead['status'],
-    source: 'website_contact_form',
-    notes: '',
-    priority: 'medium' as Lead['priority'],
+    name: "",
+    email: "",
+    phone: "",
+    status: "lead" as Lead["status"],
+    source: "website_contact_form",
+    notes: "",
+    priority: "medium" as Lead["priority"],
   });
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -59,19 +63,21 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
     const newErrors: Record<string, string> = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = "Name is required";
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = "Please enter a valid email address";
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    } else if (!/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ''))) {
-      newErrors.phone = 'Please enter a valid phone number';
+      newErrors.phone = "Phone number is required";
+    } else if (
+      !/^[\+]?[1-9][\d]{0,15}$/.test(formData.phone.replace(/[\s\-\(\)]/g, ""))
+    ) {
+      newErrors.phone = "Please enter a valid phone number";
     }
 
     setErrors(newErrors);
@@ -80,7 +86,7 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -91,7 +97,7 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
       await onSubmit(formData);
       handleClose();
     } catch (error) {
-      console.error('Error submitting form:', error);
+      console.error("Error submitting form:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -99,13 +105,13 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
 
   const handleClose = () => {
     setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      status: 'lead',
-      source: 'website_contact_form',
-      notes: '',
-      priority: 'medium',
+      name: "",
+      email: "",
+      phone: "",
+      status: "lead",
+      source: "website_contact_form",
+      notes: "",
+      priority: "medium",
     });
     setErrors({});
     setIsSubmitting(false);
@@ -113,9 +119,9 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
   };
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    setFormData((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
-      setErrors(prev => ({ ...prev, [field]: '' }));
+      setErrors((prev) => ({ ...prev, [field]: "" }));
     }
   };
 
@@ -166,68 +172,104 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {/* Name */}
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Name *
                     </label>
                     <input
                       type="text"
                       id="name"
                       value={formData.name}
-                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("name", e.target.value)
+                      }
                       className={`block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm ${
-                        errors.name ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
+                        errors.name
+                          ? "border-red-300 focus:border-red-500 focus:ring-red-500"
+                          : ""
                       }`}
                       placeholder="Enter lead name"
                     />
-                    {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
+                    {errors.name && (
+                      <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                    )}
                   </div>
 
                   {/* Email */}
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Email *
                     </label>
                     <input
                       type="email"
                       id="email"
                       value={formData.email}
-                      onChange={(e) => handleInputChange('email', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("email", e.target.value)
+                      }
                       className={`block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm ${
-                        errors.email ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
+                        errors.email
+                          ? "border-red-300 focus:border-red-500 focus:ring-red-500"
+                          : ""
                       }`}
                       placeholder="Enter email address"
                     />
-                    {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.email}
+                      </p>
+                    )}
                   </div>
 
                   {/* Phone */}
                   <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Phone *
                     </label>
                     <input
                       type="tel"
                       id="phone"
                       value={formData.phone}
-                      onChange={(e) => handleInputChange('phone', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("phone", e.target.value)
+                      }
                       className={`block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm ${
-                        errors.phone ? 'border-red-300 focus:border-red-500 focus:ring-red-500' : ''
+                        errors.phone
+                          ? "border-red-300 focus:border-red-500 focus:ring-red-500"
+                          : ""
                       }`}
                       placeholder="+1-555-0123"
                     />
-                    {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
+                    {errors.phone && (
+                      <p className="mt-1 text-sm text-red-600">
+                        {errors.phone}
+                      </p>
+                    )}
                   </div>
 
                   {/* Source */}
                   <div>
-                    <label htmlFor="source" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="source"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Lead Source
                     </label>
                     <select
-                      id="source"
                       value={formData.source}
-                      onChange={(e) => handleInputChange('source', e.target.value)}
-                      className="block w-full px-3 py-2 text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                      onChange={(e) =>
+                        handleInputChange("source", e.target.value)
+                      }
+                      className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+                      aria-label="Lead source"
                     >
                       {sourceOptions.map((option) => (
                         <option key={option.value} value={option.value}>
@@ -240,14 +282,19 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
                   <div className="grid grid-cols-2 gap-4">
                     {/* Status */}
                     <div>
-                      <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label
+                        htmlFor="status"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
                         Status
                       </label>
                       <select
-                        id="status"
                         value={formData.status}
-                        onChange={(e) => handleInputChange('status', e.target.value)}
-                        className="block w-full px-3 py-2 text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                        onChange={(e) =>
+                          handleInputChange("status", e.target.value)
+                        }
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+                        aria-label="Status"
                       >
                         {statusOptions.map((option) => (
                           <option key={option.value} value={option.value}>
@@ -259,14 +306,19 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
 
                     {/* Priority */}
                     <div>
-                      <label htmlFor="priority" className="block text-sm font-medium text-gray-700 mb-1">
+                      <label
+                        htmlFor="priority"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
                         Priority
                       </label>
                       <select
-                        id="priority"
                         value={formData.priority}
-                        onChange={(e) => handleInputChange('priority', e.target.value)}
-                        className="block w-full px-3 py-2 text-gray-900 bg-white border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm"
+                        onChange={(e) =>
+                          handleInputChange("priority", e.target.value)
+                        }
+                        className="w-full px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-gray-700 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none"
+                        aria-label="Priority"
                       >
                         {priorityOptions.map((option) => (
                           <option key={option.value} value={option.value}>
@@ -279,14 +331,19 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
 
                   {/* Notes */}
                   <div>
-                    <label htmlFor="notes" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label
+                      htmlFor="notes"
+                      className="block text-sm font-medium text-gray-700 mb-1"
+                    >
                       Notes
                     </label>
                     <textarea
                       id="notes"
                       rows={3}
                       value={formData.notes}
-                      onChange={(e) => handleInputChange('notes', e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange("notes", e.target.value)
+                      }
                       className="block w-full px-3 py-2 text-gray-900 placeholder-gray-500 border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none sm:text-sm resize-none"
                       placeholder="Enter any additional notes..."
                     />
@@ -296,16 +353,16 @@ export default function AddLeadModal({ isOpen, onClose, onSubmit }: AddLeadModal
                     <button
                       type="button"
                       onClick={handleClose}
-                      className="rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="rounded-md border border-transparent bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-4 py-2 text-sm font-medium text-white bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {isSubmitting ? 'Adding...' : 'Add Lead'}
+                      {isSubmitting ? "Adding..." : "Add Lead"}
                     </button>
                   </div>
                 </form>

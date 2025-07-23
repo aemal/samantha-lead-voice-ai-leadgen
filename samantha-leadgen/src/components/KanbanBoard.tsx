@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { Lead } from '@/lib/supabase';
-import KanbanColumn from './KanbanColumn';
-import { useData } from '@/contexts/DataContext';
+import { useState } from "react";
+import { Lead } from "@/types";
+import KanbanColumn from "./KanbanColumn";
+import { useData } from "@/contexts/DataContext";
 import {
   DndContext,
   closestCenter,
@@ -15,16 +15,21 @@ import {
   DragStartEvent,
   DragOverlay,
   DragOverEvent,
-} from '@dnd-kit/core';
+} from "@dnd-kit/core";
 import {
   arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
-} from '@dnd-kit/sortable';
-import LeadCard from './LeadCard';
-import LeadDetailsDrawer from './LeadDetailsDrawer';
+} from "@dnd-kit/sortable";
+import LeadCard from "./LeadCard";
+import LeadDetailsDrawer from "./LeadDetailsDrawer";
 
-const COLUMN_STATUS: Lead['status'][] = ['lead', 'qualified', 'appointment_booked', 'disqualified'];
+const COLUMN_STATUS: Lead["status"][] = [
+  "lead",
+  "qualified",
+  "appointment_booked",
+  "disqualified",
+];
 
 export default function KanbanBoard() {
   const { state, filteredLeads, updateLead } = useData();
@@ -32,6 +37,10 @@ export default function KanbanBoard() {
   const [overId, setOverId] = useState<string | null>(null);
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  // Debug logging
+  console.log("KanbanBoard render - filteredLeads:", filteredLeads.length);
+  console.log("Sample leads:", filteredLeads.slice(0, 3));
 
   const sensors = useSensors(
     useSensor(PointerSensor, {
@@ -44,16 +53,16 @@ export default function KanbanBoard() {
     })
   );
 
-  const getLeadsByStatus = (status: Lead['status']) => {
-    return filteredLeads.filter(lead => lead.status === status);
+  const getLeadsByStatus = (status: Lead["status"]) => {
+    return filteredLeads.filter((lead) => lead.status === status);
   };
 
-  const getLeadCount = (status: Lead['status']) => {
+  const getLeadCount = (status: Lead["status"]) => {
     return getLeadsByStatus(status).length;
   };
 
   const getActiveLead = () => {
-    return filteredLeads.find(lead => lead.id === activeId);
+    return filteredLeads.find((lead) => lead.id === activeId);
   };
 
   const handleLeadClick = (lead: Lead) => {
@@ -70,7 +79,7 @@ export default function KanbanBoard() {
     setActiveId(event.active.id.toString());
   };
 
-  const handleDragOver = async (event: DragOverEvent) => {
+  const handleDragOver = (event: DragOverEvent) => {
     const { active, over } = event;
 
     if (!over) {
@@ -84,15 +93,11 @@ export default function KanbanBoard() {
     setOverId(overId);
 
     // If dropping on a column (not another lead)
-    if (COLUMN_STATUS.includes(overId as Lead['status'])) {
-      const activeLead = filteredLeads.find(lead => lead.id === activeId);
+    if (COLUMN_STATUS.includes(overId as Lead["status"])) {
+      const activeLead = filteredLeads.find((lead) => lead.id === activeId);
       if (activeLead && activeLead.status !== overId) {
-        try {
-          await updateLead(activeId, { status: overId as Lead['status'] });
-        } catch (error) {
-          console.error('Error updating lead status:', error);
-          // TODO: Show error message to user
-        }
+        // Update immediately without awaiting
+        updateLead(activeId, { status: overId as Lead["status"] });
       }
     }
   };
@@ -109,17 +114,17 @@ export default function KanbanBoard() {
     const overId = over.id.toString();
 
     // Handle dropping on column
-    if (COLUMN_STATUS.includes(overId as Lead['status'])) {
-      const activeLead = filteredLeads.find(lead => lead.id === activeId);
+    if (COLUMN_STATUS.includes(overId as Lead["status"])) {
+      const activeLead = filteredLeads.find((lead) => lead.id === activeId);
       if (activeLead && activeLead.status !== overId) {
-        updateLead(activeId, { status: overId as Lead['status'] });
+        updateLead(activeId, { status: overId as Lead["status"] });
       }
       return;
     }
 
     // Handle reordering within the same status
-    const overLead = filteredLeads.find(lead => lead.id === overId);
-    const activeLead = filteredLeads.find(lead => lead.id === activeId);
+    const overLead = filteredLeads.find((lead) => lead.id === overId);
+    const activeLead = filteredLeads.find((lead) => lead.id === activeId);
 
     if (!overLead || !activeLead) return;
 
@@ -149,55 +154,55 @@ export default function KanbanBoard() {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="flex flex-col lg:flex-row gap-6 h-full">
-        <SortableContext items={filteredLeads.map(lead => lead.id)}>
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 h-full">
+        <SortableContext items={filteredLeads.map((lead) => lead.id)}>
           <KanbanColumn
             title="Leads"
             status="lead"
-            leads={getLeadsByStatus('lead')}
-            count={getLeadCount('lead')}
+            leads={getLeadsByStatus("lead")}
+            count={getLeadCount("lead")}
             color="blue"
-            isDragOver={overId === 'lead'}
+            isDragOver={overId === "lead"}
             onLeadClick={handleLeadClick}
           />
           <KanbanColumn
             title="Qualified"
             status="qualified"
-            leads={getLeadsByStatus('qualified')}
-            count={getLeadCount('qualified')}
+            leads={getLeadsByStatus("qualified")}
+            count={getLeadCount("qualified")}
             color="green"
-            isDragOver={overId === 'qualified'}
+            isDragOver={overId === "qualified"}
             onLeadClick={handleLeadClick}
           />
           <KanbanColumn
             title="Appointment Booked"
             status="appointment_booked"
-            leads={getLeadsByStatus('appointment_booked')}
-            count={getLeadCount('appointment_booked')}
+            leads={getLeadsByStatus("appointment_booked")}
+            count={getLeadCount("appointment_booked")}
             color="purple"
-            isDragOver={overId === 'appointment_booked'}
+            isDragOver={overId === "appointment_booked"}
             onLeadClick={handleLeadClick}
           />
           <KanbanColumn
             title="Disqualified"
             status="disqualified"
-            leads={getLeadsByStatus('disqualified')}
-            count={getLeadCount('disqualified')}
+            leads={getLeadsByStatus("disqualified")}
+            count={getLeadCount("disqualified")}
             color="red"
-            isDragOver={overId === 'disqualified'}
+            isDragOver={overId === "disqualified"}
             onLeadClick={handleLeadClick}
           />
         </SortableContext>
       </div>
 
       <DragOverlay>
-        {activeId ? (
+        {activeId && getActiveLead() ? (
           <div className="rotate-3 opacity-90">
             <LeadCard lead={getActiveLead()!} />
           </div>
         ) : null}
       </DragOverlay>
-      
+
       <LeadDetailsDrawer
         isOpen={isDrawerOpen}
         onClose={handleDrawerClose}
